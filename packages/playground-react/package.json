@@ -1,0 +1,29 @@
+{
+  "name": "@cos-ui/playground-react",
+  "version": "0.1.0",
+  "description": "> TODO: description",
+  "author": "mina-gwak <mina.gwak@kakao.com>",
+  "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/playground-react#readme",
+  "license": "ISC",
+  "main": "lib/playground-react.js",
+  "scripts": {
+    "predev": "yarn workspace @cos-ui/react build",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@cos-ui/react": "0.0.0",
+    "next": "^13.0.0",
+    "react": "^18.0.0",
+    "react-dom": "18.0.0",
+    "styled-components": "^5.3.6",
+    "styled-reset": "^4.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.2",
+    "@types/styled-components": "^5.1.26",
+    "eslint-config-next": "12.3.1"
+  }
+}

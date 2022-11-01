@@ -1,0 +1,24 @@
+# dependencies
+/node_modules
+/packages/**/node_modules
+
+# logs
+*.log
+/packages/**/*.log
+
+# next.js
+/**/.next
+/packages/**/.next
+/out
+/packages/*8/out/
+/**/next-env.d.ts
+
+# production
+/build
+/packages/**/build
+/dist
+/packages/**/dist
+
+# Editor directories and files
+.idea
+/**/.DS_Store

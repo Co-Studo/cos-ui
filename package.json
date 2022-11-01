@@ -1,0 +1,43 @@
+{
+  "name": "cos-ui",
+  "version": "1.0.0",
+  "description": "Headless UI components for React",
+  "private": true,
+  "repository": "https://github.com/Co-Studo/cos-ui.git",
+  "homepage": "https://github.com/Co-Studo/cos-ui#readme",
+  "bugs": "https://github.com/Co-Studo/cos-ui/issues",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "react",
+    "headless",
+    "headless-ui"
+  ],
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "react": "yarn workspace @cos-ui/react",
+    "react-playground": "yarn workspace playground-react dev"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-webpack-plugin": "^3.2.0",
+    "lerna": "^6.0.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  }
+}
