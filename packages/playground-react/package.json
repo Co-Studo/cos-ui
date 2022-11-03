@@ -4,10 +4,10 @@
   "description": "> TODO: description",
   "author": "mina-gwak <mina.gwak@kakao.com>",
   "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/playground-react#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/playground-react.js",
   "scripts": {
-    "predev": "yarn workspace @cos-ui/react build",
+    "predev": "yarn workspace @cos-ui/primitives build && yarn workspace @cos-ui/react build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
