@@ -1,17 +1,15 @@
 {
-  "name": "@cos-ui/react",
+  "name": "@cos-ui/primitives",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "mina-gwak <mina.gwak@kakao.com>",
-  "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/react#readme",
-  "license": "ISC",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "directories": {
-    "src": "src",
-    "dist": "dist",
-    "test": "__tests__"
-  },
+  "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/primitives#readme",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "yarn build && webpack serve --config webpack/webpack.dev.js",
     "build": "rm -rf ./dist && babel src --out-dir dist && tsc && tsc-alias",

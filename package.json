@@ -17,8 +17,8 @@
     "packages/*"
   ],
   "scripts": {
-    "react": "yarn workspace @cos-ui/react",
-    "react-playground": "yarn workspace playground-react dev"
+    "primitives": "yarn workspace @cos-ui/primitives",
+    "playground-react": "yarn workspace playground-react dev"
   },
   "devDependencies": {
     "@types/react": "^18.0.21",

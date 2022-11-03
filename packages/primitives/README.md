@@ -1,11 +1,11 @@
-# `react`
+# `primitives`
 
 > TODO: description
 
 ## Usage
 
 ```
-const react = require('react');
+const primitives = require('primitives');
 
 // TODO: DEMONSTRATE API
 ```

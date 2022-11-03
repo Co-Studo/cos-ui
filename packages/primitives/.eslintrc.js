@@ -5,7 +5,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       typescript: {
-        directory: 'packages/react',
+        directory: 'packages/primitives',
       },
     },
   },

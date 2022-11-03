@@ -8,12 +8,6 @@
       "@hooks/*": [
         "src/hooks/*"
       ],
-      "@theme/*": [
-        "src/theme/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
       "@utils/*": [
         "src/utils/*"
       ]
