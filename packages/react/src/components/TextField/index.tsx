@@ -1,6 +1,5 @@
+import { TextField } from '@cos-ui/primitives';
 import styled from 'styled-components';
-
-import TextField from '@components/TextField';
 
 const StyledTextFieldRoot = styled(TextField)`
   display: flex;

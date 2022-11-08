@@ -1,6 +1,5 @@
+import { RadioGroup } from '@cos-ui/primitives';
 import styled, { css } from 'styled-components';
-
-import RadioGroup from '@components/RadioGroup';
 
 const StyledRadioGroup = styled(RadioGroup)`
   display: flex;
