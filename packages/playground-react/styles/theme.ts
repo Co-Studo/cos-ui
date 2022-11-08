@@ -4,25 +4,25 @@ import colors from './colors';
 
 export type PaletteOption = 'primary' | 'warning' | 'github' | 'danger';
 
-export interface IPaletteOptions {
+export interface PaletteOptions {
   primary: string;
   warning: string;
   danger: string;
   github: string;
 }
 
-export interface IPalette extends IPaletteOptions {
+export interface Palette extends PaletteOptions {
   bgColor: string;
   fontColor: string;
   borderLine: string;
   hoverColor: string;
 }
 
-export interface ITheme extends DefaultTheme {
-  palette: IPalette;
+export interface Theme extends DefaultTheme {
+  palette: Palette;
 }
 
-const darkPalette: IPalette = {
+const darkPalette: Palette = {
   primary: colors.blue650,
   warning: colors.yellow600,
   danger: colors.red450,
@@ -33,7 +33,7 @@ const darkPalette: IPalette = {
   hoverColor: colors.grey300,
 };
 
-const lightPalette: IPalette = {
+const lightPalette: Palette = {
   primary: colors.blue650,
   warning: colors.yellow600,
   danger: colors.red450,
@@ -44,11 +44,11 @@ const lightPalette: IPalette = {
   hoverColor: colors.grey200,
 };
 
-const darkTheme: ITheme = {
+const darkTheme: Theme = {
   palette: darkPalette,
 };
 
-const lightTheme: ITheme = {
+const lightTheme: Theme = {
   palette: lightPalette,
 };
 
