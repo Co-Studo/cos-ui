@@ -25,7 +25,7 @@ const useRadioContext = () => {
   return context;
 };
 
-const passPropsToChildren = <T, >(children: ReactNode, props: Partial<T>) =>
+const passPropsToChildren = <T,>(children: ReactNode, props: Partial<T>) =>
   Children.map(children, (child) => {
     if (isValidElement(child)) {
       return cloneElement(child, { ...props });
@@ -40,12 +40,12 @@ export interface RadioGroupProps extends RadioState {
 }
 
 const RadioGroup = ({
-                      selectedValue,
-                      name,
-                      children,
-                      onChange,
-                      ...restProps
-                    }: RadioGroupProps) => {
+  selectedValue,
+  name,
+  children,
+  onChange,
+  ...restProps
+}: RadioGroupProps) => {
   const state = { selectedValue };
   const childrenProps = { name, onChange };
   return (
@@ -65,20 +65,20 @@ type OptionProps = {
 };
 
 const Option = ({
-                  id,
-                  name,
-                  value,
-                  children,
-                  onChange,
-                  disabled,
-                  ...restProps
-                }: OptionProps) => {
+  id,
+  name,
+  value,
+  children,
+  onChange,
+  disabled,
+  ...restProps
+}: OptionProps) => {
   const { selectedValue } = useRadioContext();
   const optionId = id || `option-${name}-${value}`;
   return (
     <div {...restProps}>
       <input
-        type='radio'
+        type="radio"
         id={optionId}
         name={name}
         value={value}
