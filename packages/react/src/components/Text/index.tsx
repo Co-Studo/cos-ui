@@ -14,7 +14,6 @@ export type TextSX = {
   lineHeight?: keyof typeof fonts.lineHeight;
   letterSpacing?: keyof typeof fonts.letterSpacing;
   textAlign?: keyof typeof fonts.textAlign;
-  textDecoration?: keyof typeof fonts.textDecoration;
 };
 
 const getCustomStyle = (sx: TextSX, theme: DefaultTheme) =>
@@ -49,6 +48,14 @@ const StyledText = styled.span<StyledProp>`
     }};
 `;
 
+const element = {
+  logo: 'h1',
+  sectionTitle: 'h2',
+  sectionDescription: 'p',
+  articleTitle: 'h3',
+  articleDescription: 'p',
+};
+
 const Text = ({ variant, sx = {}, as, ellipsis, children }: TextProps) => {
   const theme = useTheme();
   const getVariantStyle = () => variant && typography[variant];
@@ -56,23 +63,13 @@ const Text = ({ variant, sx = {}, as, ellipsis, children }: TextProps) => {
     ...getVariantStyle(),
     ...getCustomStyle(sx, theme),
   };
-  const getAs = () => {
-    switch (variant) {
-      case 'logo':
-        return 'h1';
-      case 'sectionTitle':
-        return 'h2';
-      case 'sectionDescription' || 'articleDescription':
-        return 'p';
-      case 'articleTitle':
-        return 'h3';
-      default:
-        return as;
-    }
-  };
 
   return (
-    <StyledText as={as || getAs()} fontCss={fontCss} ellipsis={ellipsis}>
+    <StyledText
+      as={as || (variant && element[variant])}
+      fontCss={fontCss}
+      ellipsis={ellipsis}
+    >
       {children}
     </StyledText>
   );
