@@ -3,6 +3,7 @@
   "editor.formatOnSave": true,
   "eslint.workingDirectories": [
     "./packages/playground-react",
+    "./packages/primitives",
     "./packages/react"
   ]
 }
