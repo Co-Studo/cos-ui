@@ -1,15 +1,14 @@
 {
   "name": "@cos-ui/primitives",
   "version": "0.0.0",
-  "description": "> TODO: description",
-  "author": "mina-gwak <mina.gwak@kakao.com>",
+  "description": "Headless UI components for React",
   "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/primitives#readme",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc && babel --root-mode upward --extensions .ts,.tsx src --out-dir dist",
     "watch": "tsc && babel --root-mode upward --watch --extensions .ts,.tsx src --out-dir dist",

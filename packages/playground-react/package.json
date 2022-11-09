@@ -1,11 +1,10 @@
 {
   "name": "@cos-ui/playground-react",
   "version": "0.1.0",
-  "description": "> TODO: description",
-  "author": "mina-gwak <mina.gwak@kakao.com>",
+  "description": "Playground of @cos-ui/react",
+  "private": true,
   "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/playground-react#readme",
   "license": "MIT",
-  "main": "lib/playground-react.js",
   "scripts": {
     "prebuild": "yarn workspace @cos-ui/primitives build && yarn workspace @cos-ui/react build",
     "watch:primitives": "yarn workspace @cos-ui/primitives watch",
