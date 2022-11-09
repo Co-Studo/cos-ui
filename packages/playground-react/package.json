@@ -7,11 +7,15 @@
   "license": "MIT",
   "main": "lib/playground-react.js",
   "scripts": {
-    "predev": "yarn workspace @cos-ui/primitives build && yarn workspace @cos-ui/react build",
+    "prebuild": "yarn workspace @cos-ui/primitives build && yarn workspace @cos-ui/react build",
+    "watch:primitives": "yarn workspace @cos-ui/primitives watch",
+    "watch:react": "yarn workspace @cos-ui/react watch",
+    "watch": "yarn run watch:primitives & yarn run watch:react",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rimraf ./.next"
   },
   "dependencies": {
     "@cos-ui/react": "0.0.0",
@@ -23,7 +27,6 @@
   },
   "devDependencies": {
     "@types/node": "18.11.2",
-    "@types/styled-components": "^5.1.26",
     "eslint-config-next": "12.3.1"
   }
 }
