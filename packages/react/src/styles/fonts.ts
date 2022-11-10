@@ -38,14 +38,16 @@ const fonts = {
     center: 'center',
   },
   textDecoration: {
-    dashed: 'dashed',
-    dotted: 'dotted',
-    double: 'double',
     lineThrough: 'line-through',
     overline: 'overline',
-    solid: 'solid',
     underline: 'underline',
-    wavy: 'wavy',
+    none: 'none'
+  },
+  textTransform: {
+    capitalize: 'capitalize',
+    uppercase: 'uppercase',
+    lowercase: 'lowercase',
+    inherit: 'inherit',
   },
 };
 

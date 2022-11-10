@@ -14,6 +14,8 @@ export type TextSX = {
   lineHeight?: keyof typeof fonts.lineHeight;
   letterSpacing?: keyof typeof fonts.letterSpacing;
   textAlign?: keyof typeof fonts.textAlign;
+  textDecoration?: keyof typeof fonts.textDecoration;
+  textTransform?: keyof typeof fonts.textTransform;
 };
 
 const getCustomStyle = (sx: TextSX, theme: DefaultTheme) =>
