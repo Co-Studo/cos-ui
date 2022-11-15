@@ -9,7 +9,6 @@ export type TextSX = {
   fontSize?: keyof typeof fonts.fontSize;
   fontWeight?: keyof typeof fonts.fontWeight;
   fontFamily?: keyof typeof fonts.fontFamily;
-  fontStyle?: keyof typeof fonts.fontStyle;
   color?: keyof Palette;
   lineHeight?: keyof typeof fonts.lineHeight;
   letterSpacing?: keyof typeof fonts.letterSpacing;

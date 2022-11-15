@@ -5,7 +5,6 @@ export const typography = {
     fontSize: fonts.fontSize.base,
     fontWeight: fonts.fontWeight.regular,
     fontFamily: fonts.fontFamily.base,
-    fontStyle: fonts.fontStyle.normal,
     lineHeight: fonts.lineHeight.base,
     letterSpacing: fonts.letterSpacing.base,
   },

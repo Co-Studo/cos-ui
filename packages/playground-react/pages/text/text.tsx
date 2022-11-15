@@ -13,7 +13,6 @@ const TextPage = () => (
         sx={{
           fontSize: 'large',
           fontWeight: 'bold',
-          fontStyle: 'italic',
           color: 'primary',
         }}
       >
