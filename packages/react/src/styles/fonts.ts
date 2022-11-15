@@ -7,22 +7,13 @@ const fonts = {
     large: '2rem',
     xLarge: '2.2rem',
     xxLarge: '3.3rem',
-    inherit: 'inherit',
   },
   fontWeight: {
     regular: 400,
     bold: 700,
-    inherit: 'inherit',
   },
   fontFamily: {
     base: "'Noto Sans KR', sans-serif",
-    inherit: 'inherit',
-  },
-  fontStyle: {
-    italic: 'italic',
-    oblique: 'oblique',
-    normal: 'normal',
-    inherit: 'inherit',
   },
   lineHeight: {
     reset: 1,
@@ -38,14 +29,10 @@ const fonts = {
     center: 'center',
   },
   textDecoration: {
-    dashed: 'dashed',
-    dotted: 'dotted',
-    double: 'double',
-    lineThrough: 'line-through',
-    overline: 'overline',
-    solid: 'solid',
     underline: 'underline',
-    wavy: 'wavy',
+  },
+  textTransform: {
+    capitalize: 'capitalize',
   },
 };
 

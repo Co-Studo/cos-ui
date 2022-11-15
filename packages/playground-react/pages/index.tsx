@@ -30,7 +30,9 @@ export const Examples = ({ examples }: ExampleProps) => (
         `}
       >
         {example.children ? (
-          <Text variant="articleTitle">{example.name}</Text>
+          <Text variant="articleTitle" sx={{ textTransform: 'capitalize' }}>
+            {example.name}
+          </Text>
         ) : (
           <Link href={example.path}>
             <Text sx={{ textDecoration: 'underline' }}>{example.name}</Text>
