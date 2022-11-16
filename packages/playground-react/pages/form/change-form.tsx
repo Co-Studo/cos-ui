@@ -28,7 +28,7 @@ const handleSubmit = (e, value) => {
   console.log(value);
 };
 
-const ChangeForm = () => (
+const ChangeFormPage = () => (
   <Form onSubmit={handleSubmit} validationMode="onChange">
     <Form.TextField
       label="스터디 이름"
@@ -48,4 +48,4 @@ const ChangeForm = () => (
   </Form>
 );
 
-export default ChangeForm;
+export default ChangeFormPage;
