@@ -42,7 +42,7 @@ const handleSubmit = (e, value) => {
   console.log(value);
 };
 
-const BlurForm = () => (
+const BlurFormPage = () => (
   <Form onSubmit={handleSubmit} validationMode="onBlur">
     <Form.TextField
       label="스터디 이름"
@@ -70,4 +70,4 @@ const BlurForm = () => (
   </Form>
 );
 
-export default BlurForm;
+export default BlurFormPage;
