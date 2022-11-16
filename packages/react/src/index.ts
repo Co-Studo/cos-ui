@@ -1,5 +1,6 @@
 export { default as Avatar } from '@components/Avatar';
 export { default as AvatarGroup } from '@components/AvatarGroup';
+export { default as Button } from '@components/Button';
 export { default as Dropdown } from '@components/Dropdown';
 export { default as FlexBox } from '@components/FlexBox';
 export { default as Form } from '@components/Form';
