@@ -58,6 +58,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/jsx-no-constructed-context-values': 'off',
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
+    'react/button-has-type': 'off',
     'no-await-in-loop': 'off',
     'no-continue': 'off',
     'no-restricted-syntax': ['off', 'ForOfStatement'],
