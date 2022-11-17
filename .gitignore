@@ -22,3 +22,5 @@
 # Editor directories and files
 .idea
 /**/.DS_Store
+
+.npmrc
