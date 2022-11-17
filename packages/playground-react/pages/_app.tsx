@@ -38,7 +38,6 @@ const App = ({ Component, pageProps }: AppProps) => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          width: '100vw',
           margin: '2rem',
         }}
       >
