@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     background-color: inherit;
     border-radius: inherit;
+    font: inherit;
     cursor: pointer;
   }
 
