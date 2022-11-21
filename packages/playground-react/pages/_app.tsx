@@ -1,17 +1,16 @@
-import { Text } from '@cos-ui/react';
+import { Text, CosStyle } from '@cos-ui/react';
 import type { AppProps } from 'next/app';
 import Link from 'next/link';
 import { ThemeProvider } from 'styled-components';
 
 import colors from '@styles/colors';
-import GlobalStyle from '@styles/GlobalStyle';
 import { darkTheme, lightTheme } from '@styles/theme';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const isDarkMode = false;
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <GlobalStyle />
+      <CosStyle />
       <header
         css={{
           width: '100%',

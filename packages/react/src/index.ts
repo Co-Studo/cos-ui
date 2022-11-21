@@ -8,3 +8,4 @@ export { default as Paper } from '@components/Paper';
 export { default as RadioGroup } from '@components/RadioGroup';
 export { BasicTab, BorderTab } from '@components/Tab';
 export { default as Text } from '@components/Text';
+export { default as cosStyle, CosStyle } from '@styles/GlobalStyle';

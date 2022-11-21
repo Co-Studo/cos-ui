@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 import reset from 'styled-reset';
 
-const GlobalStyle = createGlobalStyle`
+const cosStyle = css`
   ${reset}
 
   * {
@@ -30,7 +30,6 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     background-color: inherit;
     border-radius: inherit;
-    font: inherit;
     cursor: pointer;
   }
 
@@ -65,4 +64,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export default GlobalStyle;
+export const CosStyle = createGlobalStyle`${cosStyle}`
+
+export default cosStyle;
