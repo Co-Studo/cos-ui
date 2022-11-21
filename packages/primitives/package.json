@@ -10,8 +10,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc && babel --root-mode upward --extensions .ts,.tsx src --out-dir dist",
-    "watch": "tsc && babel --root-mode upward --watch --extensions .ts,.tsx src --out-dir dist",
+    "build": "tsc && tsc-alias && babel --root-mode upward --extensions .ts,.tsx src --out-dir dist",
+    "watch": "tsc && tsc-alias && babel --root-mode upward --watch --extensions .ts,.tsx src --out-dir dist",
     "playground": "yarn workspace @cos-ui/playground-react dev",
     "clean": "rimraf ./dist"
   },
