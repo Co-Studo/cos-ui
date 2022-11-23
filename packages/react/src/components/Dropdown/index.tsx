@@ -20,9 +20,9 @@ const StyledDropdownItem = styled(Dropdown.Item)`
   }
 `;
 
-const StyledDropdown = {
+const StyledDropdown = Object.assign(Dropdown, {
   List: StyledDropdownList,
   Item: StyledDropdownItem,
-};
+});
 
 export default StyledDropdown;
