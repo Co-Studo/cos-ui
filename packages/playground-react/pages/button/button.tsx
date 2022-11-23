@@ -15,6 +15,7 @@ const ButtonPage = () => (
       <Button color="secondary">Button</Button>
       <Button color="danger">Button</Button>
       <Button color="neutral">Button</Button>
+      <Button color="github">Button</Button>
     </FlexBox>
     <Text variant="sectionTitle">Outlined Button</Text>
     <FlexBox sx={{ gap: '1rem' }}>
@@ -22,6 +23,7 @@ const ButtonPage = () => (
       <Button variant="outlined" color="secondary">Button</Button>
       <Button variant="outlined" color="danger">Button</Button>
       <Button variant="outlined" color="neutral">Button</Button>
+      <Button variant="outlined" color="github">Button</Button>
     </FlexBox>
     <Text variant="sectionTitle">Round Button</Text>
     <FlexBox sx={{ gap: '1rem' }}>
@@ -29,6 +31,7 @@ const ButtonPage = () => (
       <Button shape="round" color="secondary">Button</Button>
       <Button shape="round" color="danger">Button</Button>
       <Button shape="round" color="neutral">Button</Button>
+      <Button shape="round" color="github">Button</Button>
     </FlexBox>
     <Text variant="sectionTitle">Button Size</Text>
     <FlexBox sx={{ gap: '1rem' }}>

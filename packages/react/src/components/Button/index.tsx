@@ -6,7 +6,7 @@ import colors from '@styles/colors';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit';
-  color?: 'primary' | 'secondary' | 'danger' | 'neutral';
+  color?: 'primary' | 'secondary' | 'danger' | 'neutral' | 'github';
   shape?: 'round' | 'rect';
   size?: 'small' | 'medium' | 'large';
   variant?: 'contained' | 'outlined';
@@ -29,6 +29,10 @@ const buttonColor = {
     default: colors.grey600,
     hover: colors.grey700,
   },
+  github: {
+    default: colors.black,
+    hover: colors.black
+  }
 };
 
 const shapeStyle = css<Pick<ButtonProps, 'shape'>>`
