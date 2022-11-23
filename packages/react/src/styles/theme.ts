@@ -1,5 +1,3 @@
-import { DefaultTheme } from 'styled-components';
-
 import colors from './colors';
 
 export type PaletteOption = 'primary' | 'warning' | 'github' | 'danger';
@@ -18,7 +16,7 @@ export interface Palette extends PaletteOptions {
   hoverColor: string;
 }
 
-export interface Theme extends DefaultTheme {
+export interface Theme {
   palette: Palette;
 }
 
