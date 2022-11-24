@@ -1,10 +1,12 @@
-import { RadioGroup } from '@cos-ui/primitives';
+import { Radio } from '@cos-ui/primitives';
 import styled, { css } from 'styled-components';
 
-const StyledRadioGroup = styled(RadioGroup)`
+import { typography } from '@styles/typography';
+
+const StyledRadioGroup = styled(Radio)`
   display: flex;
   flex-direction: row;
-  width: 355px;
+  max-width: 355px;
   justify-content: space-between;
   align-items: center;
 `;
@@ -12,16 +14,17 @@ const StyledRadioGroup = styled(RadioGroup)`
 const CustomRadioButtonStyle = css`
   -webkit-appearance: none;
   appearance: none;
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   margin: 0;
-  padding: 6px;
-  border: 2px solid #0000007f;
+  padding: 0.2rem;
+  border: 0.2rem solid #0000007f;
   border-radius: 50%;
   background-clip: content-box;
 
   :checked {
     background-color: #007aff;
+
     :hover {
       background-color: #007aff;
     }
@@ -32,7 +35,7 @@ const CustomRadioButtonStyle = css`
   }
 `;
 
-const StyledRadioOption = styled(RadioGroup.Option)`
+const StyledRadioOption = styled(Radio.Option)`
   display: flex;
   align-items: center;
 
@@ -41,8 +44,8 @@ const StyledRadioOption = styled(RadioGroup.Option)`
   }
 
   label {
-    font-size: 17px;
-    padding: 10px;
+    ${typography.sectionDescription};
+    padding: 1rem;
   }
 `;
 

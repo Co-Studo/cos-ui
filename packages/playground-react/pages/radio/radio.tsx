@@ -1,7 +1,7 @@
-import { RadioGroup } from '@cos-ui/react';
+import { Radio } from '@cos-ui/react';
 import { useState } from 'react';
 
-const RadioGroupPage = () => {
+const RadioPage = () => {
   const [selectedValue, setValue] = useState('Value A');
 
   const handleOnChange = (e) => {
@@ -15,18 +15,18 @@ const RadioGroupPage = () => {
   ];
 
   return (
-    <RadioGroup.Group
+    <Radio.Group
       name="FirstGroup"
       selectedValue={selectedValue}
       onChange={handleOnChange}
     >
       {dataList.map(({ value, label }) => (
-        <RadioGroup.Option key={value} value={value}>
+        <Radio.Option key={value} value={value}>
           {label}
-        </RadioGroup.Option>
+        </Radio.Option>
       ))}
-    </RadioGroup.Group>
+    </Radio.Group>
   );
-}
+};
 
-export default RadioGroupPage;
+export default RadioPage;

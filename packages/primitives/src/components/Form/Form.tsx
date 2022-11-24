@@ -8,7 +8,7 @@ import {
   useState,
 } from 'react';
 
-type ValidationMode = 'onChange' | 'onBlur' | 'onSubmit';
+export type ValidationMode = 'onChange' | 'onBlur' | 'onSubmit';
 
 type FormContextType = {
   values: Record<string, string>;
@@ -23,11 +23,6 @@ FormContext.displayName = 'FormContext';
 
 export const useFormContext = () => {
   const context = useContext(FormContext);
-  if (!context) {
-    throw new Error(
-      'useFormContext should be used within FormContext.Provider',
-    );
-  }
   return context;
 };
 

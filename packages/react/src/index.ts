@@ -6,7 +6,7 @@ export { default as Dropdown } from '@components/Dropdown';
 export { default as FlexBox } from '@components/FlexBox';
 export { default as Form } from '@components/Form';
 export { default as Paper } from '@components/Paper';
-export { default as RadioGroup } from '@components/RadioGroup';
+export { default as Radio } from '@components/Radio';
 export { BasicTab, BorderTab } from '@components/Tab';
 export { default as Text } from '@components/Text';
 export { default as cosStyle, CosStyle } from '@styles/GlobalStyle';

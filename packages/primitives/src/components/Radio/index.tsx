@@ -8,18 +8,20 @@ import {
   isValidElement,
 } from 'react';
 
+import useForm from '@hooks/useForm';
+
 interface RadioState {
   selectedValue: string;
 }
 
-const RadioGroupContext = createContext<RadioState | null>(null);
-RadioGroupContext.displayName = 'RadioGroupContext';
+const RadioContext = createContext<RadioState | null>(null);
+RadioContext.displayName = 'RadioContext';
 
 const useRadioContext = () => {
-  const context = useContext(RadioGroupContext);
+  const context = useContext(RadioContext);
   if (!context) {
     throw new Error(
-      'useRadioContext should be used within RadioGroupContext.Provider',
+      'useRadioContext should be used within RadioContext.Provider',
     );
   }
   return context;
@@ -33,25 +35,26 @@ const passPropsToChildren = <T,>(children: ReactNode, props: Partial<T>) =>
     return child;
   });
 
-export interface RadioGroupProps extends RadioState {
+export interface RadioProps extends RadioState {
   name: string;
   children: ReactNode;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const RadioGroup = ({
-  selectedValue,
+const Radio = ({
+  selectedValue = '',
   name,
   children,
   onChange,
   ...restProps
-}: RadioGroupProps) => {
+}: RadioProps) => {
   const state = { selectedValue };
   const childrenProps = { name, onChange };
+
   return (
-    <RadioGroupContext.Provider value={state}>
+    <RadioContext.Provider value={state}>
       <div {...restProps}>{passPropsToChildren(children, childrenProps)}</div>
-    </RadioGroupContext.Provider>
+    </RadioContext.Provider>
   );
 };
 
@@ -61,20 +64,31 @@ type OptionProps = {
   value: string;
   children: ReactNode;
   disabled?: boolean;
+  validates?: (<V>(value: V) => boolean)[];
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Option = ({
   id,
-  name,
+  name = '',
   value,
   children,
   onChange,
   disabled,
+  validates,
   ...restProps
 }: OptionProps) => {
   const { selectedValue } = useRadioContext();
+  const {
+    value: formValue,
+    subscribe = () => {},
+    validationMode = 'onChange',
+  } = useForm(name, selectedValue) ?? {};
+
   const optionId = id || `option-${name}-${value}`;
+  const isChecked = (formValue ?? selectedValue) === value;
+  const handleChange = onChange ?? subscribe(validates)[validationMode];
+
   return (
     <div {...restProps}>
       <input
@@ -82,15 +96,15 @@ const Option = ({
         id={optionId}
         name={name}
         value={value}
-        onChange={onChange}
         disabled={disabled}
-        checked={value === selectedValue}
+        defaultChecked={isChecked}
+        onChange={handleChange}
       />
       <label htmlFor={optionId}>{children}</label>
     </div>
   );
 };
 
-RadioGroup.Option = Option;
+Radio.Option = Option;
 
-export default RadioGroup;
+export default Radio;
