@@ -1,0 +1,48 @@
+name: Publish packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: choice
+        description: 'Version'
+        required: true
+        default: 'patch'
+        options:
+          - patch
+          - minor
+          - major
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+jobs:
+  publish-packages:
+    name: Publish Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Authenticate
+        run: |
+          npm config set @cos-ui:registry https://registry.npmjs.org/
+          npm config set registry=https://registry.npmjs.org/
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          npm whoami
+
+      - name: Configure Git User
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Publish
+        run: npx lerna publish ${{ inputs.version }} --yes
