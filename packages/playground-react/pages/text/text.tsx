@@ -2,7 +2,7 @@ import { Text } from '@cos-ui/react';
 
 const TextPage = () => (
     <div>
-      <Text variant="sectionTitle">Section Title</Text>
+      <Text variant="sectionTitle" sx={{ mb: '0.5rem' }}>Section Title</Text>
       <Text variant="sectionDescription">
         Section Description
       </Text>
