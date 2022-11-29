@@ -1,14 +1,24 @@
 import { ColumnTable, Text, FlexBox } from '@cos-ui/react';
 
-import { noticeList, SortingIcon } from './constants';
+import { SortingIcon } from './constant/icon';
+import { noticeList } from './constant/mock';
 
 const sortingValues = {
   writer: noticeList.map(({ writer }) => writer),
-  date: noticeList.map(({ date }) => {
-    const numberDate = Number(date.split('.').join(''));
-    return numberDate.toString().length < 8 ? numberDate * 10 : numberDate;
-  }),
+  date: noticeList.map(({ date }) => date),
   view: noticeList.map(({ view }) => Number(view)),
+};
+
+const getDateForm = (date: number) => {
+  const dateArray = [
+    new Date(date).getFullYear(),
+    new Date(date).getMonth() + 1,
+    new Date(date).getDate(),
+  ];
+
+  return dateArray
+    .map((number) => (number < 10 ? `0${number}` : number))
+    .join('.');
 };
 
 const ColumnTablePage = () => (
@@ -66,7 +76,7 @@ const ColumnTablePage = () => (
         </ColumnTable.BodyCell>
         <ColumnTable.BodyCell>
           <Text sx={{ textAlign: 'center' }} ellipsis>
-            {date}
+            {getDateForm(date)}
           </Text>
         </ColumnTable.BodyCell>
         <ColumnTable.BodyCell>
