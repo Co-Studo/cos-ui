@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactElement, useState } from 'react';
+import { Children, cloneElement, ReactElement, useState } from 'react';
 
 import Cell, { SortState, SortConfig } from '@components/Table/Cell';
 import { offscreen } from '@styles/commonStyles';
@@ -33,7 +33,7 @@ const RowTable = ({
         </colgroup>
       )}
       <tbody>
-        {React.Children.toArray(children).map((child) =>
+        {Children.toArray(children).map((child) =>
           cloneElement(child as ReactElement, { scope: 'row', sortConfig }),
         )}
       </tbody>
@@ -48,8 +48,7 @@ type RowProps = {
 };
 
 const Row = ({ scope, sortConfig, children, ...restProps }: RowProps) => {
-  const Children = React.Children.toArray(children);
-  const [headCell, bodyCells] = [Children[0], Children.splice(1)];
+  const [headCell, ...bodyCells] = Children.toArray(children);
 
   return (
     <tr {...restProps}>
