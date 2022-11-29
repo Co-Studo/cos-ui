@@ -44,13 +44,16 @@ const HeadCell = ({
   ...restProps
 }: HeadCellProps) => {
   const { sortingValues = {}, sortingState, setSortingState } = sortingConfig;
+  const isClicked = sortingState.name === name;
   const direction =
-    sortingState.name === name &&
-    sortingState.direction === DIRECTION.DESCENDING
+    isClicked && sortingState.direction === DIRECTION.DESCENDING
       ? DIRECTION.ASCENDING
       : DIRECTION.DESCENDING;
 
   const getSortingIndices = () => {
+    if (isClicked && sortingState.sortingIndices)
+      return sortingState.sortingIndices.reverse();
+
     const sortingValuesByName = sortingValues[name].map((value, index) => ({
       value,
       index,
@@ -79,9 +82,7 @@ const HeadCell = ({
   return (
     <th
       scope={scope}
-      data-sort={
-        sortingState.name === name ? sortingState.direction : undefined
-      }
+      data-sort={isClicked ? sortingState.direction : undefined}
       {...restProps}
     >
       {name ? (
