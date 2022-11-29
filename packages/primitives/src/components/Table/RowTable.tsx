@@ -6,7 +6,7 @@ import { offscreen } from '@styles/commonStyles';
 export type RowTableProps = {
   caption: string;
   columnsWidth?: string[];
-  sortingValues?: { [key in string]: (string | number)[] };
+  sortingValues?: { [key: string]: (string | number)[] };
   children: ReactElement | ReactElement[];
 };
 

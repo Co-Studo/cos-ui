@@ -12,7 +12,7 @@ export type SortingState = {
 } | null;
 
 export type SortingConfig = {
-  sortingValues?: { [key in string]: (string | number)[] };
+  sortingValues?: { [key: string]: (string | number)[] };
   sortingState: SortingState;
   setSortingState: Dispatch<SetStateAction<SortingState>>;
 };
