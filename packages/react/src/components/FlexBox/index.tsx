@@ -1,13 +1,13 @@
 import { ElementType, ReactNode } from 'react';
 import styled, { DefaultTheme, useTheme } from 'styled-components';
 
+import colors from '@styles/colors';
 import {
   SpacingSX,
-  isSpacingProp,
   getSpacingCssProps,
   SpacingValue,
-} from '@components/FlexBox/spacing';
-import colors from '@styles/colors';
+  isSpacingProp,
+} from '@styles/spacing';
 import { Palette } from '@styles/theme';
 
 type SizeSX = {
@@ -48,12 +48,14 @@ const Wrapper = styled.div`
 
 const getFlexCssProperties = (sx: FlexBoxSX, theme: DefaultTheme) =>
   Object.entries(sx).reduce((css, [key, value]) => {
-    if (key === 'bgColor') {
-      return { ...css, backgroundColor: theme.palette[value] ?? colors[value] };
+    switch (true) {
+      case key === 'bgColor':
+        return { ...css, backgroundColor: theme.palette[value] ?? colors[value] };
+      case isSpacingProp(key):
+        return { ...css, ...getSpacingCssProps(key, value) };
+      default:
+        return { ...css, [key]: value };
     }
-    return isSpacingProp(key)
-      ? { ...css, ...getSpacingCssProps(key, value) }
-      : { ...css, [key]: value };
   }, {});
 
 const FlexBox = (props: FlexBoxProps) => {
