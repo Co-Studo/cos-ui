@@ -1,11 +1,16 @@
 import { ReactNode } from 'react';
-import styled, { DefaultTheme, useTheme } from 'styled-components';
+import styled, { CSSObject, DefaultTheme, useTheme } from 'styled-components';
 
 import fonts from '@styles/fonts';
+import {
+  isSpacingProp,
+  getSpacingCssProps,
+  SpacingSX,
+} from '@styles/spacing';
 import { Palette } from '@styles/theme';
 import { typography } from '@styles/typography';
 
-export type TextSX = {
+export interface TextSX extends SpacingSX {
   fontSize?: keyof typeof fonts.fontSize;
   fontWeight?: keyof typeof fonts.fontWeight;
   fontFamily?: keyof typeof fonts.fontFamily;
@@ -15,12 +20,18 @@ export type TextSX = {
   textAlign?: keyof typeof fonts.textAlign;
   textDecoration?: keyof typeof fonts.textDecoration;
   textTransform?: keyof typeof fonts.textTransform;
-};
+}
 
 const getCustomStyle = (sx: TextSX, theme: DefaultTheme) =>
-  Object.entries(sx).reduce((acc, [key, value]) => {
-    acc[key] = key === 'color' ? theme.palette[value] : fonts[key][value];
-    return acc;
+  Object.entries(sx).reduce((css, [key, value]) => {
+    switch (true) {
+      case key === 'color':
+        return { ...css, color: theme.palette[value] };
+      case isSpacingProp(key):
+        return { ...css, ...getSpacingCssProps(key, value) };
+      default:
+        return { ...css, [key]: fonts[key][value] };
+    }
   }, {});
 
 type TextProps = {
@@ -32,7 +43,7 @@ type TextProps = {
 };
 
 type StyledProp = {
-  fontCss: TextSX;
+  fontCss: CSSObject;
   ellipsis?: boolean | number;
 };
 
