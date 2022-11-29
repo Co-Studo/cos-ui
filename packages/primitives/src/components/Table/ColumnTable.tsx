@@ -1,25 +1,25 @@
 import { Children, cloneElement, ReactElement, useState } from 'react';
 
-import Cell, { SortState, SortConfig } from '@components/Table/Cell';
+import Cell, { SortingState, SortingConfig } from '@components/Table/Cell';
 import { offscreen } from '@styles/commonStyles';
 
 export type ColumnTableProps = {
   caption: string;
   columnsWidth?: string[];
-  sortValues?: { [key in string]: (string | number)[] };
+  sortingValues?: { [key in string]: (string | number)[] };
   children: (ReactElement | ReactElement[])[];
 };
 
 const ColumnTable = ({
   caption,
   columnsWidth,
-  sortValues,
+  sortingValues,
   children,
   ...restProps
 }: ColumnTableProps) => {
   const [headRow, ...bodyRows] = Children.toArray(children);
-  const [sortState, setSortState] = useState<SortState>(null);
-  const sortConfig = { sortValues, sortState, setSortState };
+  const [sortingState, setSortingState] = useState<SortingState>(null);
+  const sortingConfig = { sortingValues, sortingState, setSortingState };
 
   return (
     <table {...restProps}>
@@ -34,11 +34,11 @@ const ColumnTable = ({
         </colgroup>
       )}
       <thead>
-        {cloneElement(headRow as ReactElement, { scope: 'col', sortConfig })}
+        {cloneElement(headRow as ReactElement, { scope: 'col', sortingConfig })}
       </thead>
       <tbody>
-        {sortState
-          ? sortState.sortIndices.map((index) => bodyRows[index])
+        {sortingState
+          ? sortingState.sortingIndices.map((index) => bodyRows[index])
           : bodyRows}
       </tbody>
     </table>
@@ -47,15 +47,15 @@ const ColumnTable = ({
 
 type RowProps = {
   scope?: 'col';
-  sortConfig?: SortConfig;
+  sortingConfig?: SortingConfig;
   children: ReactElement | ReactElement[];
 };
 
-const Row = ({ scope, sortConfig, children, ...restProps }: RowProps) => (
+const Row = ({ scope, sortingConfig, children, ...restProps }: RowProps) => (
   <tr {...restProps}>
-    {sortConfig
+    {sortingConfig
       ? Children.toArray(children).map((child) =>
-          cloneElement(child as ReactElement, { scope, sortConfig }),
+          cloneElement(child as ReactElement, { scope, sortingConfig }),
         )
       : children}
   </tr>

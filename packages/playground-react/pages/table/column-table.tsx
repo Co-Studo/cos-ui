@@ -1,8 +1,8 @@
 import { ColumnTable, Text, FlexBox } from '@cos-ui/react';
 
-import { noticeList, SortIcon } from './constants';
+import { noticeList, SortingIcon } from './constants';
 
-const sortValues = {
+const sortingValues = {
   writer: noticeList.map(({ writer }) => writer),
   date: noticeList.map(({ date }) => {
     const numberDate = Number(date.split('.').join(''));
@@ -15,7 +15,7 @@ const ColumnTablePage = () => (
   <ColumnTable
     caption="공지사항"
     columnsWidth={['85px', '*', '120px', '120px', '120px']}
-    sortValues={sortValues}
+    sortingValues={sortingValues}
   >
     <ColumnTable.Row>
       <ColumnTable.HeadCell>
@@ -29,7 +29,7 @@ const ColumnTablePage = () => (
           sx={{ justifyContent: 'center', alignItems: 'center', gap: '1rem' }}
         >
           작성자
-          <SortIcon />
+          <SortingIcon />
         </FlexBox>
       </ColumnTable.HeadCell>
       <ColumnTable.HeadCell name="date">
@@ -37,7 +37,7 @@ const ColumnTablePage = () => (
           sx={{ justifyContent: 'center', alignItems: 'center', gap: '1rem' }}
         >
           날짜
-          <SortIcon />
+          <SortingIcon />
         </FlexBox>
       </ColumnTable.HeadCell>
       <ColumnTable.HeadCell name="view">
@@ -45,7 +45,7 @@ const ColumnTablePage = () => (
           sx={{ justifyContent: 'center', alignItems: 'center', gap: '1rem' }}
         >
           조회수
-          <SortIcon />
+          <SortingIcon />
         </FlexBox>
       </ColumnTable.HeadCell>
     </ColumnTable.Row>

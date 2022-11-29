@@ -5,83 +5,85 @@ const DIRECTION = {
   DESCENDING: 'descending',
 };
 
-export type SortState = {
+export type SortingState = {
   name: string;
   direction: typeof DIRECTION[keyof typeof DIRECTION];
-  sortIndices: number[];
+  sortingIndices: number[];
 } | null;
 
-export type SortConfig = {
-  sortValues?: { [key in string]: (string | number)[] };
-  sortState: SortState;
-  setSortState: Dispatch<SetStateAction<SortState>>;
+export type SortingConfig = {
+  sortingValues?: { [key in string]: (string | number)[] };
+  sortingState: SortingState;
+  setSortingState: Dispatch<SetStateAction<SortingState>>;
 };
 
 type CellProps = {
   colSpan?: number;
   rowSpan?: number;
   name?: string;
-  sortConfig?: SortConfig;
+  sortingConfig?: SortingConfig;
   children: ReactNode;
 };
 
 interface HeadCellProps extends CellProps {
   scope?: 'col' | 'row';
-  sortConfig: SortConfig;
+  sortingConfig: SortingConfig;
 }
 
 const HeadCell = ({
   name = '',
   scope,
-  sortConfig,
+  sortingConfig,
   children,
   ...restProps
 }: HeadCellProps) => {
-  const { sortValues = {}, sortState, setSortState } = sortConfig;
+  const { sortingValues = {}, sortingState, setSortingState } = sortingConfig;
   const direction =
-    sortState &&
-    sortState.name === name &&
-    sortState.direction === DIRECTION.DESCENDING
+    sortingState &&
+    sortingState.name === name &&
+    sortingState.direction === DIRECTION.DESCENDING
       ? DIRECTION.ASCENDING
       : DIRECTION.DESCENDING;
 
-  const getSortIndices = () => {
-    const sortValuesByName = sortValues[name].map((value, index) => ({
+  const getSortingIndices = () => {
+    const sortingValuesByName = sortingValues[name].map((value, index) => ({
       value,
       index,
     }));
-    sortValuesByName.sort((a, b) => {
+    sortingValuesByName.sort((a, b) => {
       if (a.value > b.value) return direction === DIRECTION.ASCENDING ? 1 : -1;
       if (a.value < b.value) return direction === DIRECTION.ASCENDING ? -1 : 1;
       return 0;
     });
 
-    return sortValuesByName.map(({ index }) => index);
+    return sortingValuesByName.map(({ index }) => index);
   };
 
-  const updateSortState = () => {
-    if (!sortValues[name])
-      throw new Error('Please set sortValues[name] in Table props.');
+  const updateSortingState = () => {
+    if (!sortingValues[name])
+      throw new Error('Please set sortingValues[name] in Table props.');
 
-    const newSortState = {
+    const newSortingState = {
       name,
       direction,
-      sortIndices: getSortIndices(),
+      sortingIndices: getSortingIndices(),
     };
-    setSortState(newSortState);
+    setSortingState(newSortingState);
   };
 
   return (
     <th
       scope={scope}
-      data-sort={sortState?.name === name ? sortState?.direction : undefined}
+      data-sort={
+        sortingState?.name === name ? sortingState?.direction : undefined
+      }
       {...restProps}
     >
       {name ? (
         <button
           type="button"
           css={{ display: 'block', width: '100%' }}
-          onClick={updateSortState}
+          onClick={updateSortingState}
         >
           {children}
         </button>
@@ -96,9 +98,9 @@ const BodyCell = ({ children, ...restProps }: CellProps) => (
   <td {...restProps}>{children}</td>
 );
 
-const Cell = ({ name, sortConfig, children, ...restProps }: CellProps) =>
-  sortConfig ? (
-    <HeadCell sortConfig={sortConfig} name={name} {...restProps}>
+const Cell = ({ name, sortingConfig, children, ...restProps }: CellProps) =>
+  sortingConfig ? (
+    <HeadCell sortingConfig={sortingConfig} name={name} {...restProps}>
       {children}
     </HeadCell>
   ) : (

@@ -35,16 +35,16 @@ const StyledColumnTableHeadCell = styled(ColumnTable.Cell)<HeadCellProps>`
 
 const HeadCell = ({
   name,
-  sortConfig = { sortState: null, setSortState: () => null },
+  sortingConfig = { sortingState: null, setSortingState: () => null },
   children,
   ...restProps
 }: HeadCellProps) => {
-  const { sortState } = sortConfig;
+  const { sortingState } = sortingConfig;
 
   return (
     <StyledColumnTableHeadCell
       name={name}
-      sortConfig={sortConfig}
+      sortingConfig={sortingConfig}
       {...restProps}
     >
       <Text
@@ -52,7 +52,7 @@ const HeadCell = ({
         sx={{
           fontWeight: 'bold',
           color:
-            sortState?.name === name && sortState?.direction
+            sortingState?.name === name && sortingState?.direction
               ? 'primary'
               : undefined,
         }}

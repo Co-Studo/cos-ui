@@ -1,24 +1,24 @@
 import { Children, cloneElement, ReactElement, useState } from 'react';
 
-import Cell, { SortState, SortConfig } from '@components/Table/Cell';
+import Cell, { SortingState, SortingConfig } from '@components/Table/Cell';
 import { offscreen } from '@styles/commonStyles';
 
 export type RowTableProps = {
   caption: string;
   columnsWidth?: string[];
-  sortValues?: { [key in string]: (string | number)[] };
+  sortingValues?: { [key in string]: (string | number)[] };
   children: ReactElement | ReactElement[];
 };
 
 const RowTable = ({
   caption,
   columnsWidth,
-  sortValues,
+  sortingValues,
   children,
   ...restProps
 }: RowTableProps) => {
-  const [sortState, setSortState] = useState<SortState>(null);
-  const sortConfig = { sortValues, sortState, setSortState };
+  const [sortingState, setSortingState] = useState<SortingState>(null);
+  const sortingConfig = { sortingValues, sortingState, setSortingState };
 
   return (
     <table {...restProps}>
@@ -34,7 +34,7 @@ const RowTable = ({
       )}
       <tbody>
         {Children.toArray(children).map((child) =>
-          cloneElement(child as ReactElement, { scope: 'row', sortConfig }),
+          cloneElement(child as ReactElement, { scope: 'row', sortingConfig }),
         )}
       </tbody>
     </table>
@@ -43,18 +43,20 @@ const RowTable = ({
 
 type RowProps = {
   scope?: 'row';
-  sortConfig?: SortConfig;
+  sortingConfig?: SortingConfig;
   children: (ReactElement | ReactElement[])[];
 };
 
-const Row = ({ scope, sortConfig, children, ...restProps }: RowProps) => {
+const Row = ({ scope, sortingConfig, children, ...restProps }: RowProps) => {
   const [headCell, ...bodyCells] = Children.toArray(children);
 
   return (
     <tr {...restProps}>
-      {cloneElement(headCell as ReactElement, { scope, sortConfig })}
-      {sortConfig?.sortState
-        ? sortConfig.sortState.sortIndices.map((index) => bodyCells[index])
+      {cloneElement(headCell as ReactElement, { scope, sortingConfig })}
+      {sortingConfig?.sortingState
+        ? sortingConfig.sortingState.sortingIndices.map(
+            (index) => bodyCells[index],
+          )
         : bodyCells}
     </tr>
   );
