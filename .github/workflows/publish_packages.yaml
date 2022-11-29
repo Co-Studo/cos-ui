@@ -15,6 +15,7 @@ on:
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  ADMIN: ${{ secrets.ADMIN }}
 
 jobs:
   publish-packages:
@@ -23,6 +24,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: dev
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Use NodeJS
         uses: actions/setup-node@v3
@@ -38,8 +42,8 @@ jobs:
 
       - name: Configure Git User
         run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git config user.name "$ADMIN"
+          git config user.email "$ADMIN@users.noreply.github.com"
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
