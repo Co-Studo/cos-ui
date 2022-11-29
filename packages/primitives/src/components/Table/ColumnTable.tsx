@@ -1,6 +1,10 @@
 import { Children, cloneElement, ReactElement, useState } from 'react';
 
-import Cell, { SortingState, SortingConfig } from '@components/Table/Cell';
+import Cell, {
+  SortingState,
+  initSortingState,
+  SortingConfig,
+} from '@components/Table/Cell';
 import { offscreen } from '@styles/commonStyles';
 
 export type ColumnTableProps = {
@@ -18,7 +22,8 @@ const ColumnTable = ({
   ...restProps
 }: ColumnTableProps) => {
   const [headRow, ...bodyRows] = Children.toArray(children);
-  const [sortingState, setSortingState] = useState<SortingState>(null);
+  const [sortingState, setSortingState] =
+    useState<SortingState>(initSortingState);
   const sortingConfig = { sortingValues, sortingState, setSortingState };
 
   return (
@@ -37,7 +42,7 @@ const ColumnTable = ({
         {cloneElement(headRow as ReactElement, { scope: 'col', sortingConfig })}
       </thead>
       <tbody>
-        {sortingState
+        {sortingState.sortingIndices
           ? sortingState.sortingIndices.map((index) => bodyRows[index])
           : bodyRows}
       </tbody>

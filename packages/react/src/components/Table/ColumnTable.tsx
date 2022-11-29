@@ -35,33 +35,31 @@ const StyledColumnTableHeadCell = styled(ColumnTable.Cell)<HeadCellProps>`
 
 const HeadCell = ({
   name,
-  sortingConfig = { sortingState: null, setSortingState: () => null },
+  sortingConfig,
   children,
   ...restProps
-}: HeadCellProps) => {
-  const { sortingState } = sortingConfig;
-
-  return (
-    <StyledColumnTableHeadCell
-      name={name}
-      sortingConfig={sortingConfig}
-      {...restProps}
+}: HeadCellProps) => (
+  <StyledColumnTableHeadCell
+    name={name}
+    sortingConfig={sortingConfig}
+    {...restProps}
+  >
+    <Text
+      as="div"
+      sx={{
+        fontWeight: 'bold',
+        color:
+          sortingConfig &&
+          sortingConfig.sortingState.name === name &&
+          sortingConfig.sortingState.direction
+            ? 'primary'
+            : undefined,
+      }}
     >
-      <Text
-        as="div"
-        sx={{
-          fontWeight: 'bold',
-          color:
-            sortingState?.name === name && sortingState?.direction
-              ? 'primary'
-              : undefined,
-        }}
-      >
-        {children}
-      </Text>
-    </StyledColumnTableHeadCell>
-  );
-};
+      {children}
+    </Text>
+  </StyledColumnTableHeadCell>
+);
 
 const StyledColumnTableBodyCell = styled(ColumnTable.Cell)`
   padding: 1.7rem 2rem;

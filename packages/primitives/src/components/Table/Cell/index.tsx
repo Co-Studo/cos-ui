@@ -6,10 +6,16 @@ const DIRECTION = {
 };
 
 export type SortingState = {
-  name: string;
-  direction: typeof DIRECTION[keyof typeof DIRECTION];
-  sortingIndices: number[];
-} | null;
+  name: string | null;
+  direction: typeof DIRECTION[keyof typeof DIRECTION] | null;
+  sortingIndices: number[] | null;
+};
+
+export const initSortingState = {
+  name: null,
+  direction: null,
+  sortingIndices: null,
+};
 
 export type SortingConfig = {
   sortingValues?: { [key: string]: (string | number)[] };
@@ -39,7 +45,6 @@ const HeadCell = ({
 }: HeadCellProps) => {
   const { sortingValues = {}, sortingState, setSortingState } = sortingConfig;
   const direction =
-    sortingState &&
     sortingState.name === name &&
     sortingState.direction === DIRECTION.DESCENDING
       ? DIRECTION.ASCENDING
@@ -75,7 +80,7 @@ const HeadCell = ({
     <th
       scope={scope}
       data-sort={
-        sortingState?.name === name ? sortingState?.direction : undefined
+        sortingState.name === name ? sortingState.direction : undefined
       }
       {...restProps}
     >
