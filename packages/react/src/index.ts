@@ -8,7 +8,7 @@ export { default as Form } from '@components/Form';
 export { default as Paper } from '@components/Paper';
 export { default as Radio } from '@components/Radio';
 export { BasicTab, BorderTab } from '@components/Tab';
-export { ColumnTable } from '@components/Table';
+export { ColumnTable, RowTable } from '@components/Table';
 export { default as Text } from '@components/Text';
 export { default as cosStyle, CosStyle } from '@styles/GlobalStyle';
 export type { Theme } from '@styles/theme';

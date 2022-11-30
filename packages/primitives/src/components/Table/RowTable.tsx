@@ -30,11 +30,16 @@ const RowTable = ({
       <caption css={offscreen}>{caption}</caption>
       {columnsWidth && (
         <colgroup>
-          {columnsWidth.map((width, index) => (
-            // 유동적으로 변하지 않는 리스트
-            // eslint-disable-next-line react/no-array-index-key
-            <col key={index} width={width} />
-          ))}
+          {columnsWidth.map((width, index) => {
+            const pxWidth = /[0-9.]+rem/.test(width)
+              ? `${parseFloat(width) * 10}px`
+              : width;
+            return (
+              // 유동적으로 변하지 않는 리스트
+              // eslint-disable-next-line react/no-array-index-key
+              <col key={index} width={pxWidth} />
+            );
+          })}
         </colgroup>
       )}
       <tbody>
@@ -58,8 +63,8 @@ const Row = ({ scope, sortingConfig, children, ...restProps }: RowProps) => {
   return (
     <tr {...restProps}>
       {cloneElement(headCell as ReactElement, { scope, sortingConfig })}
-      {sortingConfig
-        ? sortingConfig.sortingState.sortingIndices?.map(
+      {sortingConfig?.sortingState.sortingIndices
+        ? sortingConfig.sortingState.sortingIndices.map(
             (index) => bodyCells[index],
           )
         : bodyCells}

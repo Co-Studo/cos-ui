@@ -1,23 +1,23 @@
-import { ColumnTable } from '@cos-ui/primitives';
+import { RowTable } from '@cos-ui/primitives';
 import { ComponentProps } from 'react';
 import styled, { css } from 'styled-components';
 
 import Text from '@components/Text';
 
-const StyledColumnTableRoot = styled(ColumnTable)`
+const StyledRowTableRoot = styled(RowTable)`
   width: 100%;
   overflow: hidden;
   border-top: ${({ theme }) => `0.1rem solid ${theme.palette.borderLine}`};
   table-layout: fixed;
 `;
 
-const StyledColumnTableRow = styled(ColumnTable.Row)`
+const StyledRowTableRow = styled(RowTable.Row)`
   border-bottom: ${({ theme }) => `0.1rem solid ${theme.palette.borderLine}`};
 `;
 
-type HeadCellProps = ComponentProps<typeof ColumnTable.Cell>;
+type HeadCellProps = ComponentProps<typeof RowTable.Cell>;
 
-const StyledColumnTableHeadCell = styled(ColumnTable.Cell)<HeadCellProps>`
+const StyledRowTableHeadCell = styled(RowTable.Cell)<HeadCellProps>`
   &[data-sort='ascending'] svg {
     transform: rotate(-180deg);
   }
@@ -39,7 +39,7 @@ const HeadCell = ({
   children,
   ...restProps
 }: HeadCellProps) => (
-  <StyledColumnTableHeadCell
+  <StyledRowTableHeadCell
     name={name}
     sortingConfig={sortingConfig}
     {...restProps}
@@ -58,17 +58,17 @@ const HeadCell = ({
     >
       {children}
     </Text>
-  </StyledColumnTableHeadCell>
+  </StyledRowTableHeadCell>
 );
 
-const StyledColumnTableBodyCell = styled(ColumnTable.Cell)`
+const StyledRowTableBodyCell = styled(RowTable.Cell)`
   padding: 1.7rem 2rem;
 `;
 
-const StyledColumnTable = Object.assign(StyledColumnTableRoot, {
-  Row: StyledColumnTableRow,
+const StyledRowTable = Object.assign(StyledRowTableRoot, {
+  Row: StyledRowTableRow,
   HeadCell,
-  BodyCell: StyledColumnTableBodyCell,
+  BodyCell: StyledRowTableBodyCell,
 });
 
-export default StyledColumnTable;
+export default StyledRowTable;
