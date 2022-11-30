@@ -48,5 +48,8 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Build
+        run: yarn build
+
       - name: Publish
         run: npx lerna publish ${{ inputs.version }} --yes
