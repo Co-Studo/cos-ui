@@ -34,6 +34,9 @@ export interface FlexBoxSX extends SizeSX, SpacingSX, StyleSX {
     | 'space-evenly';
   alignItems?: 'center' | 'flex-start' | 'flex-end';
   flexDirection?: 'row' | 'column';
+  flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+  flexShrink?: number;
+  flexGrow?: number;
   gap?: SpacingValue;
 }
 
@@ -67,8 +70,7 @@ const getFlexCssProperties = (sx: FlexBoxSX, theme: DefaultTheme) =>
     }
   }, {});
 
-const FlexBox = (props: FlexBoxProps) => {
-  const { sx, as = 'div', children } = props;
+const FlexBox = ({ sx, as = 'div', children }: FlexBoxProps) => {
   const theme = useTheme();
   const css = sx && getFlexCssProperties(sx, theme);
   return (
