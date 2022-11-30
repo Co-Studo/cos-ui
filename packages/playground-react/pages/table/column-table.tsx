@@ -1,7 +1,7 @@
 import { ColumnTable, Text, FlexBox } from '@cos-ui/react';
 
-import { SortingIcon } from './constant/icon';
-import { noticeList } from './constant/mock';
+import { SortingIcon } from '@constants/icons';
+import { noticeList } from '@constants/mock';
 
 const sortingValues = {
   writer: noticeList.map(({ writer }) => writer),
