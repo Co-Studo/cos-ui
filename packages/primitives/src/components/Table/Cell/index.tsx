@@ -18,7 +18,7 @@ export const initSortingState = {
 };
 
 export type SortingConfig = {
-  sortingValues?: { [key: string]: (string | number)[] };
+  sortingValues?: { [key: string]: string[] | number[] };
   sortingState: SortingState;
   setSortingState: Dispatch<SetStateAction<SortingState>>;
 };
@@ -54,17 +54,20 @@ const HeadCell = ({
     if (isClicked && sortingState.sortingIndices)
       return sortingState.sortingIndices.reverse();
 
-    const sortingValuesByName = sortingValues[name].map((value, index) => ({
-      value,
-      index,
-    }));
-    sortingValuesByName.sort((a, b) => {
-      if (a.value > b.value) return direction === DIRECTION.ASCENDING ? 1 : -1;
-      if (a.value < b.value) return direction === DIRECTION.ASCENDING ? -1 : 1;
-      return 0;
-    });
+    const sortedValues = sortingValues[name]
+      .map((value: string | number, index: number) => ({
+        value,
+        index,
+      }))
+      .sort((a, b) => {
+        if (typeof a.value === 'string' && typeof b.value === 'string')
+          return b.value.localeCompare(a.value);
+        if (typeof a.value === 'number' && typeof b.value === 'number')
+          return b.value - a.value;
+        return 0;
+      });
 
-    return sortingValuesByName.map(({ index }) => index);
+    return sortedValues.map(({ index }) => index);
   };
 
   const updateSortingState = () => {
