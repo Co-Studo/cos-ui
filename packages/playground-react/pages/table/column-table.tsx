@@ -24,7 +24,7 @@ const getDateForm = (date: number) => {
 const ColumnTablePage = () => (
   <ColumnTable
     caption="공지사항"
-    columnsWidth={['85px', '*', '120px', '120px', '120px']}
+    columnsWidth={['8.5rem', '*', '12rem', '12rem', '12rem']}
     sortingValues={sortingValues}
   >
     <ColumnTable.Row>
