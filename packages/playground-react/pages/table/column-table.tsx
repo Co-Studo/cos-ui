@@ -28,12 +28,12 @@ const ColumnTablePage = () => (
     sortingValues={sortingValues}
   >
     <ColumnTable.Row>
+      <ColumnTable.HeadCell>번호</ColumnTable.HeadCell>
       <ColumnTable.HeadCell>
-        <Text as="div" sx={{ textAlign: 'center' }}>
-          번호
+        <Text as="div" sx={{ textAlign: 'left' }}>
+          제목
         </Text>
       </ColumnTable.HeadCell>
-      <ColumnTable.HeadCell>제목</ColumnTable.HeadCell>
       <ColumnTable.HeadCell name="writer">
         <FlexBox
           sx={{ justifyContent: 'center', alignItems: 'center', gap: '1rem' }}
