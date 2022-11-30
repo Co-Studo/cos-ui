@@ -28,6 +28,9 @@ const directions = {
 export const isSpacingProp = (key) =>
   marginKeys.includes(key) || paddingKeys.includes(key);
 
+export const addSpacingUnit = (value) =>
+  typeof value === 'string' ? value : `${value}rem`;
+
 export const getSpacingCssProps = (key: string, value: SpacingValue) => {
   if (typeof value !== 'string' && !spacing.includes(value)) return {};
 
@@ -35,7 +38,7 @@ export const getSpacingCssProps = (key: string, value: SpacingValue) => {
   const property = properties[propKey];
   const direction = directions?.[directionKey];
 
-  const spacingValue = typeof value === 'string' ? value : `${value}rem`;
+  const spacingValue = addSpacingUnit(value);
 
   if (Array.isArray(direction)) {
     return direction.reduce(
