@@ -31,9 +31,9 @@ export const isSpacingProp = (key) =>
 export const getSpacingCssProps = (key: string, value: SpacingValue) => {
   if (typeof value !== 'string' && !spacing.includes(value)) return {};
 
-  const [propKey, dirKey] = key.split('');
+  const [propKey, directionKey] = key.split('');
   const property = properties[propKey];
-  const direction = directions?.[dirKey];
+  const direction = directions?.[directionKey];
 
   const spacingValue = typeof value === 'string' ? value : `${value}rem`;
 
