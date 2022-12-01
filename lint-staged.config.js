@@ -1,5 +1,5 @@
 module.exports = {
-  '*.{js,jsx,ts,tsx}': ['eslint --fix'],
+  '*.{js,jsx,ts,tsx}': ['eslint --fix', 'prettier --write'],
   'packages/react/**/*.+(ts|tsx)': () =>
     'tsc -p packages/react/tsconfig.json --noEmit',
   'packages/playground-react/**/*.+(ts|tsx)': () =>
