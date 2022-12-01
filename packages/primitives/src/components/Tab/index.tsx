@@ -6,6 +6,7 @@ import {
   useContext,
   Children,
   cloneElement,
+  MouseEvent,
   ReactNode,
   ReactElement,
 } from 'react';
@@ -58,7 +59,7 @@ const TabList = ({ children, ...restProps }: TabListProps) => (
 type TabPropsType = {
   tabId?: number;
   children: ReactNode;
-  onClick?: () => void;
+  onClick?: (event?: MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Tab = ({
@@ -70,9 +71,9 @@ const Tab = ({
   const [activeIndex, setActiveIndex] = useTabContext();
   const isActive = activeIndex === tabId;
 
-  const handleTabClick = () => {
-    if (tabId !== undefined) setActiveIndex(tabId)
-    onClick();
+  const handleTabClick = (event?: MouseEvent<HTMLButtonElement>) => {
+    if (tabId !== undefined) setActiveIndex(tabId);
+    onClick(event);
   };
 
   return (
