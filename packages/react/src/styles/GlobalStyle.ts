@@ -27,6 +27,7 @@ const cosStyle = css`
   button {
     margin: 0;
     padding: 0;
+    font: inherit;
     border: none;
     background-color: inherit;
     border-radius: inherit;
@@ -38,7 +39,7 @@ const cosStyle = css`
     padding: 0;
     border: none;
     border-radius: inherit;
-    :focus-visible{
+    :focus-visible {
       outline: none;
     }
   }
@@ -52,8 +53,8 @@ const cosStyle = css`
     background-color: inherit;
     border-radius: inherit;
     color: inherit;
-    :focus-visible{
-      outline:none;
+    :focus-visible {
+      outline: none;
     }
   }
 
@@ -64,6 +65,6 @@ const cosStyle = css`
   }
 `;
 
-export const CosStyle = createGlobalStyle`${cosStyle}`
+export const CosStyle = createGlobalStyle`${cosStyle}`;
 
 export default cosStyle;
