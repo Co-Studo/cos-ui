@@ -9,6 +9,12 @@ type AvatarGroupProps = {
   max?: number;
   total?: number;
   flexAlign?: 'flex-start' | 'center' | 'flex-end';
+  spacing?: 'small' | 'large';
+};
+
+const SPACING_OPTIONS = {
+  small: '-1.5rem',
+  large: '-0.5rem',
 };
 
 const AvatarGroupAvatar = styled(Avatar)`
@@ -16,6 +22,7 @@ const AvatarGroupAvatar = styled(Avatar)`
   background-color: ${colors.grey700};
   color: ${colors.white};
   margin-left: -0.5rem;
+
   &:first-child {
     margin-left: 0;
   }
@@ -27,6 +34,7 @@ const AvatarGroup = (props: AvatarGroupProps) => {
     max = 5,
     total = Children.count(childrenProp),
     flexAlign = 'center',
+    spacing = 'small',
   } = props;
 
   const theme = useTheme();
@@ -60,7 +68,7 @@ const AvatarGroup = (props: AvatarGroupProps) => {
             sx: {
               ...child.props.sx,
               border: `2px solid ${theme.palette.bgColor}`,
-              ...(index === 0 ? {} : { marginLeft: '-0.5rem' }),
+              ...(index === 0 ? {} : { marginLeft: SPACING_OPTIONS[spacing] }),
             },
           });
         })}
@@ -75,7 +83,7 @@ const AvatarGroup = (props: AvatarGroupProps) => {
           sx: {
             ...child.props.sx,
             border: `2px solid ${theme.palette.bgColor}`,
-            ...(index === 0 ? {} : { marginLeft: '-0.5rem' }),
+            ...(index === 0 ? {} : { marginLeft: SPACING_OPTIONS[spacing] }),
           },
         }),
       )}

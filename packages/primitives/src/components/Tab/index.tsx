@@ -6,6 +6,7 @@ import {
   useContext,
   Children,
   cloneElement,
+  MouseEvent,
   ReactNode,
   ReactElement,
 } from 'react';
@@ -58,13 +59,22 @@ const TabList = ({ children, ...restProps }: TabListProps) => (
 type TabPropsType = {
   tabId?: number;
   children: ReactNode;
+  onClick?: (event?: MouseEvent<HTMLButtonElement>) => void;
 };
 
-const Tab = ({ tabId, children, ...restProps }: TabPropsType) => {
+const Tab = ({
+  tabId,
+  children,
+  onClick = () => {},
+  ...restProps
+}: TabPropsType) => {
   const [activeIndex, setActiveIndex] = useTabContext();
   const isActive = activeIndex === tabId;
 
-  const handleTabClick = () => tabId !== undefined && setActiveIndex(tabId);
+  const handleTabClick = (event?: MouseEvent<HTMLButtonElement>) => {
+    if (tabId !== undefined) setActiveIndex(tabId);
+    onClick(event);
+  };
 
   return (
     <li {...restProps} data-selected={isActive}>

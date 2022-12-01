@@ -34,6 +34,9 @@ const fonts = {
   textTransform: {
     capitalize: 'capitalize',
   },
+  wordBreak: {
+    keepAll: 'keepAll',
+  },
 };
 
 export default fonts;
