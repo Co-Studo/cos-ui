@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "lib": ["dom", "dom.iterable", "esnext"],
     "target": "ESNext",
     "module": "commonjs",
@@ -13,5 +12,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "exclude": ["packages/**/dist/**"]
+  "exclude": [
+    "packages/**/dist/**",
+    "lint-staged.config.js",
+    "packages/**/*.config.js"
+  ]
 }

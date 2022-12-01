@@ -3,13 +3,6 @@ module.exports = {
   env: {
     browser: true,
   },
-  settings: {
-    'import/resolver': {
-      typescript: {
-        directory: 'packages/playground-react',
-      },
-    },
-  },
   extends: [
     'airbnb',
     'airbnb-typescript',

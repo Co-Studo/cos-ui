@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": "./",
     "noEmit": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
@@ -9,7 +10,9 @@
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@constants/*": ["constants/*"],
+      "@helpers/*": ["helpers/*"]
     }
   },
   "include": [
