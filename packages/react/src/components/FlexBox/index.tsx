@@ -7,6 +7,7 @@ import {
   getSpacingCssProps,
   SpacingValue,
   isSpacingProp,
+  addSpacingUnit,
 } from '@styles/spacing';
 import { Palette } from '@styles/theme';
 
@@ -33,6 +34,9 @@ export interface FlexBoxSX extends SizeSX, SpacingSX, StyleSX {
     | 'space-evenly';
   alignItems?: 'center' | 'flex-start' | 'flex-end';
   flexDirection?: 'row' | 'column';
+  flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+  flexShrink?: number;
+  flexGrow?: number;
   gap?: SpacingValue;
 }
 
@@ -50,7 +54,15 @@ const getFlexCssProperties = (sx: FlexBoxSX, theme: DefaultTheme) =>
   Object.entries(sx).reduce((css, [key, value]) => {
     switch (true) {
       case key === 'bgColor':
-        return { ...css, backgroundColor: theme.palette[value] ?? colors[value] };
+        return {
+          ...css,
+          backgroundColor: theme.palette[value] ?? colors[value],
+        };
+      case key === 'gap':
+        return {
+          ...css,
+          gap: addSpacingUnit(value),
+        };
       case isSpacingProp(key):
         return { ...css, ...getSpacingCssProps(key, value) };
       default:
@@ -58,8 +70,7 @@ const getFlexCssProperties = (sx: FlexBoxSX, theme: DefaultTheme) =>
     }
   }, {});
 
-const FlexBox = (props: FlexBoxProps) => {
-  const { sx, as = 'div', children } = props;
+const FlexBox = ({ sx, as = 'div', children }: FlexBoxProps) => {
   const theme = useTheme();
   const css = sx && getFlexCssProperties(sx, theme);
   return (
