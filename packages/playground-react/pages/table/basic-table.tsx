@@ -1,18 +1,7 @@
 import { BasicTable, Text } from '@cos-ui/react';
 
 import { noticeList } from '@constants/mock';
-
-const getDateForm = (date: number) => {
-  const dateArray = [
-    new Date(date).getFullYear(),
-    new Date(date).getMonth() + 1,
-    new Date(date).getDate(),
-  ];
-
-  return dateArray
-    .map((number) => (number < 10 ? `0${number}` : number))
-    .join('.');
-};
+import { getDateForm } from '@helpers/table';
 
 const BasicTablePage = () => (
   <BasicTable caption="test" columnsWidth={['10rem', '*', '12rem', '10rem']}>

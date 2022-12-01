@@ -2,23 +2,12 @@ import { RowTable, Text, FlexBox } from '@cos-ui/react';
 
 import { SortingIcon } from '@constants/icons';
 import { noticeList } from '@constants/mock';
+import { getDateForm } from '@helpers/table';
 
 const sortingValues = {
   writer: noticeList.map(({ writer }) => writer),
   date: noticeList.map(({ date }) => date),
-  view: noticeList.map(({ view }) => Number(view)),
-};
-
-const getDateForm = (date: number) => {
-  const dateArray = [
-    new Date(date).getFullYear(),
-    new Date(date).getMonth() + 1,
-    new Date(date).getDate(),
-  ];
-
-  return dateArray
-    .map((number) => (number < 10 ? `0${number}` : number))
-    .join('.');
+  view: noticeList.map(({ view }) => view),
 };
 
 const RowTablePage = () => (
