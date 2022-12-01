@@ -11,6 +11,7 @@ import { Palette } from '@styles/theme';
 import { typography } from '@styles/typography';
 
 export interface TextSX extends SpacingSX {
+  display?: keyof typeof fonts.display;
   fontSize?: keyof typeof fonts.fontSize;
   fontWeight?: keyof typeof fonts.fontWeight;
   fontFamily?: keyof typeof fonts.fontFamily;
@@ -20,6 +21,7 @@ export interface TextSX extends SpacingSX {
   textAlign?: keyof typeof fonts.textAlign;
   textDecoration?: keyof typeof fonts.textDecoration;
   textTransform?: keyof typeof fonts.textTransform;
+  wordBreak?: keyof typeof fonts.wordBreak;
 }
 
 const getCustomStyle = (sx: TextSX, theme: DefaultTheme) =>
