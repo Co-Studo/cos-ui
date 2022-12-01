@@ -1,17 +1,19 @@
 import { Tab } from '@cos-ui/primitives';
 import styled from 'styled-components';
 
+import colors from "@styles/colors";
+
 const StyledTabGroup = styled(Tab.Group)`
   width: 100%;
 `;
 
 const StyledTabList = styled(Tab.List)`
   display: flex;
-  gap: 20px;
+  gap: 2rem;
   width: inherit;
-  height: 70px;
-  background-color: #f5f5f5;
-  padding: 0 45px;
+  height: 7rem;
+  padding: 0 4.5rem;
+  background-color: ${colors.grey100};
 `;
 
 const StyledActiveBar = styled.div`
@@ -20,32 +22,29 @@ const StyledActiveBar = styled.div`
   left: 0;
   width: inherit;
   height: 3px;
-  background-color: #007aff;
+  background-color: ${({ theme }) => theme.palette.primary};
 `;
 
 const StyledTabRoot = styled(Tab)`
-  position: relative;
   display: flex;
   align-items: center;
-  width: 100px;
-  height: 100%;
+  position: relative;
+  color: #dfdfdf;
+  font-size: 2.2rem;
+  font-weight: 700;
   cursor: pointer;
 
   & > * {
-    width: 100px;
+    width: 10rem;
     height: 100%;
-    color: #dfdfdf;
-    font-size: 22px;
   }
 
   &[data-selected='true'] {
-    & > * {
-      color: #000000;
-    }
+    color: ${({ theme }) => theme.palette.fontColor};
   }
 
   &:not([data-selected='true']) {
-    & div {
+    ${StyledActiveBar} {
       display: none;
     }
   }
@@ -54,10 +53,10 @@ const StyledTabRoot = styled(Tab)`
 const StyledTabPanel = styled(Tab.Panel)`
   width: inherit;
   min-height: 50vh;
-  background-color: #fff;
-  color: #000000;
-  font-size: 18px;
-  padding: 45px;
+  padding: 4.5rem;
+  background-color: ${colors.white};
+  color: ${({ theme }) => theme.palette.fontColor};
+  font-size: 1.8rem;
 `;
 
 const StyledTab = Object.assign(StyledTabRoot, {
