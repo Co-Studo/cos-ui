@@ -16,6 +16,7 @@ const AvatarGroupAvatar = styled(Avatar)`
   background-color: ${colors.grey700};
   color: ${colors.white};
   margin-left: -0.5rem;
+
   &:first-child {
     margin-left: 0;
   }
@@ -60,7 +61,7 @@ const AvatarGroup = (props: AvatarGroupProps) => {
             sx: {
               ...child.props.sx,
               border: `2px solid ${theme.palette.bgColor}`,
-              ...(index === 0 ? {} : { marginLeft: '-0.5rem' }),
+              ...(index === 0 ? {} : { marginLeft: '-1.5rem' }),
             },
           });
         })}
