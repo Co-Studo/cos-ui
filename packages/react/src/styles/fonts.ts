@@ -1,9 +1,4 @@
 const fonts = {
-  display: {
-    block: 'block',
-    inlineBlock: 'inline-block',
-    inline: 'inline',
-  },
   fontSize: {
     xSmall: '1.2rem',
     small: '1.4rem',

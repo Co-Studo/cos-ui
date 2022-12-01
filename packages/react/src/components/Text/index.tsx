@@ -11,7 +11,7 @@ import { Palette } from '@styles/theme';
 import { typography } from '@styles/typography';
 
 export interface TextSX extends SpacingSX {
-  display?: keyof typeof fonts.display;
+  display?: 'block' | 'inline-block' | 'inline';
   fontSize?: keyof typeof fonts.fontSize;
   fontWeight?: keyof typeof fonts.fontWeight;
   fontFamily?: keyof typeof fonts.fontFamily;
