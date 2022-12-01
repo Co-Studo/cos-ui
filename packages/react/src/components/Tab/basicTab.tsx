@@ -13,7 +13,7 @@ const StyledTab = styled(Tab)`
 
   * {
     font-size: 2.2rem;
-    color: #dfdfdf;
+    color: ${colors.grey200};
   }
 
   &[data-selected='true'] {

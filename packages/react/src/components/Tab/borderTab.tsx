@@ -29,7 +29,7 @@ const StyledTabRoot = styled(Tab)`
   display: flex;
   align-items: center;
   position: relative;
-  color: #dfdfdf;
+  color: ${colors.grey200};
   font-size: 2.2rem;
   font-weight: 700;
   cursor: pointer;
