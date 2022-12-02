@@ -1,52 +1,75 @@
-import colors from './colors';
+import colors from '@styles/colors';
 
-export type PaletteOption = 'primary' | 'warning' | 'github' | 'danger';
+export type Palette = typeof lightPalette;
 
-export interface PaletteOptions {
-  primary: string;
-  warning: string;
-  danger: string;
-  github: string;
-}
-
-export interface Palette extends PaletteOptions {
-  bgColor: string;
-  fontColor: string;
-  borderLine: string;
-  hoverColor: string;
-}
-
-export interface Theme {
-  palette: Palette;
-}
-
-const darkPalette: Palette = {
-  primary: colors.blue650,
-  warning: colors.yellow600,
-  danger: colors.red450,
-  github: colors.black,
-  bgColor: colors.grey900,
-  fontColor: colors.white,
-  borderLine: colors.white,
-  hoverColor: colors.grey300,
+const darkPalette = {
+  background: {
+    primary: colors.blue650,
+    primary_disable: colors.blue800,
+    primary_active: colors.blue400,
+    secondary: colors.grey800,
+    secondary_active: colors.grey600,
+    danger: colors.red450,
+    neutral: colors.grey700,
+  },
+  border: {
+    primary: colors.blue650,
+    danger: colors.red450,
+    neutral: colors.grey100,
+  },
+  font: {
+    primary: colors.white,
+    danger: colors.red450,
+    warning: colors.yellow600,
+    accent: colors.black,
+    neutral: colors.grey200,
+    neutral_disable: colors.grey600,
+  },
+  shadow: {
+    opacity_1: colors.greyOpacity100,
+    opacity_5: colors.greyOpacity500,
+  },
 };
 
-const lightPalette: Palette = {
-  primary: colors.blue650,
-  warning: colors.yellow600,
-  danger: colors.red450,
-  github: colors.black,
-  bgColor: colors.grey100,
-  fontColor: colors.black,
-  borderLine: colors.grey300,
-  hoverColor: colors.grey200,
+const lightPalette = {
+  background: {
+    primary: colors.blue650,
+    primary_disable: colors.blue400,
+    primary_active: colors.blue800,
+    secondary: colors.grey100,
+    secondary_active: colors.grey200,
+    danger: colors.red450,
+    neutral: colors.grey700,
+  },
+  border: {
+    primary: colors.blue650,
+    danger: colors.red450,
+    neutral: colors.grey300,
+  },
+  font: {
+    base: colors.black,
+    primary: colors.blue650,
+    danger: colors.red450,
+    warning: colors.yellow600,
+    accent: colors.white,
+    neutral: colors.grey600,
+    neutral_disable: colors.grey200,
+  },
+  shadow: {
+    opacity_1: colors.greyOpacity100,
+    opacity_5: colors.greyOpacity500,
+  },
 };
 
-const darkTheme: Theme = {
+export type Theme = {
+  palette: typeof lightPalette;
+};
+
+const darkTheme = {
   palette: darkPalette,
 };
 
-const lightTheme: Theme = {
+const lightTheme = {
   palette: lightPalette,
 };
 
