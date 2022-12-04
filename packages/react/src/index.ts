@@ -11,4 +11,4 @@ export { BasicTab, BorderTab } from '@components/Tab';
 export { ColumnTable, RowTable, BasicTable } from '@components/Table';
 export { default as Text } from '@components/Text';
 export { default as cosStyle, CosStyle } from '@styles/GlobalStyle';
-export type { Theme } from '@styles/theme';
+export type { Theme, Palette } from '@styles/theme';

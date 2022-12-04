@@ -1,7 +1,6 @@
 import { ElementType, ReactNode } from 'react';
 import styled, { DefaultTheme, useTheme } from 'styled-components';
 
-import colors from '@styles/colors';
 import {
   SpacingSX,
   getSpacingCssProps,
@@ -21,7 +20,7 @@ type SizeSX = {
 };
 
 type StyleSX = {
-  bgColor?: keyof typeof colors | keyof Palette;
+  bgColor?: keyof Palette;
 };
 
 export interface FlexBoxSX extends SizeSX, SpacingSX, StyleSX {
@@ -56,7 +55,7 @@ const getFlexCssProperties = (sx: FlexBoxSX, theme: DefaultTheme) =>
       case key === 'bgColor':
         return {
           ...css,
-          backgroundColor: theme.palette[value] ?? colors[value],
+          backgroundColor: theme.palette[value],
         };
       case key === 'gap':
         return {

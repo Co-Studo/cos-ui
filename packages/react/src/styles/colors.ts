@@ -1,8 +1,9 @@
 const colors = {
+  red300: '#ff9e99',
   red400: '#ff7770',
   red450: '#ff5f57',
   red500: '#ff5147',
-  red550: '#FD473E',
+  red600: '#ff2a1f',
   blue100: '#ebf4ff',
   blue200: '#c2dfff',
   blue300: '#99caff',

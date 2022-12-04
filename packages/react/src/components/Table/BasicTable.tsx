@@ -4,12 +4,13 @@ import styled from 'styled-components';
 const StyledBasicTableRoot = styled(BasicTable)`
   width: 100%;
   overflow: hidden;
-  border-top: ${({ theme }) => `0.1rem solid ${theme.palette.borderLine}`};
+  border-top: ${({ theme }) => `0.1rem solid ${theme.palette.neutral_1_light}`};
   table-layout: fixed;
 `;
 
 const StyledBasicTableRow = styled(BasicTable.Row)`
-  border-bottom: ${({ theme }) => `0.1rem solid ${theme.palette.borderLine}`};
+  border-bottom: ${({ theme }) =>
+    `0.1rem solid ${theme.palette.neutral_1_light}`};
 `;
 
 const StyledBasicTableBodyCell = styled(BasicTable.Cell)`

@@ -5,7 +5,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { css } from 'styled-components';
 
-import colors from '@styles/colors';
 import { ExamplesType, resolveAllExamples } from '@utils/resolve-all-examples';
 
 type ExampleProps = {
@@ -25,7 +24,7 @@ export const Examples = ({ examples }: ExampleProps) => (
           list-style: disc;
 
           &::marker {
-            color: ${colors.grey200};
+            color: ${({ theme }) => theme.palette.neutral_1};
           }
         `}
       >

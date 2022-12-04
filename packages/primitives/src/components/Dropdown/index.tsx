@@ -5,6 +5,7 @@ import {
   useContext,
   useReducer,
   useRef,
+  MouseEvent,
 } from 'react';
 import { css } from 'styled-components';
 
@@ -48,7 +49,11 @@ const useDropdownContext = () => {
   return context;
 };
 
-const Dropdown = ({ children }) => {
+type DropdownProps = {
+  children: ReactNode;
+};
+
+const Dropdown = ({ children }: DropdownProps) => {
   const dropdownReducer = useReducer(reducer, initState);
   return (
     <ClickAway>
@@ -85,7 +90,12 @@ const DropdownTrigger = (props: { trigger: ReactNode }) => {
   );
 };
 
-const DropdownList = (props) => {
+type DropdownListProps = {
+  transformOrigin: 'left' | 'right';
+  children: ReactNode;
+};
+
+const DropdownList = (props: DropdownListProps) => {
   const [{ isOpen }] = useClickAwayContext();
   const [{ triggerHeight }] = useDropdownContext();
   const { children, transformOrigin } = props;
@@ -112,9 +122,14 @@ const DropdownList = (props) => {
   ) : null;
 };
 
-const DropdownItem = (props) => {
-  const { children } = props;
-  return <li {...props}>{children}</li>;
+type DropdownItemProps = {
+  children: ReactNode;
+  onClick?: (event?: MouseEvent<HTMLLIElement>) => void;
+};
+
+const DropdownItem = (props: DropdownItemProps) => {
+  const { children, ...restProps } = props;
+  return <li {...restProps}>{children}</li>;
 };
 
 Dropdown.Trigger = DropdownTrigger;

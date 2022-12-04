@@ -2,38 +2,14 @@ import { ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 
 import Text from '@components/Text';
-import colors from '@styles/colors';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit';
-  color?: 'primary' | 'secondary' | 'danger' | 'neutral' | 'github';
+  color?: 'primary' | 'danger' | 'neutral_1' | 'github';
   shape?: 'round' | 'rect';
   size?: 'small' | 'medium' | 'large';
   variant?: 'contained' | 'outlined';
 }
-
-const buttonColor = {
-  primary: {
-    default: colors.blue650,
-    hover: colors.blue750,
-  },
-  secondary: {
-    default: colors.grey100,
-    hover: colors.grey200,
-  },
-  danger: {
-    default: colors.red450,
-    hover: colors.red550,
-  },
-  neutral: {
-    default: colors.grey600,
-    hover: colors.grey700,
-  },
-  github: {
-    default: colors.black,
-    hover: colors.black
-  }
-};
 
 const shapeStyle = css<Pick<ButtonProps, 'shape'>>`
   ${({ shape }) =>
@@ -70,29 +46,61 @@ const sizeStyle = css<Pick<ButtonProps, 'size'>>`
 `;
 
 const variantStyle = css<Pick<ButtonProps, 'variant' | 'color'>>`
-  ${({ variant, color = 'primary' }) =>
-    variant === 'contained' &&
-    css`
-      background-color: ${buttonColor[color].default};
-      color: ${color !== 'secondary' && colors.white};
+  ${({ theme, variant, color = 'primary' }) => {
+    const buttonColor = {
+      primary: {
+        default: theme.palette.primary,
+        hover: theme.palette.primary_dark,
+        disabled: theme.palette.primary_light,
+      },
+      danger: {
+        default: theme.palette.danger,
+        hover: theme.palette.danger_dark,
+        disabled: theme.palette.danger_light,
+      },
+      neutral_1: {
+        default: theme.palette.neutral_1_light,
+        hover: theme.palette.neutral_1,
+        disabled: theme.palette.neutral_1_light,
+      },
+      github: {
+        default: theme.palette.black,
+        hover: theme.palette.neutral_2_dark,
+        disabled: theme.palette.neutral_2_light,
+      },
+    };
 
-      &:hover {
-        background-color: ${buttonColor[color].hover};
-      }
-    `}
-  ${({ variant, color = 'primary' }) =>
-    variant === 'outlined' &&
-    css`
-      border: 1px solid ${buttonColor[color].default};
-      background-color: ${colors.white};
-      color: ${color !== 'secondary' && buttonColor[color].default};
-
-      &:hover {
-        border-color: ${buttonColor[color].default};
-        background-color: ${buttonColor[color].default};
-        color: ${color !== 'secondary' && colors.white};
-      }
-    `}
+    switch (variant) {
+      case 'contained':
+        return css`
+          background-color: ${buttonColor[color].default};
+          color: ${color !== 'neutral_1' && theme.palette.white};
+          &:hover {
+            background-color: ${buttonColor[color].hover};
+          }
+          &:disabled {
+            background-color: ${buttonColor[color].disabled};
+            color: ${color === 'neutral_1' && theme.palette.neutral_2_light};
+          }
+        `;
+      case 'outlined':
+        return css`
+          border: 1px solid ${buttonColor[color].default};
+          background-color: ${theme.palette.white};
+          color: ${buttonColor[color].default};
+          &:hover {
+            border-color: ${buttonColor[color].hover};
+            color: ${buttonColor[color].hover};
+          }
+          &:disabled {
+            border-color: ${buttonColor[color].disabled};
+            color: ${buttonColor[color].disabled};
+          }
+        `;
+      default:
+        return '';
+    }
+  }}
 `;
 
 const StyledButton = styled.button<ButtonProps>`

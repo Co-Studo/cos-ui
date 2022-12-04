@@ -1,13 +1,11 @@
 import { Dropdown } from '@cos-ui/primitives';
 import styled from 'styled-components';
 
-import colors from '@styles/colors';
-
 const StyledDropdownList = styled(Dropdown.List)`
   padding: 0.1rem;
-  box-shadow: 0 4px 10px ${colors.greyOpacity100},
-    0 0 4px ${colors.greyOpacity500};
-  background-color: ${({ theme }) => theme.palette.bgColor};
+  box-shadow: 0 4px 10px ${({ theme }) => theme.palette.shadow_100},
+    0 0 4px ${({ theme }) => theme.palette.shadow_500};
+  background-color: ${({ theme }) => theme.palette.neutral_1_light};
   border-radius: 0.2rem;
 `;
 
@@ -16,7 +14,7 @@ const StyledDropdownItem = styled(Dropdown.Item)`
   border-radius: 0.2rem;
   cursor: pointer;
   &:hover {
-    background-color: ${({ theme }) => theme.palette.hoverColor};
+    background-color: ${({ theme }) => theme.palette.neutral_1};
   }
 `;
 

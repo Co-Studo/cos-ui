@@ -14,8 +14,8 @@ const cosStyle = css`
   }
 
   body {
-    background-color: ${({ theme }) => theme.palette.bgColor};
-    color: ${({ theme }) => theme.palette.fontColor};
+    background-color: ${({ theme }) => theme.palette.neutral_1};
+    color: ${({ theme }) => theme.palette.black};
     font-size: 1.6rem;
     font-weight: 400;
     font-family: 'Noto Sans KR', sans-serif;

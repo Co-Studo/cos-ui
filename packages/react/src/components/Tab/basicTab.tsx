@@ -1,8 +1,6 @@
 import { Tab } from '@cos-ui/primitives';
 import styled from 'styled-components';
 
-import colors from "@styles/colors";
-
 const StyledTabList = styled(Tab.List)`
   display: flex;
   gap: 2rem;
@@ -13,18 +11,18 @@ const StyledTab = styled(Tab)`
 
   * {
     font-size: 2.2rem;
-    color: ${colors.grey200};
+    color: ${({ theme }) => theme.palette.neutral_1};
   }
 
   &[data-selected='true'] {
     * {
-      color: ${colors.grey600};
+      color: ${({ theme }) => theme.palette.neutral_2_light};
     }
   }
 `;
 
 const StyledTabPanel = styled(Tab.Panel)`
-  color: ${colors.grey600};
+  color: ${({ theme }) => theme.palette.neutral_2_light};
 `;
 
 StyledTab.Group = Tab.Group;
