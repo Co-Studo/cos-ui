@@ -39,7 +39,7 @@ const lightPalette = {
   neutral_1_dark: colors.grey300,
   neutral_2: colors.grey700,
   neutral_2_light: colors.grey600,
-  neutral_2_dark: colors.grey800,
+  neutral_2_dark: colors.grey900,
   black: colors.black,
   white: colors.white,
   shadow_100: colors.greyOpacity100,

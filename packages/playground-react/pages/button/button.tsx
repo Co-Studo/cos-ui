@@ -13,7 +13,7 @@ const ButtonPage = () => (
       <Button>Button</Button>
       <Button disabled>Button</Button>
       <Button color="danger">Button</Button>
-      <Button color="neutral_1">Button</Button>
+      <Button color="neutral">Button</Button>
       <Button color="black">Button</Button>
     </FlexBox>
     <Text variant="sectionTitle">Outlined Button</Text>
@@ -25,7 +25,7 @@ const ButtonPage = () => (
       <Button variant="outlined" color="danger">
         Button
       </Button>
-      <Button variant="outlined" color="neutral_1">
+      <Button variant="outlined" color="neutral">
         Button
       </Button>
       <Button variant="outlined" color="black">
@@ -38,7 +38,7 @@ const ButtonPage = () => (
       <Button shape="round" color="danger">
         Button
       </Button>
-      <Button shape="round" color="neutral_1">
+      <Button shape="round" color="neutral">
         Button
       </Button>
       <Button shape="round" color="black">

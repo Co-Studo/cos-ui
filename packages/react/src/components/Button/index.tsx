@@ -5,7 +5,7 @@ import Text from '@components/Text';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit';
-  color?: 'primary' | 'danger' | 'neutral_1' | 'black';
+  color?: 'primary' | 'danger' | 'neutral' | 'black';
   shape?: 'round' | 'rect';
   size?: 'small' | 'medium' | 'large';
   variant?: 'contained' | 'outlined';
@@ -58,10 +58,19 @@ const variantStyle = css<Pick<ButtonProps, 'variant' | 'color'>>`
         hover: theme.palette.danger_dark,
         disabled: theme.palette.danger_light,
       },
-      neutral_1: {
-        default: theme.palette.neutral_1_light,
-        hover: theme.palette.neutral_1,
-        disabled: theme.palette.neutral_1_light,
+      neutral: {
+        default:
+          variant === 'contained'
+            ? theme.palette.neutral_1_light
+            : theme.palette.neutral_2,
+        hover:
+          variant === 'contained'
+            ? theme.palette.neutral_1
+            : theme.palette.neutral_2_dark,
+        disabled:
+          variant === 'contained'
+            ? theme.palette.neutral_1_light
+            : theme.palette.neutral_2_light,
       },
       black: {
         default: theme.palette.black,
@@ -74,13 +83,13 @@ const variantStyle = css<Pick<ButtonProps, 'variant' | 'color'>>`
       case 'contained':
         return css`
           background-color: ${buttonColor[color].default};
-          color: ${color !== 'neutral_1' && theme.palette.white};
+          color: ${color !== 'neutral' && theme.palette.white};
           &:hover {
             background-color: ${buttonColor[color].hover};
           }
           &:disabled {
             background-color: ${buttonColor[color].disabled};
-            color: ${color === 'neutral_1' && theme.palette.neutral_2_light};
+            color: ${color === 'neutral' && theme.palette.neutral_2_light};
           }
         `;
       case 'outlined':
