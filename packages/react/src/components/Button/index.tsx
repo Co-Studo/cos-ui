@@ -31,8 +31,8 @@ const buttonColor = {
   },
   github: {
     default: colors.black,
-    hover: colors.black
-  }
+    hover: colors.black,
+  },
 };
 
 const shapeStyle = css<Pick<ButtonProps, 'shape'>>`

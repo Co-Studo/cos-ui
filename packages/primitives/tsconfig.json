@@ -1,22 +1,18 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "dist",
-    "target": "ESNext",
-    "module": "commonjs",
-    "moduleResolution": "Node",
     "declaration": true,
     "declarationMap": true,
-    "isolatedModules": true,
     "jsx": "react-jsx",
-    "allowJs": true,
-    "strict": true,
-    "noImplicitAny": false,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@utils/*": ["src/utils/*"],
+      "@styles/*": ["src/styles/*"]
+    }
   },
   "include": ["src"],
-  "exclude": ["node_modules"],
-  "extends": "./tsconfig.path.json"
+  "exclude": ["node_modules"]
 }

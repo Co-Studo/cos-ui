@@ -3,13 +3,6 @@ module.exports = {
   env: {
     browser: true,
   },
-  settings: {
-    'import/resolver': {
-      typescript: {
-        directory: 'packages/primitives',
-      },
-    },
-  },
   extends: [
     'airbnb',
     'airbnb-typescript',
@@ -19,7 +12,7 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: 'tsconfig.eslint.json',
+    project: 'tsconfig.json',
     tsconfigRootDir: __dirname,
     sourceType: 'module',
   },
@@ -59,6 +52,9 @@ module.exports = {
     'react/jsx-no-constructed-context-values': 'off',
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
     'react/button-has-type': 'off',
+    'no-await-in-loop': 'off',
+    'no-continue': 'off',
+    'no-restricted-syntax': ['off', 'ForOfStatement'],
     'import/order': [
       'error',
       {
@@ -71,4 +67,36 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['packages/playground-react/**/*.ts?(x)'],
+      settings: {
+        'import/resolver': {
+          typescript: {
+            project: './packages/playground-react/tsconfig.json',
+          },
+        },
+      },
+    },
+    {
+      files: ['packages/primitives/**/*.ts?(x)'],
+      settings: {
+        'import/resolver': {
+          typescript: {
+            project: './packages/primitives/tsconfig.json',
+          },
+        },
+      },
+    },
+    {
+      files: ['packages/react/**/*.ts?(x)'],
+      settings: {
+        'import/resolver': {
+          typescript: {
+            project: './packages/react/tsconfig.json',
+          },
+        },
+      },
+    },
+  ],
 };
