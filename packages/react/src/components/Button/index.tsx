@@ -5,7 +5,7 @@ import Text from '@components/Text';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit';
-  color?: 'primary' | 'danger' | 'neutral_1' | 'github';
+  color?: 'primary' | 'danger' | 'neutral_1' | 'black';
   shape?: 'round' | 'rect';
   size?: 'small' | 'medium' | 'large';
   variant?: 'contained' | 'outlined';
@@ -63,7 +63,7 @@ const variantStyle = css<Pick<ButtonProps, 'variant' | 'color'>>`
         hover: theme.palette.neutral_1,
         disabled: theme.palette.neutral_1_light,
       },
-      github: {
+      black: {
         default: theme.palette.black,
         hover: theme.palette.neutral_2_dark,
         disabled: theme.palette.neutral_2_light,
