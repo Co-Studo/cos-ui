@@ -8,20 +8,22 @@ type AvatarGroupProps = {
   max?: number;
   total?: number;
   flexAlign?: 'flex-start' | 'center' | 'flex-end';
-  spacing?: 'small' | 'large';
+  spacing?: 'small' | 'medium' | 'large';
 };
 
 const SPACING_OPTIONS = {
   small: '-1.5rem',
+  medium: '-1rem',
   large: '-0.5rem',
 };
 
-const AvatarGroupAvatar = styled(Avatar)`
+const AvatarGroupAvatar = styled(Avatar)<Partial<AvatarGroupProps>>`
   border: 2px solid ${({ theme }) => theme.palette.neutral_1_light};
   background-color: ${({ theme }) => theme.palette.neutral_2};
   color: ${({ theme }) => theme.palette.white};
-  margin-left: -0.5rem;
-
+  padding: 2px 3px 0 0;
+  margin-left: ${({ spacing }) => spacing && SPACING_OPTIONS[spacing]};
+  
   &:first-child {
     margin-left: 0;
   }
@@ -53,6 +55,7 @@ const AvatarGroup = (props: AvatarGroupProps) => {
           if (index === max - 1) {
             return (
               <AvatarGroupAvatar
+                spacing={spacing}
                 sx={{
                   width: child.props.sx.width,
                   height: child.props.sx.height,
