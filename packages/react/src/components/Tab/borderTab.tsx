@@ -1,8 +1,6 @@
 import { Tab } from '@cos-ui/primitives';
 import styled from 'styled-components';
 
-import colors from "@styles/colors";
-
 const StyledTabGroup = styled(Tab.Group)`
   width: 100%;
 `;
@@ -13,7 +11,7 @@ const StyledTabList = styled(Tab.List)`
   width: inherit;
   height: 7rem;
   padding: 0 4.5rem;
-  background-color: ${colors.grey100};
+  background-color: ${({ theme }) => theme.palette.neutral_1_light};
 `;
 
 const StyledActiveBar = styled.div`
@@ -29,7 +27,7 @@ const StyledTabRoot = styled(Tab)`
   display: flex;
   align-items: center;
   position: relative;
-  color: ${colors.grey200};
+  color: ${({ theme }) => theme.palette.neutral_1};
   font-size: 2.2rem;
   font-weight: 700;
   cursor: pointer;
@@ -40,7 +38,7 @@ const StyledTabRoot = styled(Tab)`
   }
 
   &[data-selected='true'] {
-    color: ${({ theme }) => theme.palette.fontColor};
+    color: ${({ theme }) => theme.palette.black};
   }
 
   &:not([data-selected='true']) {
@@ -54,8 +52,8 @@ const StyledTabPanel = styled(Tab.Panel)`
   width: inherit;
   min-height: 50vh;
   padding: 4.5rem;
-  background-color: ${colors.white};
-  color: ${({ theme }) => theme.palette.fontColor};
+  background-color: ${({ theme }) => theme.palette.white};
+  color: ${({ theme }) => theme.palette.black};
   font-size: 1.8rem;
 `;
 

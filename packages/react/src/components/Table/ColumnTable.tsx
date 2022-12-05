@@ -7,12 +7,13 @@ import Text from '@components/Text';
 const StyledColumnTableRoot = styled(ColumnTable)`
   width: 100%;
   overflow: hidden;
-  border-top: ${({ theme }) => `0.1rem solid ${theme.palette.borderLine}`};
+  border-top: ${({ theme }) => `0.1rem solid ${theme.palette.neutral_1_light}`};
   table-layout: fixed;
 `;
 
 const StyledColumnTableRow = styled(ColumnTable.Row)`
-  border-bottom: ${({ theme }) => `0.1rem solid ${theme.palette.borderLine}`};
+  border-bottom: ${({ theme }) =>
+    `0.1rem solid ${theme.palette.neutral_1_light}`};
 `;
 
 type HeadCellProps = ComponentProps<typeof ColumnTable.Cell>;

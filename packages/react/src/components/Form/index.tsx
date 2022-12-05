@@ -11,7 +11,7 @@ const StyledFormRoot = styled(Form)`
 const InputStyle = css`
   width: 58rem;
   height: 5rem;
-  border: 0.1rem solid ${({ theme }) => theme.palette.borderLine};
+  border: 0.1rem solid ${({ theme }) => theme.palette.neutral_1_light};
   border-radius: 1rem;
   padding: 0 1rem;
   font-size: 1.3rem;

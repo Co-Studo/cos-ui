@@ -2,11 +2,7 @@ import { ReactNode } from 'react';
 import styled, { CSSObject, DefaultTheme, useTheme } from 'styled-components';
 
 import fonts from '@styles/fonts';
-import {
-  isSpacingProp,
-  getSpacingCssProps,
-  SpacingSX,
-} from '@styles/spacing';
+import { isSpacingProp, getSpacingCssProps, SpacingSX } from '@styles/spacing';
 import { Palette } from '@styles/theme';
 import { typography } from '@styles/typography';
 

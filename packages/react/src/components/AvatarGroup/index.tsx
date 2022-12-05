@@ -2,7 +2,6 @@ import { Children, cloneElement, ReactElement, ReactNode } from 'react';
 import styled, { css, useTheme } from 'styled-components';
 
 import Avatar from '@components/Avatar';
-import colors from '@styles/colors';
 
 type AvatarGroupProps = {
   children: ReactNode;
@@ -18,9 +17,9 @@ const SPACING_OPTIONS = {
 };
 
 const AvatarGroupAvatar = styled(Avatar)`
-  border: 2px solid ${({ theme }) => theme.palette.bgColor};
-  background-color: ${colors.grey700};
-  color: ${colors.white};
+  border: 2px solid ${({ theme }) => theme.palette.neutral_1_light};
+  background-color: ${({ theme }) => theme.palette.neutral_2};
+  color: ${({ theme }) => theme.palette.white};
   margin-left: -0.5rem;
 
   &:first-child {
@@ -67,7 +66,7 @@ const AvatarGroup = (props: AvatarGroupProps) => {
           return cloneElement(child, {
             sx: {
               ...child.props.sx,
-              border: `2px solid ${theme.palette.bgColor}`,
+              border: `2px solid ${theme.palette.neutral_1_light}`,
               ...(index === 0 ? {} : { marginLeft: SPACING_OPTIONS[spacing] }),
             },
           });
@@ -82,7 +81,7 @@ const AvatarGroup = (props: AvatarGroupProps) => {
         cloneElement(child, {
           sx: {
             ...child.props.sx,
-            border: `2px solid ${theme.palette.bgColor}`,
+            border: `2px solid ${theme.palette.neutral_1_light}`,
             ...(index === 0 ? {} : { marginLeft: SPACING_OPTIONS[spacing] }),
           },
         }),

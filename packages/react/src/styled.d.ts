@@ -1,8 +1,7 @@
-import { Palette } from '@styles/theme';
+import { Theme } from '@styles/theme';
 import {} from 'styled-components/cssprop';
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    palette: Palette;
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface DefaultTheme extends Theme {}
 }
