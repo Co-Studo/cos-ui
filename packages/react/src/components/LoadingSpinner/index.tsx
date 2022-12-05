@@ -49,12 +49,11 @@ export const StyledSpinner = styled.div<LoadingSpinnerProps>`
   position: absolute;
   top: 50%;
   left: 50%;
-  border: 2px solid ${({ theme }) => theme.palette.hoverColor};
+  border: 2px solid ${({ theme }) => theme.palette.neutral_1};
   border-radius: 50%;
   border-top-color: ${({ theme }) => theme.palette.primary};
   animation: ${spinnerAnimation} 800ms ease infinite;
 
-  /* 사이즈 */
   ${sizeStyles};
 `;
 
