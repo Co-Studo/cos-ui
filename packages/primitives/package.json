@@ -9,6 +9,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc && tsc-alias && babel --root-mode upward --extensions .ts,.tsx src --out-dir dist",
     "watch": "tsc && tsc-alias && babel --root-mode upward --watch --extensions .ts,.tsx src --out-dir dist",
