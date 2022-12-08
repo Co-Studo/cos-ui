@@ -1,4 +1,4 @@
-import { ReactElement, useEffect } from 'react';
+import { Children, ReactElement, useEffect } from 'react';
 import { css } from 'styled-components';
 
 import { SliderOptions } from '@components/Slider/context/SliderInfoContext';
@@ -39,13 +39,12 @@ const Slider = ({ options = defaultOptions, children }: SliderProps) => {
   useEffect(() => validateOptions(), [sliderOptions]);
 
   const getSlideLength = () => {
-    const Children = Array.isArray(children) ? children : [children];
-    const slideList = Children.find((child) => {
+    const childrenList = Children.toArray(children) as ReactElement[];
+    const slideList = childrenList.find((child) => {
       if (typeof child.type === 'string') return false;
       return child?.type.name === 'SlideList';
     });
-    const SlideLength = slideList ? slideList.props.children.length : 0;
-
+    const SlideLength = slideList?.props.children?.length || 0;
     return SlideLength;
   };
 
