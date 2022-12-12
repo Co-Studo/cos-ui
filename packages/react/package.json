@@ -1,6 +1,6 @@
 {
   "name": "@cos-ui/react",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Styled components for CoStudo",
   "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/react#readme",
   "license": "MIT",
@@ -25,7 +25,7 @@
     "styled-reset": "^4.4.2"
   },
   "dependencies": {
-    "@cos-ui/primitives": "^0.2.2"
+    "@cos-ui/primitives": "^0.2.3"
   },
   "devDependencies": {
     "react": "^18.2.0",

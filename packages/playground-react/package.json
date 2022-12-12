@@ -1,6 +1,6 @@
 {
   "name": "@cos-ui/playground-react",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Playground of @cos-ui/react",
   "private": true,
   "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/playground-react#readme",
@@ -17,7 +17,7 @@
     "clean": "rimraf ./.next"
   },
   "dependencies": {
-    "@cos-ui/react": "^0.2.2",
+    "@cos-ui/react": "^0.2.3",
     "next": "^13.0.0",
     "react": "^18.0.0",
     "react-dom": "18.0.0",
