@@ -14,7 +14,6 @@ const cosStyle = css`
   }
 
   body {
-    background-color: ${({ theme }) => theme.palette.neutral_1_light};
     color: ${({ theme }) => theme.palette.black};
     font-size: 1.6rem;
     font-weight: 400;
