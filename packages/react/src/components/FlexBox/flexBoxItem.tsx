@@ -11,7 +11,7 @@ type FlexBoxItemSX = {
 type FlexBoxItemProps = {
   children: ReactNode;
   sx?: FlexBoxItemSX;
-  as: ElementType;
+  as?: ElementType;
 };
 
 const Wrapper = styled.div`
