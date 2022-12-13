@@ -1,24 +1,16 @@
 # AvatarGroup
 
 AvatarGroup 은 Avatar 컴포넌트와 같이 쓰이는 컴포넌트 입니다.
+`max` prop 을 통해 Avatar 가 보여질 최대 갯수를 지정하여 만약 그 수가 넘을 경우 마지막 Avatar 에서 `아바타 갯수의 합` - `max` + `1` 만큼의 갯수가 보여집니다
 
-### Option Value
+ex) 4 개의 아바타를 받았는데 최대 3개만 보여주고 싶은 경우 마지막 Avatar 는 `4` - `3` + `1` = `2` 을 표시합니다.
 
-```
-const SPACING_OPTIONS = {
-  small: '-1.5rem',
-  medium: '-1rem',
-  large: '-0.5rem',
-};
-```
-
-### Props
+## Props
 
 - `max` : Avatar 가 보여질 최대 갯수를 지정합니다. `default: 5`
-- `total`
 - `spacing` : Avatar 간의 간격을 지정합니다. `default: small`
 
-### Usage
+## Usage
 
 ```tsx
 const AvatarPage = () => (
@@ -30,7 +22,7 @@ const AvatarPage = () => (
           key={avatar.id}
           src={avatar.src}
           alt={avatar.name}
-          sx={{ width: '4.2rem', height: '4.2rem' }}
+          size="small"
         />
       ))}
     </AvatarGroup>
