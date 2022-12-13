@@ -22,21 +22,20 @@ const AvatarPage = () => (
   <>
     <FlexBox sx={{ flexDirection: 'column', gap: 1, mb: 2 }}>
       <Text variant="sectionTitle">Avatar</Text>
-      <Avatar
-        src={AVATARS[0].src}
-        alt={AVATARS[0].name}
-        sx={{ width: '4rem', height: '4rem' }}
-      />
+      <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} size="small" />
+      <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} />
+      <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} size="large" />
+      <Avatar sx={{ backgroundColor: 'primary' }}>hi</Avatar>
     </FlexBox>
     <FlexBox sx={{ flexDirection: 'column', gap: 1 }}>
-      <Text variant="sectionTitle">Avatar Group</Text>
+      <Text variant="sectionTitle">Avatar Group - Small</Text>
       <AvatarGroup max={3} spacing="small">
         {AVATARS.slice(0, 2).map((avatar) => (
           <Avatar
             key={avatar.id}
             src={avatar.src}
             alt={avatar.name}
-            sx={{ width: '4.2rem', height: '4.2rem' }}
+            size="small"
           />
         ))}
       </AvatarGroup>
@@ -46,7 +45,7 @@ const AvatarPage = () => (
             key={avatar.id}
             src={avatar.src}
             alt={avatar.name}
-            sx={{ width: '4.2rem', height: '4.2rem' }}
+            size="small"
           />
         ))}
       </AvatarGroup>
@@ -56,7 +55,7 @@ const AvatarPage = () => (
             key={avatar.id}
             src={avatar.src}
             alt={avatar.name}
-            sx={{ width: '4.2rem', height: '4.2rem' }}
+            size="small"
           />
         ))}
       </AvatarGroup>
@@ -66,7 +65,7 @@ const AvatarPage = () => (
             key={avatar.id}
             src={avatar.src}
             alt={avatar.name}
-            sx={{ width: '4.2rem', height: '4.2rem' }}
+            size="small"
           />
         ))}
       </AvatarGroup>
@@ -76,7 +75,88 @@ const AvatarPage = () => (
             key={avatar.id}
             src={avatar.src}
             alt={avatar.name}
-            sx={{ width: '4.2rem', height: '4.2rem' }}
+            size="small"
+          />
+        ))}
+      </AvatarGroup>
+    </FlexBox>
+    <FlexBox sx={{ flexDirection: 'column', gap: 1 }}>
+      <Text variant="sectionTitle">Avatar Group - Medium</Text>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS.slice(0, 2).map((avatar) => (
+          <Avatar key={avatar.id} src={avatar.src} alt={avatar.name} />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS.map((avatar) => (
+          <Avatar key={avatar.id} src={avatar.src} alt={avatar.name} />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {dummyAvatarsDouble.map((avatar) => (
+          <Avatar key={avatar.id} src={avatar.src} alt={avatar.name} />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {dummyAvatarsTriple.map((avatar) => (
+          <Avatar key={avatar.id} src={avatar.src} alt={avatar.name} />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {dummyAvatarsFour.map((avatar) => (
+          <Avatar key={avatar.id} src={avatar.src} alt={avatar.name} />
+        ))}
+      </AvatarGroup>
+    </FlexBox>
+    <FlexBox sx={{ flexDirection: 'column', gap: 1 }}>
+      <Text variant="sectionTitle">Avatar Group - Large</Text>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS.slice(0, 2).map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="large"
+          />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS.map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="large"
+          />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {dummyAvatarsDouble.map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="large"
+          />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {dummyAvatarsTriple.map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="large"
+          />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {dummyAvatarsFour.map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="large"
           />
         ))}
       </AvatarGroup>

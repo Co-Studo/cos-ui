@@ -1,8 +1,9 @@
 import { Children, cloneElement, ReactElement, ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 
-import Avatar from '@components/Avatar';
+import Avatar, { AvatarProps } from '@components/Avatar';
 import FlexBox from '@components/FlexBox';
+import Text from '@components/Text';
 
 type AvatarGroupProps = {
   children: ReactNode;
@@ -12,10 +13,24 @@ type AvatarGroupProps = {
 };
 
 const FONT_SIZE_BY_STRING_LEN = {
-  1: 2,
-  2: 2.5,
-  3: 3,
-  4: 3.5,
+  small: {
+    1: 'small',
+    2: 'xSmall',
+    3: 'xxSmall',
+    4: 'xxSmall',
+  },
+  medium: {
+    1: 'medium',
+    2: 'small',
+    3: 'xSmall',
+    4: 'xSmall',
+  },
+  large: {
+    1: 'large',
+    2: 'medium',
+    3: 'medium',
+    4: 'small',
+  },
 };
 
 const SPACING_OPTIONS = {
@@ -27,7 +42,7 @@ const SPACING_OPTIONS = {
 const MAX_VIEW_COUNT = 9999;
 
 const AvatarGroupAvatar = styled(Avatar)<Partial<AvatarGroupProps>>`
-  border: 2px solid ${({ theme }) => theme.palette.neutral_1_light};
+  border: 2px solid ${({ theme }) => theme.palette.white};
   background-color: ${({ theme }) => theme.palette.neutral_2};
   color: ${({ theme }) => theme.palette.white};
   padding: 2px 3px 0 0;
@@ -45,9 +60,12 @@ const AvatarGroup = (props: AvatarGroupProps) => {
     total = Children.count(childrenProp),
     spacing = 'small',
   } = props;
+  const theme = useTheme();
 
   // child.props 처럼 props 속성을 사용하기 위해 as 사용
-  const children = Children.toArray(childrenProp) as ReactElement[];
+  const children = Children.toArray(
+    childrenProp,
+  ) as ReactElement<AvatarProps>[];
 
   if (total > max) {
     return (
@@ -60,19 +78,22 @@ const AvatarGroup = (props: AvatarGroupProps) => {
                 // eslint-disable-next-line react/no-array-index-key
                 key={index}
                 spacing={spacing}
-                sx={{
-                  width: child.props.sx.width,
-                  height: child.props.sx.height,
-                  fontSize: `calc(${child.props.sx.width} / ${
-                    FONT_SIZE_BY_STRING_LEN[String(total - max + 1).length]
-                  })`,
-                }}
+                size={child.props.size}
               >
-                {`+${
-                  total - max + 1 <= MAX_VIEW_COUNT
-                    ? total - max + 1
-                    : MAX_VIEW_COUNT
-                }`}
+                <Text
+                  sx={{
+                    fontSize:
+                      FONT_SIZE_BY_STRING_LEN[child.props.size || 'medium'][
+                        String(total - max + 1).length
+                      ],
+                  }}
+                >
+                  {`+${
+                    total - max + 1 <= MAX_VIEW_COUNT
+                      ? total - max + 1
+                      : MAX_VIEW_COUNT
+                  }`}
+                </Text>
               </AvatarGroupAvatar>
             );
           }
@@ -81,7 +102,7 @@ const AvatarGroup = (props: AvatarGroupProps) => {
             key: index,
             sx: {
               ...child.props.sx,
-              border: `2px solid inherit`,
+              border: `2px solid ${theme.palette.white}`,
               ...(index === 0 ? {} : { marginLeft: SPACING_OPTIONS[spacing] }),
             },
           });
@@ -98,7 +119,7 @@ const AvatarGroup = (props: AvatarGroupProps) => {
           key: index,
           sx: {
             ...child.props.sx,
-            border: `2px solid inherit`,
+            border: `2px solid ${theme.palette.white}`,
             ...(index === 0 ? {} : { marginLeft: SPACING_OPTIONS[spacing] }),
           },
         }),
