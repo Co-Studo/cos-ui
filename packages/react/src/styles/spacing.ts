@@ -1,13 +1,18 @@
 export type MarginKey = typeof marginKeys[number];
 export type PaddingKey = typeof paddingKeys[number];
-export type SpacingValue = typeof spacing[number] | string;
+export type SpacingValue = number | string;
 
 export type Margin = Partial<Record<MarginKey, SpacingValue>>;
 export type Padding = Partial<Record<PaddingKey, SpacingValue>>;
 
 export interface SpacingSX extends Margin, Padding {}
 
-const spacing = [0.5, 1, 1.5, 2, 2.5] as const;
+const SPACING_VALUE_PER_UNIT = 0.2;
+const SPACING_UNIT = 'rem';
+
+const spacing = (value: number) =>
+  `${value * SPACING_VALUE_PER_UNIT}${SPACING_UNIT}`;
+
 const marginKeys = ['m', 'mt', 'mr', 'mb', 'ml', 'mx', 'my'] as const;
 const paddingKeys = ['p', 'pt', 'pr', 'pb', 'pl', 'px', 'py'] as const;
 
@@ -28,17 +33,15 @@ const directions = {
 export const isSpacingProp = (key) =>
   marginKeys.includes(key) || paddingKeys.includes(key);
 
-export const addSpacingUnit = (value) =>
-  typeof value === 'string' ? value : `${value}rem`;
+export const getSpacingValue = (value: SpacingValue) =>
+  typeof value === 'string' ? value : spacing(value);
 
 export const getSpacingCssProps = (key: string, value: SpacingValue) => {
-  if (typeof value !== 'string' && !spacing.includes(value)) return {};
-
   const [propKey, directionKey] = key.split('');
   const property = properties[propKey];
   const direction = directions?.[directionKey];
 
-  const spacingValue = addSpacingUnit(value);
+  const spacingValue = getSpacingValue(value);
 
   if (Array.isArray(direction)) {
     return direction.reduce(
