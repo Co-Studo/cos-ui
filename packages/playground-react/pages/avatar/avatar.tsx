@@ -20,7 +20,7 @@ const dummyAvatarsFour = new Array(1000)
 
 const AvatarPage = () => (
   <>
-    <FlexBox sx={{ flexDirection: 'column', gap: 1, mb: 2 }}>
+    <FlexBox sx={{ flexDirection: 'column', gap: 5, mb: 10 }}>
       <Text variant="sectionTitle">Avatar</Text>
       <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} size="small" />
       <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} />
