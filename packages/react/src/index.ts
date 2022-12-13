@@ -3,7 +3,7 @@ export { default as AvatarGroup } from '@components/AvatarGroup';
 export { default as Button } from '@components/Button';
 export { default as CosThemeProvider } from '@components/CosThemeProvider';
 export { default as Dropdown } from '@components/Dropdown';
-export { FlexBox, Item } from '@components/FlexBox';
+export * from '@components/FlexBox';
 export { default as Form } from '@components/Form';
 export { default as LoadingSpinner } from '@components/LoadingSpinner';
 export { default as Paper } from '@components/Paper';

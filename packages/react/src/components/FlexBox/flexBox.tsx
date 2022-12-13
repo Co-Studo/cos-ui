@@ -4,7 +4,6 @@ import {
   ElementType,
   forwardRef,
   ReactElement,
-  ReactNode,
 } from 'react';
 import styled, { DefaultTheme, useTheme } from 'styled-components';
 
@@ -41,6 +40,10 @@ export interface FlexBoxSX extends SizeSX, SpacingSX, StyleSX {
   alignItems?: 'center' | 'flex-start' | 'flex-end';
   flexDirection?: 'row' | 'column';
   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+  alignSelf?: 'flex-start' | 'flex-end' | 'center';
+  justifySelf?: 'flex-start' | 'flex-end' | 'center';
+  flexShrink?: number;
+  flexGrow?: number;
   gap?: SpacingValue;
 }
 

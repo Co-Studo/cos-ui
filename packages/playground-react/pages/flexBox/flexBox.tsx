@@ -1,4 +1,4 @@
-import { FlexBox, Item } from '@cos-ui/react';
+import { FlexBox } from '@cos-ui/react';
 import { useRef } from 'react';
 
 const FlexBoxPage = () => {
@@ -16,9 +16,9 @@ const FlexBoxPage = () => {
         justifyContent: 'center',
       }}
     >
-      <Item>1</Item>
-      <Item sx={{ alignSelf: 'flex-start' }}>2</Item>
-      <Item>3</Item>
+      <FlexBox>1</FlexBox>
+      <FlexBox sx={{ alignSelf: 'flex-start' }}>2</FlexBox>
+      <FlexBox>3</FlexBox>
     </FlexBox>
   );
 };
