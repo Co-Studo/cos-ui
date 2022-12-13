@@ -1,35 +1,13 @@
 import { Children, cloneElement, ReactElement, ReactNode } from 'react';
 import styled, { useTheme } from 'styled-components';
 
-import Avatar, { AvatarProps } from '@components/Avatar';
+import Avatar, { AvatarProps } from '@components/Avatar/avatar';
 import FlexBox from '@components/FlexBox';
-import Text from '@components/Text';
 
 type AvatarGroupProps = {
   children: ReactNode;
   max?: number;
   spacing?: 'small' | 'medium' | 'large';
-};
-
-const FONT_SIZE_BY_STRING_LEN = {
-  small: {
-    1: 'small',
-    2: 'xSmall',
-    3: 'xxSmall',
-    4: 'xxSmall',
-  },
-  medium: {
-    1: 'medium',
-    2: 'small',
-    3: 'xSmall',
-    4: 'xSmall',
-  },
-  large: {
-    1: 'large',
-    2: 'medium',
-    3: 'medium',
-    4: 'small',
-  },
 };
 
 const SPACING_OPTIONS = {
@@ -38,7 +16,7 @@ const SPACING_OPTIONS = {
   large: '-0.5rem',
 };
 
-const MAX_VIEW_COUNT = 9999;
+const MAX_VIEW_COUNT = 999;
 
 const AvatarGroupAvatar = styled(Avatar)<Partial<AvatarGroupProps>>`
   border: 2px solid ${({ theme }) => theme.palette.white};
@@ -75,20 +53,11 @@ const AvatarGroup = (props: AvatarGroupProps) => {
                 spacing={spacing}
                 size={child.props.size}
               >
-                <Text
-                  sx={{
-                    fontSize:
-                      FONT_SIZE_BY_STRING_LEN[child.props.size || 'medium'][
-                        String(total - max + 1).length
-                      ],
-                  }}
-                >
-                  {`+${
-                    total - max + 1 <= MAX_VIEW_COUNT
-                      ? total - max + 1
-                      : MAX_VIEW_COUNT
-                  }`}
-                </Text>
+                {`+${
+                  total - max + 1 <= MAX_VIEW_COUNT
+                    ? total - max + 1
+                    : MAX_VIEW_COUNT
+                }`}
               </AvatarGroupAvatar>
             );
           }

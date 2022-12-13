@@ -25,7 +25,14 @@ const AvatarPage = () => (
       <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} size="small" />
       <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} />
       <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} size="large" />
-      <Avatar sx={{ backgroundColor: 'primary' }}>hi</Avatar>
+      <Avatar sx={{ backgroundColor: 'primary' }} size="small">
+        박
+      </Avatar>
+      <Avatar sx={{ backgroundColor: 'primary' }}>박상진</Avatar>
+      <Avatar sx={{ backgroundColor: 'primary' }}>박상진박박</Avatar>
+      <Avatar sx={{ backgroundColor: 'primary' }} size="large">
+        Emma Stone Emma Watson Emma What
+      </Avatar>
     </FlexBox>
     <FlexBox sx={{ flexDirection: 'column', gap: 1 }}>
       <Text variant="sectionTitle">Avatar Group - Small</Text>

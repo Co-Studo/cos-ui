@@ -1,4 +1,4 @@
-export { default as Avatar } from '@components/Avatar';
+export * from '@components/Avatar';
 export * from '@components/AvatarGroup';
 export { default as Button } from '@components/Button';
 export { default as CosThemeProvider } from '@components/CosThemeProvider';
