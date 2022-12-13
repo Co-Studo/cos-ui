@@ -1,7 +1,17 @@
 import { ReactNode } from 'react';
 
+import { SpacingSX } from '@styles/spacing';
+
+interface AvatarSX extends SpacingSX {
+  width?: string;
+  height?: string;
+  border?: string;
+  borderRadius?: string;
+  fontSize?: string;
+}
+
 export type AvatarProps = {
-  sx?: object;
+  sx?: AvatarSX;
   alt?: string;
   src?: string;
   children?: ReactNode;
