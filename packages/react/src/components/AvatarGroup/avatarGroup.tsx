@@ -8,7 +8,6 @@ import Text from '@components/Text';
 type AvatarGroupProps = {
   children: ReactNode;
   max?: number;
-  total?: number;
   spacing?: 'small' | 'medium' | 'large';
 };
 
@@ -54,12 +53,8 @@ const AvatarGroupAvatar = styled(Avatar)<Partial<AvatarGroupProps>>`
 `;
 
 const AvatarGroup = (props: AvatarGroupProps) => {
-  const {
-    children: childrenProp,
-    max = 5,
-    total = Children.count(childrenProp),
-    spacing = 'small',
-  } = props;
+  const { children: childrenProp, max = 5, spacing = 'small' } = props;
+  const total = Children.count(childrenProp);
   const theme = useTheme();
 
   // child.props 처럼 props 속성을 사용하기 위해 as 사용
