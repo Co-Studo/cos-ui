@@ -21,11 +21,11 @@ export const typography = {
     fontSize: fonts.fontSize.base,
   },
   articleTitle: {
-    fontSize: fonts.fontSize.base,
+    fontSize: fonts.fontSize.medium,
     fontWeight: fonts.fontWeight.bold,
   },
   articleDescription: {
-    fontSize: fonts.fontSize.xSmall,
+    fontSize: fonts.fontSize.small,
   },
   buttonL: {
     fontSize: fonts.fontSize.large,
