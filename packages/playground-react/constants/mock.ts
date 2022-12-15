@@ -28,3 +28,41 @@ export const noticeList = [
     view: 9,
   },
 ];
+
+export const myStudies = [
+  {
+    id: '999',
+    title: '출석 스터디',
+    description: '매일 오전 출석하고 글로 체크아웃 하는 스터디',
+  },
+  {
+    id: '998',
+    title: '리액트 스터디',
+    description: '리액트 공식문서로 스터디',
+  },
+  {
+    id: '997',
+    title: '자바스크립트 스터디',
+    description: '딥다이브 뿌시기',
+  },
+  {
+    id: '996',
+    title: '면접 스터디',
+    description: '떨지말아요 면접',
+  },
+  {
+    id: '995',
+    title: '운동 스터디',
+    description: '하루 만보 걷기 프로젝트',
+  },
+  {
+    id: '994',
+    title: '손캠 스터디',
+    description: '놀고있는거 다 알아 +_+',
+  },
+  {
+    id: '993',
+    title: '요리 스터디',
+    description: '탈출해보자 요리고자!',
+  },
+];
