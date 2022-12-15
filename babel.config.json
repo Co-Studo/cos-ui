@@ -4,9 +4,7 @@
       "@babel/preset-env",
       {
         "targets": {
-          "browsers": [
-            "> 1% in KR, not dead"
-          ]
+          "browsers": ["> 1% in KR, not dead"]
         }
       }
     ],
@@ -34,6 +32,28 @@
           "@hooks": "./src/hooks",
           "@styles": "./src/styles",
           "@utils": "./src/utils"
+        }
+      }
+    ],
+    [
+      "inline-react-svg",
+      {
+        "svgo": {
+          "plugins": [
+            {
+              "name": "preset-default",
+              "params": {
+                "overrides": {
+                  "removeViewBox": false
+                }
+              }
+            },
+            {
+              "name": "removeAttrs",
+              "params": { "attrs": "(data-name)" }
+            },
+            "cleanupIDs"
+          ]
         }
       }
     ]
