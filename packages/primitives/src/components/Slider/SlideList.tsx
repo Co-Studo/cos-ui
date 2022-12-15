@@ -8,15 +8,22 @@ const SlideList = ({ children, ...restProps }) => {
   } = useSliderInfoContext();
 
   return (
-    <ul
+    <div
       css={css`
-        display: flex;
-        gap: ${slidesMargin};
+        width: 100%;
+        overflow: hidden;
       `}
-      {...restProps}
     >
-      {children}
-    </ul>
+      <ul
+        css={css`
+          display: flex;
+          gap: ${slidesMargin};
+        `}
+        {...restProps}
+      >
+        {children}
+      </ul>
+    </div>
   );
 };
 

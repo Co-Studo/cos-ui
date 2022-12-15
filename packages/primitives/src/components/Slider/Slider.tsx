@@ -53,8 +53,6 @@ const Slider = ({ options = defaultOptions, children }: SliderProps) => {
       <div
         css={css`
           position: relative;
-          width: 100%;
-          overflow: hidden;
         `}
       >
         {children}
