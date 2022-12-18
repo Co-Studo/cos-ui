@@ -1,27 +1,15 @@
 import { Form } from '@cos-ui/primitives';
 import styled, { css } from 'styled-components';
 
+import { RadioGroupStyle, RadioOptionStyle } from '@components/Radio';
+import { TextAreaStyle } from '@components/TextArea';
+import { TextInputStyle } from '@components/TextInput';
+
 const StyledFormRoot = styled(Form)`
   display: flex;
   flex-direction: column;
   width: 58rem;
   gap: 1.2rem;
-`;
-
-const InputStyle = css`
-  width: 58rem;
-  height: 5rem;
-  border: 0.1rem solid ${({ theme }) => theme.palette.neutral_1_light};
-  border-radius: 1rem;
-  padding: 0 1rem;
-  font-size: 1.3rem;
-  :focus {
-    border-color: ${({ theme }) => theme.palette.primary};
-  }
-
-  &[data-error='true'] {
-    border-color: ${({ theme }) => theme.palette.danger};
-  }
 `;
 
 const LabelStyle = css`
@@ -35,23 +23,50 @@ const ErrorMsgStyle = css`
   color: ${({ theme }) => theme.palette.danger};
 `;
 
-const TextField = styled(Form.TextField)`
+const FieldStyle = css`
   display: flex;
   gap: 1rem;
   flex-direction: column;
-  input {
-    ${InputStyle}
-  }
-  label {
+
+  & > [data-type='label'] {
     ${LabelStyle}
   }
-  span {
+
+  & > [data-type='error'] {
     ${ErrorMsgStyle}
   }
 `;
 
+const Field = styled(Form.Field)`
+  ${FieldStyle}
+`;
+
+const TextField = styled(Form.TextField)`
+  ${FieldStyle}
+
+  & > input {
+    ${TextInputStyle}
+  }
+
+  & > textarea {
+    ${TextAreaStyle}
+  }
+`;
+
+const RadioField = styled(Form.RadioField)`
+  ${FieldStyle}
+  & > div {
+    ${RadioGroupStyle}
+    & > div {
+      ${RadioOptionStyle}
+    }
+  }
+`;
+
 const StyledFrom = Object.assign(StyledFormRoot, {
+  Field,
   TextField,
+  RadioField,
 });
 
 export default StyledFrom;
