@@ -35,7 +35,7 @@ type FormProps = {
   validationMode?: ValidationMode;
   children: ReactNode;
   onSubmit?: (
-    e: FormEvent<HTMLFormElement>,
+    event: FormEvent<HTMLFormElement>,
     values: Record<string, string>,
   ) => void;
 };
