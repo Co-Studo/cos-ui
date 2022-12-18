@@ -23,6 +23,11 @@ FormContext.displayName = 'FormContext';
 
 export const useFormContext = () => {
   const context = useContext(FormContext);
+  if (!context) {
+    throw new Error(
+      'useFormContext should be used within FormContext.Provider',
+    );
+  }
   return context;
 };
 
