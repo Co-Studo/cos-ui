@@ -59,6 +59,23 @@ const ChangeFormPage = () => (
 );
 ```
 
+#### Validate Function Template
+
+```tsx
+const checkData = (value) => {
+  if (!value || value.length <= 0) {
+    throw Error(`필수 입력 정보입니다!`);
+  }
+
+  return true;
+};
+```
+
+- 인자로 검증하고자 하는 value 값을 입력받는다.
+- 조건에 맞지 않으면 `Error` 객체를 throw 한다.
+- 조건을 통과하면 true를 return 한다.
+- 위의 형식으로 구현된 검증 함수들을 배열로 묶어 입력하면 [validate를 위한 pipe 함수](https://github.com/Co-Studo/cos-ui/blob/0913e4078a4dcbd873a5906f9948668a9d3446aa/packages/primitives/src/utils/validation.ts#L22)를 이용하여 순차적으로 처리한다.
+
 ## Form 의 입력 필드를 구현하는 방법
 
 ### 1. useForm 을 사용하여 직접 구현
