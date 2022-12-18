@@ -5,26 +5,23 @@ import { validate } from '@utils/validation';
 
 type InputEvent = ChangeEvent<HTMLInputElement> | FocusEvent<HTMLInputElement>;
 
-type Subscribe = (validates?: (<V>(value: V) => boolean)[]) => {
+export type SubscribeReturns = {
   [x: string]: (event: InputEvent) => void;
 };
+
+export type Subscribe = (
+  validates?: (<V>(value: V) => boolean)[],
+) => SubscribeReturns;
 
 export type FormHookReturns = {
   value: string;
   error: string;
   subscribe: Subscribe;
   validationMode: ValidationMode;
-} | null;
+};
 
 const useForm = (name: string, initValue?: string): FormHookReturns => {
   const context = useFormContext();
-
-  useEffect(() => {
-    context?.setValues((prev) => ({ ...prev, [name]: initValue || '' }));
-    context?.setErrors((prev) => ({ ...prev, [name]: '' }));
-  }, []);
-
-  if (!context) return null;
 
   const {
     values,
@@ -34,25 +31,22 @@ const useForm = (name: string, initValue?: string): FormHookReturns => {
     validationMode = 'onBlur',
   } = context;
 
+  useEffect(() => {
+    setValues((prev) => ({ ...prev, [name]: initValue || '' }));
+    setErrors((prev) => ({ ...prev, [name]: '' }));
+  }, []);
+
   const value = values?.[name];
   const error = errors?.[name];
 
-  const setValue = (newValue: string) => {
-    setValues((prev) => ({ ...prev, [name]: newValue }));
-  };
-  const setError = (newError: string) => {
-    setErrors((prev) => ({ ...prev, [name]: newError }));
-  };
-
   const subscribe: Subscribe = (validates) => {
-    const handleEvent = (event: InputEvent) => {
-      const { value: targetValue } = event.target;
-
-      setValue(targetValue);
+    const handleEvent = ({ target }: InputEvent) => {
+      const targetValue = target.value;
+      setValues((prev) => ({ ...prev, [name]: targetValue }));
 
       if (validates) {
         const { ok, message = '' } = validate(targetValue, ...validates);
-        setError(ok ? '' : message);
+        setErrors((prev) => ({ ...prev, [name]: ok ? '' : message }));
       }
     };
 
