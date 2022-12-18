@@ -1,60 +1,57 @@
-import { ReactNode, useId } from 'react';
+import { ReactNode } from 'react';
 
-import useForm from '@hooks/useForm';
+import Field from '@components/Form/Field';
+import TextArea, { Resize } from '@components/TextArea';
+import TextInput, { TextInputTypes } from '@components/TextInput';
 
-type InputTypes =
-  | 'text'
-  | 'email'
-  | 'number'
-  | 'password'
-  | 'search'
-  | 'tel'
-  | 'date'
-  | 'url';
-
-export type TextFieldProps = {
+type TextFieldProps = {
   validates?: (<V>(value: V) => boolean)[];
-  defaultValue?: string;
-  label?: ReactNode;
+  type?: TextInputTypes | 'multiline';
+  resize?: Resize;
   name: string;
-  type?: InputTypes;
+  label?: ReactNode;
+  defaultValue?: string;
   placeholder?: string;
+  cols?: number;
+  rows?: number;
+  required?: boolean;
+  min?: string;
+  max?: string;
+  pattern?: string;
+  className?: string;
 };
 
-const TextField = ({
-  validates,
-  defaultValue,
-  label,
-  name,
-  type,
-  placeholder,
-  ...restProps
-}: TextFieldProps) => {
-  const { subscribe = () => {}, error } = useForm(name, defaultValue) ?? {};
-  const inputId = useId();
-  const isError = Boolean(error);
+const TextField = (props: TextFieldProps) => {
+  const {
+    name,
+    label,
+    type,
+    defaultValue,
+    validates,
+    className,
+    ...restProps
+  } = props;
 
   return (
-    <div {...restProps}>
-      {label && (
-        <label htmlFor={inputId} data-error={isError}>
-          {label}
-        </label>
-      )}
-      <input
-        name={name}
-        id={inputId}
-        type={type}
-        defaultValue={defaultValue}
-        placeholder={placeholder}
-        data-error={isError}
-        aria-invalid={isError}
-        aria-labelledby={inputId}
-        aria-describedby={`${inputId}-helper`}
-        {...subscribe(validates)}
-      />
-      {isError && <span id={`${inputId}-helper`}>{error}</span>}
-    </div>
+    <Field
+      className={className}
+      name={name}
+      label={label}
+      defaultValue={defaultValue}
+      validates={validates}
+      render={(subscribe, { error }) =>
+        type === 'multiline' ? (
+          <TextArea isError={Boolean(error)} {...restProps} {...subscribe} />
+        ) : (
+          <TextInput
+            type={type}
+            isError={Boolean(error)}
+            {...restProps}
+            {...subscribe}
+          />
+        )
+      }
+    />
   );
 };
 
