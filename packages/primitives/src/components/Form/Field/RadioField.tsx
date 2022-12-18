@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import Field from '@components/Form/Field';
+import Field from '@components/Form/Field/Field';
 import Radio from '@components/Radio';
 
 type RadioFieldPros = {

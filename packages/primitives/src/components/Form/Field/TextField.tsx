@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import Field from '@components/Form/Field';
+import Field from '@components/Form/Field/Field';
 import TextArea, { Resize } from '@components/TextArea';
 import TextInput, { TextInputTypes } from '@components/TextInput';
 
