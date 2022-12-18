@@ -3,15 +3,20 @@ import styled, { css } from 'styled-components';
 
 import { typography } from '@styles/typography';
 
-const StyledRadioGroup = styled(Radio)`
+export const RadioGroupStyle = css`
   display: flex;
   flex-direction: row;
-  max-width: 355px;
+  min-width: fit-content;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
 `;
 
-const CustomRadioButtonStyle = css`
+const StyledRadioGroup = styled(Radio)`
+  ${RadioGroupStyle}
+`;
+
+const RadioButtonStyle = css`
   -webkit-appearance: none;
   appearance: none;
   width: 2rem;
@@ -35,18 +40,24 @@ const CustomRadioButtonStyle = css`
   }
 `;
 
-const StyledRadioOption = styled(Radio.Option)`
+export const RadioOptionStyle = css`
   display: flex;
   align-items: center;
+  width: 100%;
+  min-width: fit-content;
 
   input[type='radio'] {
-    ${CustomRadioButtonStyle}
+    ${RadioButtonStyle}
   }
 
   label {
     ${typography.sectionDescription};
     padding: 1rem;
   }
+`;
+
+const StyledRadioOption = styled(Radio.Option)`
+  ${RadioOptionStyle}
 `;
 
 const StyledRadio = {
