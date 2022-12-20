@@ -1,5 +1,6 @@
 const fonts = {
   fontSize: {
+    xxSmall: '1rem',
     xSmall: '1.2rem',
     small: '1.4rem',
     base: '1.6rem',

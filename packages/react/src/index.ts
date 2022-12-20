@@ -1,5 +1,5 @@
-export { default as Avatar } from '@components/Avatar';
-export { default as AvatarGroup } from '@components/AvatarGroup';
+export * from '@components/Avatar';
+export * from '@components/AvatarGroup';
 export { default as Button } from '@components/Button';
 export { default as CosThemeProvider } from '@components/CosThemeProvider';
 export { default as Dropdown } from '@components/Dropdown';
