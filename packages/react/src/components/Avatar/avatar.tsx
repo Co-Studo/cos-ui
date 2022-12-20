@@ -85,10 +85,10 @@ const Avatar = (props: AvatarProps) => {
     const sliceChildren =
       children.length > 4
         ? children
-            .split(' ')
-            .slice(0, 4)
-            .map((string) => string[0])
-            .join('')
+            .split(' ') // 문자열의 공백을 기준으로 자름
+            .slice(0, 4) // 최대 4개 까지만 허용
+            .map((string) => string[0]) // 각 문자열의 첫 단어로 변경
+            .join('') // ex) 'Park Jamie Hemdi Dony Crong' -> 'PJHD'
         : children;
 
     return (

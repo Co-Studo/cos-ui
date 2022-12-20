@@ -8,7 +8,7 @@ ex) 4 개의 아바타를 받았는데 최대 3개만 보여주고 싶은 경우
 ## Props
 
 - `max` : `Avatar` 가 보여질 최대 갯수를 지정합니다. `default: 5`
-- `spacing` : `Avatar` 간의 간격을 지정합니다. `default: small`
+- `spacing` : `Avatar` 간의 간격을 `small`, `medium`, `large` 중 선택할 수 있습니다. `default: small`
 
 ## Usage
 
