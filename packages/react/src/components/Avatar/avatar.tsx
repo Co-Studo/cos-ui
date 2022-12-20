@@ -93,7 +93,7 @@ const Avatar = (props: AvatarProps) => {
 
     return (
       <div
-        // Style extand 를 위해 추가
+        // Style extend 를 위해 추가
         // https://styled-components.com/docs/basics#styling-any-component
         className={className}
         css={{
