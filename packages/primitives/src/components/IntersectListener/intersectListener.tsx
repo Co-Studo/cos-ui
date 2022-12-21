@@ -16,6 +16,19 @@ type IntersectListenerProps = {
  * @props threshold - observer의 콜백이 실행될 대상 요소의 가시성 퍼센티지입니다. (0~1) `default: 0.0`
  * @props onIntersect - 대상 요소가 가시성에 들어왔을 때 실행될 콜백입니다.
  * @props unobserve - observer를 해제할지 여부입니다. `default: false`
+ * @example
+ * ```tsx
+ *   <IntersectListener
+ *     onIntersect={() => setPage((prev) => prev + 1)}
+ *     unobserve={page === 3}
+ *   >
+ *     <FlexBox sx={{ width: '1240px', flexWrap: 'wrap', gap: '40px 10px' }}>
+ *       {elements.map((element) => (
+ *         <Card key={element} number={element} />
+ *       ))}
+ *     </FlexBox>
+ *   </IntersectListener>
+ * ```
  */
 const IntersectListener = (props: IntersectListenerProps) => {
   const {
