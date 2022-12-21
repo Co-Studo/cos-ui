@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useMemo, useRef } from 'react';
+import { ReactNode, useCallback, useEffect, useRef } from 'react';
 
 type IntersectListenerProps = {
   children: ReactNode;
@@ -26,6 +26,7 @@ const IntersectListener = (props: IntersectListenerProps) => {
     threshold = 0,
   } = props;
   const ref = useRef<HTMLDivElement>(null);
+  const observer = useRef<IntersectionObserver>();
 
   const handleObserver = useCallback(
     (entries: IntersectionObserverEntry[]) => {
@@ -37,23 +38,23 @@ const IntersectListener = (props: IntersectListenerProps) => {
     [onIntersect],
   );
 
-  const observer = useMemo(
-    () =>
-      new IntersectionObserver(handleObserver, {
-        rootMargin,
-        threshold,
-      }),
-    [handleObserver, rootMargin, threshold],
-  );
+  useEffect(() => {
+    observer.current = new IntersectionObserver(handleObserver, {
+      rootMargin,
+      threshold,
+    });
+  }, []);
 
   useEffect(() => {
-    if (ref.current && !unobserve) {
-      observer.observe(ref.current);
-    } else if (ref.current && unobserve) {
-      observer.unobserve(ref.current);
+    if (ref.current && !unobserve && observer.current) {
+      observer.current.observe(ref.current);
+    } else if (ref.current && unobserve && observer.current) {
+      observer.current.unobserve(ref.current);
     }
     return () => {
-      observer.disconnect();
+      if (observer.current) {
+        observer.current.disconnect();
+      }
     };
   }, [unobserve, observer]);
 
