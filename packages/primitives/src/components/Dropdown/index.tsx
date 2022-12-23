@@ -98,7 +98,7 @@ type DropdownListProps = {
 const DropdownList = (props: DropdownListProps) => {
   const [{ isOpen }] = useClickAwayContext();
   const [{ triggerHeight }] = useDropdownContext();
-  const { children, transformOrigin } = props;
+  const { children, transformOrigin = 'left' } = props;
 
   return isOpen ? (
     <ul
