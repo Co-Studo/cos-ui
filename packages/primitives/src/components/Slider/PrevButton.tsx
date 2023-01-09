@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useSlideIndexContext } from '@components/Slider/context/SlideIndexContext';
 import { useSliderInfoContext } from '@components/Slider/context/SliderInfoContext';
-import { throttle } from '@utils/eventDelay';
+import { throttle, useDebounce } from '@utils/eventDelay';
 
 const PrevButton = ({ children, ...restProps }) => {
   const [{ currentIndex }, dispatch] = useSlideIndexContext();
@@ -20,12 +20,19 @@ const PrevButton = ({ children, ...restProps }) => {
     setSliderOptions({ ...defaultOptions, ...responsiveOptions?.options });
   };
 
+  const debounceWindowSizeSliderOptions = useDebounce(
+    setWindowSizeSliderOptions,
+    300,
+  );
+
   useEffect(() => {
     setWindowSizeSliderOptions();
-    window.addEventListener('resize', setWindowSizeSliderOptions);
+    window.addEventListener('resize', () => debounceWindowSizeSliderOptions());
 
     return () => {
-      window.removeEventListener('resize', setWindowSizeSliderOptions);
+      window.removeEventListener('resize', () =>
+        debounceWindowSizeSliderOptions(),
+      );
     };
   }, [responsive]);
 
