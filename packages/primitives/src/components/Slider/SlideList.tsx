@@ -4,7 +4,7 @@ import { useSliderInfoContext } from '@components/Slider/context/SliderInfoConte
 
 const SlideList = ({ children, ...restProps }) => {
   const {
-    options: { slidesMargin },
+    options: { slidesMargin, responsive },
   } = useSliderInfoContext();
 
   return (
@@ -18,6 +18,13 @@ const SlideList = ({ children, ...restProps }) => {
         css={css`
           display: flex;
           gap: ${slidesMargin};
+          ${responsive?.map(
+            (responsiveOption) => css`
+              @media (max-width: ${responsiveOption.breakpoint}px) {
+                gap: ${responsiveOption.options.slidesMargin};
+              }
+            `,
+          )}
         `}
         {...restProps}
       >

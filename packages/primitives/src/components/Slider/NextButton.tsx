@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { useSlideIndexContext } from '@components/Slider/context/SlideIndexContext';
 import { useSliderInfoContext } from '@components/Slider/context/SliderInfoContext';
 import throttle from '@utils/eventDelay';
@@ -5,9 +7,19 @@ import throttle from '@utils/eventDelay';
 const NextButton = ({ children, ...restProps }) => {
   const [{ currentIndex }, dispatch] = useSlideIndexContext();
   const {
-    options: { slidesToShow, slidesToScroll, speed },
+    options: { responsive, ...defaultOptions },
     SlideLength,
   } = useSliderInfoContext();
+  const [sliderOptions, setSliderOptions] = useState(defaultOptions);
+  const { slidesToShow, slidesToScroll, speed } = sliderOptions;
+
+  useEffect(() => {
+    const responsiveOptions = responsive
+      ?.sort((a, b) => b.breakpoint - a.breakpoint)
+      .find(({ breakpoint }) => window.innerWidth <= breakpoint);
+    setSliderOptions({ ...defaultOptions, ...responsiveOptions });
+  }, [responsive]);
+
   const limitIndex = SlideLength - slidesToShow;
   const disabled = currentIndex >= limitIndex;
 
