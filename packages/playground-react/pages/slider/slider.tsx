@@ -20,11 +20,15 @@ const SliderPage = () => (
         responsive: [
           {
             breakpoint: 820,
-            options: { slidesMargin: '1.5rem', slidesToShow: 3 },
+            options: { slidesToShow: 3, slidesMargin: '1.5rem' },
           },
           {
             breakpoint: 420,
-            options: { slidesMargin: '1rem', slidesToShow: 2 },
+            options: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              slidesMargin: '1rem',
+            },
           },
         ],
       }}

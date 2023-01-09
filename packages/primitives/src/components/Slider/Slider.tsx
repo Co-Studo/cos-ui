@@ -18,7 +18,7 @@ const defaultOptions = {
   initialSlide: 0,
 };
 
-const Slider = ({ options = defaultOptions, children }: SliderProps) => {
+const Slider = ({ options, children }: SliderProps) => {
   const sliderOptions = { ...defaultOptions, ...options };
 
   const validateOptions = () => {
@@ -36,7 +36,16 @@ const Slider = ({ options = defaultOptions, children }: SliderProps) => {
     });
   };
 
-  useEffect(() => validateOptions(), [sliderOptions]);
+  const sortResponsiveOptions = () => {
+    sliderOptions.responsive = sliderOptions.responsive?.sort(
+      (a, b) => b.breakpoint - a.breakpoint,
+    );
+  };
+
+  useEffect(() => {
+    validateOptions();
+    sortResponsiveOptions();
+  }, [sliderOptions]);
 
   const getSlideLength = () => {
     const childrenList = Children.toArray(children) as ReactElement[];

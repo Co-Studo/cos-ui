@@ -9,14 +9,6 @@ const Slide = ({ children, ...restProps }) => {
     options: { slidesToShow, slidesMargin, speed, responsive },
   } = useSliderInfoContext();
 
-  const responsiveOptions = responsive?.map(({ breakpoint, options }) => ({
-    breakpoint,
-    slidesToShow,
-    slidesMargin,
-    speed,
-    ...options,
-  }));
-
   return (
     <li
       css={css`
@@ -30,27 +22,29 @@ const Slide = ({ children, ...restProps }) => {
           0
         );
         transition: transform calc(${speed}s / 1000) ease-in-out;
-        ${responsiveOptions?.map(
-          (responsiveOption) => css`
-            @media (max-width: ${responsiveOption.breakpoint}px) {
-              width: calc(
-                100% / ${responsiveOption.slidesToShow} -
-                  (
-                    ${responsiveOption.slidesMargin} *
-                      (${responsiveOption.slidesToShow} - 1) /
-                      ${responsiveOption.slidesToShow}
-                  )
-              );
-              transform: translate(
-                calc(
-                  (100% + ${responsiveOption.slidesMargin}) * ${-currentIndex}
-                ),
-                0
-              );
-              transition: transform calc(${responsiveOption.speed}s / 1000)
-                ease-in-out;
-            }
-          `,
+        ${responsive?.map(
+          (responsiveOption) =>
+            css`
+              @media (max-width: ${responsiveOption.breakpoint}px) {
+                width: calc(
+                  100% / ${responsiveOption.options.slidesToShow} -
+                    (
+                      ${responsiveOption.options.slidesMargin} *
+                        (${responsiveOption.options.slidesToShow} - 1) /
+                        ${responsiveOption.options.slidesToShow}
+                    )
+                );
+                transform: translate(
+                  calc(
+                    (100% + ${responsiveOption.options.slidesMargin}) *
+                      ${-currentIndex}
+                  ),
+                  0
+                );
+                transition: transform
+                  calc(${responsiveOption.options.speed}s / 1000) ease-in-out;
+              }
+            `,
         )}
       `}
       {...restProps}
