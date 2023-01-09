@@ -49,12 +49,12 @@ const Slider = ({ options, children }: SliderProps) => {
 
   const getSlideLength = () => {
     const childrenList = Children.toArray(children) as ReactElement[];
-    const slideList = childrenList.find((child) => {
-      if (typeof child.type === 'string') return false;
-      return child?.type.name === 'SlideList';
-    });
-    const SlideLength = slideList?.props.children?.length || 0;
-    return SlideLength;
+    const slideList = childrenList.find((child) =>
+      Array.isArray(child.props.children),
+    );
+    const slideLength = slideList?.props.children?.length || 0;
+
+    return slideLength;
   };
 
   return (
