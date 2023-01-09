@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useSlideIndexContext } from '@components/Slider/context/SlideIndexContext';
 import { useSliderInfoContext } from '@components/Slider/context/SliderInfoContext';
-import { throttle, useDebounce } from '@utils/eventDelay';
+import { useThrottle, useDebounce } from '@utils/eventDelay';
 
 const NextButton = ({ children, ...restProps }) => {
   const [{ currentIndex }, dispatch] = useSlideIndexContext();
@@ -57,7 +57,7 @@ const NextButton = ({ children, ...restProps }) => {
   return (
     <button
       type="button"
-      onClick={throttle(handleNextButtonClick, speed)}
+      onClick={useThrottle(handleNextButtonClick, speed)}
       disabled={disabled}
       {...restProps}
     >

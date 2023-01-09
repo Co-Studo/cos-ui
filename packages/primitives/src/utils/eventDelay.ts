@@ -1,15 +1,14 @@
 import { useRef } from 'react';
 
-const throttle = (callback: (args) => void, limit = 100) => {
-  let waiting = false;
+const useThrottle = (callback: (...args: unknown[]) => void, limit = 100) => {
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  return (...args) => {
-    if (waiting) return;
+  return (...args: unknown[]) => {
+    if (timer.current) return;
 
-    callback(args);
-    waiting = true;
-    setTimeout(() => {
-      waiting = false;
+    callback(...args);
+    timer.current = setTimeout(() => {
+      timer.current = null;
     }, limit);
   };
 };
@@ -26,4 +25,4 @@ const useDebounce = (callback: (...args: unknown[]) => void, limit = 100) => {
   };
 };
 
-export { throttle, useDebounce };
+export { useThrottle, useDebounce };
