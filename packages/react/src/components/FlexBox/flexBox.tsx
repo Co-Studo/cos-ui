@@ -12,7 +12,7 @@ import {
   getSpacingCssProps,
   SpacingValue,
   isSpacingProp,
-  addSpacingUnit,
+  getSpacingValue,
 } from '@styles/spacing';
 import { Palette } from '@styles/theme';
 
@@ -71,7 +71,7 @@ const getFlexCssProperties = (sx: FlexBoxSX, theme: DefaultTheme) =>
       case key === 'gap':
         return {
           ...css,
-          gap: addSpacingUnit(value),
+          gap: getSpacingValue(value),
         };
       case isSpacingProp(key):
         return { ...css, ...getSpacingCssProps(key, value) };
