@@ -25,7 +25,7 @@ const ColumnTablePage = () => (
       </ColumnTable.HeadCell>
       <ColumnTable.HeadCell name="writer">
         <FlexBox
-          sx={{ justifyContent: 'center', alignItems: 'center', gap: '1rem' }}
+          sx={{ justifyContent: 'center', alignItems: 'center', gap: 5 }}
         >
           작성자
           <SortingIcon />
@@ -33,7 +33,7 @@ const ColumnTablePage = () => (
       </ColumnTable.HeadCell>
       <ColumnTable.HeadCell name="date">
         <FlexBox
-          sx={{ justifyContent: 'center', alignItems: 'center', gap: '1rem' }}
+          sx={{ justifyContent: 'center', alignItems: 'center', gap: 5 }}
         >
           날짜
           <SortingIcon />
@@ -41,7 +41,7 @@ const ColumnTablePage = () => (
       </ColumnTable.HeadCell>
       <ColumnTable.HeadCell name="view">
         <FlexBox
-          sx={{ justifyContent: 'center', alignItems: 'center', gap: '1rem' }}
+          sx={{ justifyContent: 'center', alignItems: 'center', gap: 5 }}
         >
           조회수
           <SortingIcon />

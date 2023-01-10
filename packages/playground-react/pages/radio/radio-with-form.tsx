@@ -12,7 +12,7 @@ export const FormRadioPage = () => {
       sx={{
         flexDirection: 'column',
         width: '100%',
-        gap: '1rem',
+        gap: 5,
       }}
     >
       <Form onSubmit={handleSubmit} validationMode="onBlur">
@@ -20,7 +20,7 @@ export const FormRadioPage = () => {
           sx={{
             flexDirection: 'column',
             width: '100%',
-            gap: '1rem',
+            gap: 5,
           }}
         >
           <Text
@@ -46,7 +46,7 @@ export const FormRadioPage = () => {
           스터디 생성
         </Button>
       </Form>
-      <FlexBox sx={{ flexDirection: 'column', gap: '1rem' }}>
+      <FlexBox sx={{ flexDirection: 'column', gap: 5 }}>
         {Object.keys(formValues).map((key) => (
           <Text key={key}>{`${key} : ${formValues[key]}`}</Text>
         ))}
