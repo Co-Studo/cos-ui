@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-export type SliderOptions = {
+type SliderDefaultOptions = {
   slidesToShow: number;
   slidesToScroll: number;
   slidesMargin: string;
@@ -8,13 +8,21 @@ export type SliderOptions = {
   initialSlide: number;
 };
 
+export interface SliderOptions extends SliderDefaultOptions {
+  responsive?: {
+    breakpoint: number;
+    options: Partial<SliderDefaultOptions>;
+  }[];
+}
+
 type SliderInfoContextValue = {
   options: SliderOptions;
   SlideLength: number;
 };
 
-export const SliderInfoContext =
-  createContext<SliderInfoContextValue | null>(null);
+export const SliderInfoContext = createContext<SliderInfoContextValue | null>(
+  null,
+);
 SliderInfoContext.displayName = 'SliderInfoContext';
 
 export const useSliderInfoContext = () => {
