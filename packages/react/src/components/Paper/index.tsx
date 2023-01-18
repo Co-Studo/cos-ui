@@ -1,19 +1,30 @@
 import { ReactNode, MouseEvent } from 'react';
 import { useTheme } from 'styled-components';
 
-import { SpacingSX } from '@styles/spacing';
+import FlexBox, { FlexBoxSX } from '@components/FlexBox/flexBox';
 
-interface PaperSX extends SpacingSX {
-  width?: string;
-  height?: string;
+type BasePaperSX = {
   borderRadius?: string;
   boxShadow?: string;
-}
+};
 
-type PaperProps = {
+const isBasePaperProp = (prop: string): prop is keyof BasePaperSX =>
+  ['borderRadius', 'boxShadow'].includes(prop);
+
+interface FlexPaperSX extends FlexBoxSX, BasePaperSX {}
+
+type PaperProps = FlexPaperProps;
+
+type BasePaperProps = {
   children: ReactNode;
   onClick?: (e: MouseEvent) => void;
-  sx?: PaperSX;
+  sx?: BasePaperSX;
+};
+
+type FlexPaperProps = {
+  children: ReactNode;
+  onClick?: (e: MouseEvent) => void;
+  sx?: FlexPaperSX;
 };
 
 const clickableCss = {
@@ -25,7 +36,7 @@ const clickableCss = {
   },
 };
 
-const Paper = (props: PaperProps) => {
+const BasePaper = (props: BasePaperProps) => {
   const { children, onClick, sx } = props;
   const theme = useTheme();
 
@@ -49,6 +60,60 @@ const Paper = (props: PaperProps) => {
       {children}
     </div>
   );
+};
+
+const FlexPaper = (props: FlexPaperProps) => {
+  const { children, onClick, sx = {} } = props;
+  const theme = useTheme();
+
+  const paperCss = {
+    width: 'max-content',
+    padding: '1rem',
+    borderRadius: '0.5rem',
+    boxShadow: `0 4px 10px ${theme.palette.shadow_100},
+    0 0 4px ${theme.palette.shadow_500}`,
+  };
+
+  const paperSX = Object.entries(sx).reduce((css, [key, value]) => {
+    if (isBasePaperProp(key)) {
+      return {
+        ...css,
+        [key]: value,
+      };
+    }
+    return css;
+  }, {});
+
+  const flexSX = Object.entries(sx).reduce((css, [key, value]) => {
+    if (!isBasePaperProp(key)) {
+      return {
+        ...css,
+        [key]: value,
+      };
+    }
+    return css;
+  }, {});
+
+  return (
+    <div
+      onClick={onClick}
+      css={{
+        ...paperCss,
+        ...(onClick && clickableCss),
+        ...paperSX,
+      }}
+    >
+      <FlexBox sx={flexSX}>{children}</FlexBox>
+    </div>
+  );
+};
+
+const Paper = (props: PaperProps) => {
+  const { sx = {} } = props;
+
+  const isFlex = Object.keys(sx).some((key) => !isBasePaperProp(key));
+
+  return isFlex ? <FlexPaper {...props} /> : <BasePaper {...props} />;
 };
 
 export default Paper;
