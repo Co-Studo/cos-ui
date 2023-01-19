@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 const Card = ({ number }) => (
   <Paper
     sx={{
-      display: 'flex',
       width: '300px',
       height: '400px',
       justifyContent: 'center',
