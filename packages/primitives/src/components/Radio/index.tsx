@@ -7,8 +7,6 @@ import {
   Children,
   FocusEvent,
   isValidElement,
-  memo,
-  useMemo,
 } from 'react';
 
 interface RadioState {
@@ -29,12 +27,9 @@ const useRadioContext = () => {
 };
 
 const passPropsToChildren = <T,>(children: ReactNode, props: Partial<T>) =>
-  Children.map(children, (child) => {
-    if (isValidElement(child)) {
-      return cloneElement(child, { ...props });
-    }
-    return child;
-  });
+  Children.map(children, (child) =>
+    isValidElement(child) ? cloneElement(child, { ...props }) : child,
+  );
 
 export interface RadioProps extends RadioState {
   name: string;
@@ -48,21 +43,13 @@ const Radio = ({
   children,
   onChange,
   ...restProps
-}: RadioProps) => {
-  const state = { selectedValue };
-  const childrenProps = useMemo(
-    () => ({
-      name,
-      onChange,
-    }),
-    [name, onChange],
-  );
-  return (
-    <RadioContext.Provider value={state}>
-      <div {...restProps}>{passPropsToChildren(children, childrenProps)}</div>
-    </RadioContext.Provider>
-  );
-};
+}: RadioProps) => (
+  <RadioContext.Provider value={{ selectedValue }}>
+    <div {...restProps}>
+      {passPropsToChildren(children, { name, onChange })}
+    </div>
+  </RadioContext.Provider>
+);
 
 type OptionProps = {
   id?: string;
@@ -70,60 +57,41 @@ type OptionProps = {
   value: string;
   children: ReactNode;
   disabled?: boolean;
-  isChecked: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
   className?: string;
 };
 
-const withContext = (Option) =>
-  // eslint-disable-next-line func-names
-  function ({ value, name, ...restProps }: Omit<OptionProps, 'isChecked'>) {
-    const { selectedValue } = useRadioContext();
-
-    const isChecked = useMemo(
-      () => selectedValue === value,
-      [selectedValue, value],
-    );
-
-    return (
-      <Option value={value} name={name} isChecked={isChecked} {...restProps} />
-    );
-  };
-
-const Option = memo(
-  ({
-    id,
-    name = '',
-    value,
-    children,
-    onBlur,
-    onChange,
-    disabled,
-    isChecked,
-    ...restProps
-  }: OptionProps) => {
-    const optionId = id || `option-${name}-${value}`;
-    return (
-      <div {...restProps}>
-        <input
-          type="radio"
-          id={optionId}
-          name={name}
-          value={value}
-          disabled={disabled}
-          defaultChecked={isChecked}
-          onChange={onChange}
-          onBlur={onBlur}
-        />
-        <label htmlFor={id}>{children}</label>
-      </div>
-    );
-  },
-);
+const Option = ({
+  id,
+  name = '',
+  value,
+  children,
+  disabled,
+  onChange,
+  onBlur,
+  ...restProps
+}: OptionProps) => {
+  const { selectedValue } = useRadioContext();
+  const optionId = id || `option-${name}-${value}`;
+  return (
+    <div {...restProps}>
+      <input
+        type="radio"
+        id={optionId}
+        name={name}
+        value={value}
+        disabled={disabled}
+        defaultChecked={selectedValue === value}
+        onChange={onChange}
+        onBlur={onBlur}
+      />
+      <label htmlFor={optionId}>{children}</label>
+    </div>
+  );
+};
 
 Option.displayName = 'Option';
-
-Radio.Option = withContext(Option);
+Radio.Option = Option;
 
 export default Radio;
