@@ -8,8 +8,6 @@ import {
   isValidElement,
 } from 'react';
 
-import useForm from '@hooks/useForm';
-
 interface RadioState {
   selectedValue: string;
 }
@@ -28,12 +26,9 @@ const useRadioContext = () => {
 };
 
 const passPropsToChildren = <T,>(children: ReactNode, props: Partial<T>) =>
-  Children.map(children, (child) => {
-    if (isValidElement(child)) {
-      return cloneElement(child, { ...props });
-    }
-    return child;
-  });
+  Children.map(children, (child) =>
+    isValidElement(child) ? cloneElement(child, { ...props }) : child,
+  );
 
 export interface RadioProps extends RadioState {
   name: string;
@@ -63,18 +58,12 @@ const Radio = ({
   selectedValue = '',
   name,
   children,
-  onChange,
   ...restProps
-}: RadioProps) => {
-  const state = { selectedValue };
-  const childrenProps = { name, onChange };
-
-  return (
-    <RadioContext.Provider value={state}>
-      <div {...restProps}>{passPropsToChildren(children, childrenProps)}</div>
-    </RadioContext.Provider>
-  );
-};
+}: RadioProps) => (
+  <RadioContext.Provider value={{ selectedValue }}>
+    <div {...restProps}>{passPropsToChildren(children, { name })}</div>
+  </RadioContext.Provider>
+);
 
 type OptionProps = {
   id?: string;
@@ -82,7 +71,6 @@ type OptionProps = {
   value: string;
   children: ReactNode;
   disabled?: boolean;
-  validates?: (<V>(value: V) => boolean)[];
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -98,22 +86,12 @@ const Option = ({
   name = '',
   value,
   children,
-  onChange,
   disabled,
-  validates,
+  onChange,
   ...restProps
 }: OptionProps) => {
   const { selectedValue } = useRadioContext();
-  const {
-    value: formValue,
-    subscribe = () => {},
-    validationMode = 'onChange',
-  } = useForm(name, selectedValue) ?? {};
-
   const optionId = id || `option-${name}-${value}`;
-  const isChecked = (formValue ?? selectedValue) === value;
-  const handleChange = onChange ?? subscribe(validates)[validationMode];
-
   return (
     <div {...restProps}>
       <input
@@ -122,8 +100,8 @@ const Option = ({
         name={name}
         value={value}
         disabled={disabled}
-        defaultChecked={isChecked}
-        onChange={handleChange}
+        defaultChecked={selectedValue === value}
+        onChange={onChange}
       />
       <label htmlFor={optionId}>{children}</label>
     </div>

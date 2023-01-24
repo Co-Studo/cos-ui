@@ -1,10 +1,16 @@
-import { Button, FlexBox, Form } from '@cos-ui/react';
+import {
+  Button,
+  FlexBox,
+  Form,
+  Radio,
+  TextArea,
+  TextInput,
+} from '@cos-ui/react';
 
 const checkTitle = (value) => {
   if (value.length > 8) {
     throw Error(`스터디 이름은 8자 이하로 작성해주세요!`);
   }
-
   return true;
 };
 
@@ -37,36 +43,55 @@ const handleSubmit = (e, value) => {
 };
 
 const ChangeFormPage = () => (
-  <Form onSubmit={handleSubmit} validationMode="onBlur">
-    <Form.TextField
+  <Form onSubmit={handleSubmit} validationMode="onChange">
+    <Form.Field
       name="study_name"
       label="스터디 이름"
       validates={[checkRequired, checkTitle]}
-      placeholder="8자 이내로 스터디 이름을 입력해주세요."
+      render={(subscribe, { error }) => (
+        <TextInput
+          isError={Boolean(error)}
+          placeholder="8자 이내로 스터디 이름을 입력해주세요."
+          {...subscribe}
+        />
+      )}
     />
-    <Form.TextField
-      type="number"
+    <Form.Field
       name="max_people"
       label="최대 인원"
       defaultValue="3"
       validates={[checkRequired, checkMinCount, checkMaxCount]}
-      placeholder="스터디 최소 인원은 3명, 최대 인원은 10명입니다."
+      render={(subscribe, { error }) => (
+        <TextInput
+          type="number"
+          isError={Boolean(error)}
+          placeholder="스터디 최소 인원은 3명, 최대 인원은 10명입니다."
+          {...subscribe}
+        />
+      )}
     />
-    <Form.TextField
-      type="multiline"
+    <Form.Field
       name="description"
       label="스터디 소개"
       validates={[checkRequired]}
-      placeholder="스터디 소개를 작성해주세요."
+      render={(subscribe, { error }) => (
+        <TextArea
+          isError={Boolean(error)}
+          placeholder="스터디 소개를 작성해주세요."
+          {...subscribe}
+        />
+      )}
     />
-    <Form.RadioField
+    <Form.Field
       name="personal_information"
       label="개인정보 수집 동의"
       validates={[checkAgree]}
-      options={[
-        { value: 'agree', label: '동의' },
-        { value: 'disagree', label: '비동의' },
-      ]}
+      render={({ name, ...subscribe }, { value }) => (
+        <Radio.Group name={name} selectedValue={value} {...subscribe}>
+          <Radio.Option value="agree">동의</Radio.Option>
+          <Radio.Option value="disagree">비동의</Radio.Option>
+        </Radio.Group>
+      )}
     />
     <FlexBox sx={{ justifyContent: 'center' }}>
       <Button type="submit" size="medium">

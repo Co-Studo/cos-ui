@@ -5,6 +5,8 @@ export { default as CosThemeProvider } from '@components/CosThemeProvider';
 export { default as Dropdown } from '@components/Dropdown';
 export * from '@components/FlexBox';
 export { default as Form } from '@components/Form';
+export { default as TextInput } from '@components/TextInput';
+export { default as TextArea } from '@components/TextArea';
 export { default as LoadingSpinner } from '@components/LoadingSpinner';
 export { default as Paper } from '@components/Paper';
 export { default as Radio } from '@components/Radio';
