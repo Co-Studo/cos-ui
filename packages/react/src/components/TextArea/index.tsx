@@ -7,7 +7,7 @@ export const TextAreaStyle = css<{ resize?: Resize }>`
   width: 100%;
   min-height: 15rem;
   resize: ${({ resize = 'vertical' }) => resize};
-  border: 0.1rem solid ${({ theme }) => theme.palette.neutral_1_light};
+  border: 0.1rem solid ${({ theme }) => theme.palette.neutral_1};
   border-radius: 1rem;
   padding: 1rem;
   font-size: 1.3rem;

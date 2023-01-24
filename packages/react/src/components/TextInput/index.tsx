@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 export const TextInputStyle = css`
   width: 58rem;
   height: 5rem;
-  border: 0.1rem solid ${({ theme }) => theme.palette.neutral_1_light};
+  border: 0.1rem solid ${({ theme }) => theme.palette.neutral_1};
   border-radius: 1rem;
   padding: 0 1rem;
   font-size: 1.3rem;
