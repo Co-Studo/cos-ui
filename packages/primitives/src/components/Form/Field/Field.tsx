@@ -102,7 +102,7 @@ const Field = ({
   );
 
   return (
-    <div data-type="filed" {...restProps}>
+    <div data-type="field" {...restProps}>
       {label && <Label inputId={id} label={label} isError={isError} />}
       {fieldContents}
       {isShowError && error && <Error inputId={id} error={error} />}
