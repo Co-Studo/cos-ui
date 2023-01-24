@@ -5,7 +5,6 @@ import {
   ChangeEvent,
   cloneElement,
   Children,
-  FocusEvent,
   isValidElement,
 } from 'react';
 
@@ -41,13 +40,10 @@ const Radio = ({
   selectedValue = '',
   name,
   children,
-  onChange,
   ...restProps
 }: RadioProps) => (
   <RadioContext.Provider value={{ selectedValue }}>
-    <div {...restProps}>
-      {passPropsToChildren(children, { name, onChange })}
-    </div>
+    <div {...restProps}>{passPropsToChildren(children, { name })}</div>
   </RadioContext.Provider>
 );
 
@@ -58,8 +54,6 @@ type OptionProps = {
   children: ReactNode;
   disabled?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
-  className?: string;
 };
 
 const Option = ({
@@ -69,7 +63,6 @@ const Option = ({
   children,
   disabled,
   onChange,
-  onBlur,
   ...restProps
 }: OptionProps) => {
   const { selectedValue } = useRadioContext();
@@ -84,14 +77,12 @@ const Option = ({
         disabled={disabled}
         defaultChecked={selectedValue === value}
         onChange={onChange}
-        onBlur={onBlur}
       />
       <label htmlFor={optionId}>{children}</label>
     </div>
   );
 };
 
-Option.displayName = 'Option';
 Radio.Option = Option;
 
 export default Radio;
