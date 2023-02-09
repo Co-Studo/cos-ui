@@ -25,6 +25,11 @@ const AvatarPage = () => (
       <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} size="small" />
       <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} />
       <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} size="large" />
+      <Avatar
+        src={AVATARS[0].src}
+        alt={AVATARS[0].name}
+        sx={{ width: '10rem', height: '10rem' }}
+      />
       <Avatar sx={{ backgroundColor: 'primary' }} size="small">
         박
       </Avatar>
