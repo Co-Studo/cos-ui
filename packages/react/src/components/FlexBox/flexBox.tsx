@@ -7,6 +7,7 @@ import {
 } from 'react';
 import styled, { DefaultTheme, useTheme } from 'styled-components';
 
+import { SizeSX } from '@styles/size';
 import {
   SpacingSX,
   getSpacingCssProps,
@@ -15,15 +16,6 @@ import {
   getSpacingValue,
 } from '@styles/spacing';
 import { Palette } from '@styles/theme';
-
-export type SizeSX = {
-  width?: string;
-  maxWidth?: string;
-  minWidth?: string;
-  height?: string;
-  maxHeight?: string;
-  minHeight?: string;
-};
 
 export type StyleSX = {
   bgColor?: keyof Palette;
