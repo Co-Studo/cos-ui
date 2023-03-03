@@ -24,14 +24,11 @@ const config = {
   tagline: 'React UI components',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  url: 'https://co-studo.github.io',
   baseUrl: '/',
-
   organizationName: 'Co-Studo',
-  projectName: 'cos-ui',
+  projectName: 'co-studo.github.io',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
