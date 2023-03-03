@@ -25,11 +25,11 @@ const config = {
   favicon: 'img/favicon.ico',
 
   url: 'https://co-studo.github.io',
-  baseUrl: '/',
+  baseUrl: '/cos-ui/',
   organizationName: 'Co-Studo',
-  projectName: 'co-studo.github.io',
+  projectName: 'cos-ui',
   trailingSlash: false,
-
+  deploymentBranch: 'gh-pages',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
