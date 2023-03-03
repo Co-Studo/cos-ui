@@ -10,6 +10,7 @@
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
+    "prebuild": "npm run prepare:docs",
     "predeploy": "npm run prepare:docs",
     "prepare:docs": "rm -rf docs/*/ && yarn ts-node -T ./scripts/index.ts",
     "write-translations": "docusaurus write-translations",
