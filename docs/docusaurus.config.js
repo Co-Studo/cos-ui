@@ -48,7 +48,7 @@ const config = {
       ({
         docs: {
           path: './docs',
-          // sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve('./sidebars.js'),
           editUrl: ({ docPath }) => {
             const dirname = path.dirname(docPath);
             const markdownFilename = getFilename(docPath);
