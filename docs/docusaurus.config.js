@@ -80,15 +80,9 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'react/README',
-            position: 'left',
-            label: 'react',
-          },
-          {
-            type: 'doc',
             docId: 'primitives/README',
             position: 'left',
-            label: 'primitives',
+            label: 'document',
           },
           {
             href: 'https://github.com/Co-Studo/cos-ui',
@@ -104,12 +98,12 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'react',
-                to: '/docs/react',
-              },
-              {
                 label: 'primitives',
                 to: '/docs/primitives',
+              },
+              {
+                label: 'react',
+                to: '/docs/react',
               },
             ],
           },

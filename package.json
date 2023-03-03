@@ -13,6 +13,7 @@
     "headless-ui"
   ],
   "workspaces": [
+    "docs",
     "packages/*"
   ],
   "scripts": {
