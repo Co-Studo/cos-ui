@@ -16,7 +16,8 @@ async function copyMDDocs(outdir: string, exclude: string[]) {
   await Promise.all(
     filepaths.map(async (filepath) => {
       const source = path.join(PACKAGES_ROOT, filepath);
-      const destination = path.join(outdir, filepath);
+      const newPath = filepath.replace(/\/src\/components/, '');
+      const destination = path.join(outdir, newPath);
 
       await fse.ensureDir(path.dirname(destination));
       await fse.copy(source, destination);
@@ -27,7 +28,7 @@ async function copyMDDocs(outdir: string, exclude: string[]) {
 export async function generateDocsFromMD() {
   return Promise.all([
     copyMDDocs(OUT_DIR, [
-      '**/README.md',
+      '**/playground-react/**',
       '**/CHANGELOG.md',
       '**/node_modules/**',
     ]),

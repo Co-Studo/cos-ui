@@ -9,12 +9,15 @@ const paths = glob
   .sync('**/*.md', {
     cwd: BASE_PATH,
   })
-  .sort();
+  .sort()
+  .map((_path) => _path.replace('.md', ''));
 
-const items = paths.map((_path) => _path.replace('.md', ''));
+const reactItems = paths.filter((_path) => !_path.includes('react'));
+const privitivesitems = paths.filter((_path) => !_path.includes('primitives'));
 
 const sidebars = {
-  tutorialSidebar: items,
+  reactSidebar: reactItems,
+  primitivesSidebar: privitivesitems,
 };
 
 module.exports = sidebars;
