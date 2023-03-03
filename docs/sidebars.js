@@ -1,11 +1,20 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 
-const PACKAGES_PATH = path.resolve(__dirname, '..', 'packages');
+const glob = require('globby');
+
+const BASE_PATH = path.resolve(__dirname, 'docs');
+
+const paths = glob
+  .sync('**/*.md', {
+    cwd: BASE_PATH,
+  })
+  .sort();
+
+const items = paths.map((_path) => _path.replace('.md', ''));
 
 const sidebars = {
-  // By default, Docusaurus generates a sidebar from the docs folder structure
-  tutorialSidebar: [`${PACKAGES_PATH}/react/src/components/Avatar/avatar`],
+  tutorialSidebar: items,
 };
 
 module.exports = sidebars;

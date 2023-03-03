@@ -13,7 +13,6 @@ async function copyMDDocs(outdir: string, exclude: string[]) {
     ignore: exclude,
   });
 
-  console.log(filepaths);
   await Promise.all(
     filepaths.map(async (filepath) => {
       const source = path.join(PACKAGES_ROOT, filepath);
