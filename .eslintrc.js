@@ -9,6 +9,7 @@ module.exports = {
     'airbnb/hooks',
     'prettier',
     'plugin:@typescript-eslint/recommended',
+    'plugin:storybook/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -50,7 +51,12 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/require-default-props': 'off',
     'react/jsx-no-constructed-context-values': 'off',
-    'react/no-unknown-property': ['error', { ignore: ['css'] }],
+    'react/no-unknown-property': [
+      'error',
+      {
+        ignore: ['css'],
+      },
+    ],
     'react/button-has-type': 'off',
     'no-await-in-loop': 'off',
     'no-continue': 'off',
