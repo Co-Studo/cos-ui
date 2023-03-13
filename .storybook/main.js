@@ -9,4 +9,12 @@ module.exports = {
   core: {
     builder: '@storybook/builder-webpack5',
   },
+  webpackFinal: async (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '../../../../../src': '../../../src',
+      '../../../../src': '../../src',
+    };
+    return config;
+  },
 };
