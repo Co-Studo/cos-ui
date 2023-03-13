@@ -6,7 +6,6 @@
   "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/playground-react#readme",
   "license": "MIT",
   "scripts": {
-    "prebuild": "yarn workspace @cos-ui/primitives build && yarn workspace @cos-ui/react build",
     "watch:primitives": "yarn workspace @cos-ui/primitives watch",
     "watch:react": "yarn workspace @cos-ui/react watch",
     "watch": "yarn run watch:primitives & yarn run watch:react",
@@ -18,9 +17,9 @@
   },
   "dependencies": {
     "@cos-ui/react": "^0.3.1",
-    "next": "^13.0.0",
-    "react": "^18.0.0",
-    "react-dom": "18.0.0",
+    "next": "^13.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "styled-components": "^5.3.6",
     "styled-reset": "^4.4.2"
   },
