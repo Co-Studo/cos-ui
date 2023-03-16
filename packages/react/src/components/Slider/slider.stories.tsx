@@ -4,7 +4,7 @@ import Button from '@components/Button';
 import { FlexBox } from '@components/FlexBox';
 import StyledSlider from '@components/Slider';
 import Text from '@components/Text';
-import { myStudies } from '@constants/slider';
+import { myStudies } from '@constants/mock';
 
 export default {
   title: 'React/Slider',
