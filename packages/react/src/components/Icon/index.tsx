@@ -9,7 +9,7 @@ type StyledIconProps = {
   color?: keyof Palette;
 };
 
-interface IconProps extends StyledIconProps {
+export interface IconProps extends StyledIconProps {
   iconName: IconName;
 }
 
