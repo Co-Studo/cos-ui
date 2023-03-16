@@ -4,7 +4,9 @@ import Avatar, { AvatarProps } from '@components/Avatar/avatar';
 import AvatarGroup, {
   AvatarGroupProps,
 } from '@components/AvatarGroup/avatarGroup';
-import { AVATARS_GROUP } from '@constants/avatar';
+import { FlexBox } from '@components/FlexBox';
+import Text from '@components/Text';
+import { AVATARS, AVATARS_GROUP } from '@constants/avatar';
 
 export default {
   title: 'React/AvatarGroup',
@@ -56,7 +58,146 @@ interface AvatarGroupStoryProps
   dummyType: string;
 }
 
-const Template: ComponentStory<
+export const Default = () => (
+  <>
+    <FlexBox sx={{ flexDirection: 'column', gap: 1 }}>
+      <Text variant="sectionTitle">Avatar Group - Small</Text>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS.slice(0, 2).map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="small"
+          />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS.map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="small"
+          />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS_GROUP.double.map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="small"
+          />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS_GROUP.triple.map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="small"
+          />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS_GROUP.four.map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="small"
+          />
+        ))}
+      </AvatarGroup>
+    </FlexBox>
+    <FlexBox sx={{ flexDirection: 'column', gap: 1 }}>
+      <Text variant="sectionTitle">Avatar Group - Medium</Text>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS.slice(0, 2).map((avatar) => (
+          <Avatar key={avatar.id} src={avatar.src} alt={avatar.name} />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS.map((avatar) => (
+          <Avatar key={avatar.id} src={avatar.src} alt={avatar.name} />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS_GROUP.double.map((avatar) => (
+          <Avatar key={avatar.id} src={avatar.src} alt={avatar.name} />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS_GROUP.triple.map((avatar) => (
+          <Avatar key={avatar.id} src={avatar.src} alt={avatar.name} />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS_GROUP.four.map((avatar) => (
+          <Avatar key={avatar.id} src={avatar.src} alt={avatar.name} />
+        ))}
+      </AvatarGroup>
+    </FlexBox>
+    <FlexBox sx={{ flexDirection: 'column', gap: 1 }}>
+      <Text variant="sectionTitle">Avatar Group - Large</Text>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS.slice(0, 2).map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="large"
+          />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS.map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="large"
+          />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS_GROUP.double.map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="large"
+          />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS_GROUP.triple.map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="large"
+          />
+        ))}
+      </AvatarGroup>
+      <AvatarGroup max={3} spacing="small">
+        {AVATARS_GROUP.four.map((avatar) => (
+          <Avatar
+            key={avatar.id}
+            src={avatar.src}
+            alt={avatar.name}
+            size="large"
+          />
+        ))}
+      </AvatarGroup>
+    </FlexBox>
+  </>
+);
+
+export const Custom: ComponentStory<
   (props: AvatarGroupStoryProps) => JSX.Element
 > = ({ dummyType, size, sx, ...args }) => (
   <AvatarGroup {...args}>
@@ -71,5 +212,3 @@ const Template: ComponentStory<
     ))}
   </AvatarGroup>
 );
-
-export const Default = Template.bind({});

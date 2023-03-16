@@ -1,6 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Avatar, { AvatarProps } from '@components/Avatar/avatar';
+import { FlexBox } from '@components/FlexBox';
+import Text from '@components/Text';
 import { AVATARS } from '@constants/avatar';
 
 export default {
@@ -51,7 +53,27 @@ const Template: ComponentStory<typeof Avatar> = (args: AvatarProps) => (
   <Avatar {...args} />
 );
 
-export const Default = Template.bind({});
+export const Default = () => (
+  <FlexBox sx={{ flexDirection: 'column', gap: 5, mb: 10 }}>
+    <Text variant="sectionTitle">Avatar</Text>
+    <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} size="small" />
+    <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} />
+    <Avatar src={AVATARS[0].src} alt={AVATARS[0].name} size="large" />
+    <Avatar
+      src={AVATARS[0].src}
+      alt={AVATARS[0].name}
+      sx={{ width: '10rem', height: '10rem' }}
+    />
+    <Avatar sx={{ backgroundColor: 'primary' }} size="small">
+      박
+    </Avatar>
+    <Avatar sx={{ backgroundColor: 'primary' }}>박상진</Avatar>
+    <Avatar sx={{ backgroundColor: 'primary' }}>박상진박박</Avatar>
+    <Avatar sx={{ backgroundColor: 'primary' }} size="large">
+      Emma Stone Emma Watson Emma What
+    </Avatar>
+  </FlexBox>
+);
 
 export const ImageAvatar = Template.bind({});
 ImageAvatar.args = {
