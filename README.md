@@ -2,44 +2,57 @@
 
 ### Packages
 
-| Name                                                                                              | Description                                                                                                                                             |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [@cos-ui/primitives](https://github.com/Co-Studo/cos-ui/tree/dev/packages/primitives)             | Headless UI 컴포넌트들을 모아둔 패키지 [Docs](https://co-studo.github.io/cos-ui/docs/primitives)                                                        |
-| [@cos-ui/react](https://github.com/Co-Studo/cos-ui/tree/dev/packages/react)                       | CoStudo 프로젝트에서 사용될 스타일링된 Headless UI 컴포넌트들과 디자인 관련 요소들을 모아둔 패키지 [Docs](https://co-studo.github.io/cos-ui/docs/react) |
-| [@cos-ui/playground-react](https://github.com/Co-Studo/cos-ui/tree/dev/packages/playground-react) | @cos-ui/react 패키지에 작성한 컴포넌트들을 모아볼 수 있는 페이지를 제공하는 패키지                                                                      |
+| Name                                                                                  | Description                                                                                                                                             |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [@cos-ui/primitives](https://github.com/Co-Studo/cos-ui/tree/dev/packages/primitives) | Headless UI 컴포넌트들을 모아둔 패키지 [Docs](https://co-studo.github.io/cos-ui/docs/primitives)                                                        |
+| [@cos-ui/react](https://github.com/Co-Studo/cos-ui/tree/dev/packages/react)           | CoStudo 프로젝트에서 사용될 스타일링된 Headless UI 컴포넌트들과 디자인 관련 요소들을 모아둔 패키지 [Docs](https://co-studo.github.io/cos-ui/docs/react) |
 
 <br/>
 
-### Documentation
+## 문서
+
+- 상세 설명은 [해당 페이지](https://co-studo.github.io/cos-ui/) 에서 확인할 수 있습니다.
 
 <br/>
+
+## 설치
+
+### @cos-ui/react
+
+#### npm
 
 ```sh
-$ git clone https://github.com/Co-Studo/cos-ui.git
-
-$ yarn install
-
-$ yarn build
+npm install @cos-ui/react
 ```
 
-- 클론 후 `install`, `build`를 실행하면 다른 패키지의 컴포넌트를 인식할 수 있다.
-- 개별 패키지의 빌드는 각 패키지의 `build`를 실행하면 가능하다.
-
-<br/>
+#### yarn
 
 ```sh
-$ yarn watch
+yarn install @cos-ui/react
 ```
 
-- 개발 시 실행하면 primitives, react 패키지에서 수정된 사항을 playground-react 에서 바로 확인 가능하다.<br/>
-  (단, 타입과 관련한 수정사항의 경우 반영되지 않으므로 다시 빌드하는 과정이 필요하다.)
-- primitives, react 패키지의 수정사항을 모두 반영하며, 개별 패키지의 수정사항 반영만 필요한 경우 playground-react 패키지의 `watch:primitives` 또는 `watch:react`를 실행하거나 각 패키지에서 `watch`를 실행하면 된다.
+### @cos-ui/primitives
 
-<br/>
+#### npm
 
 ```sh
-$ yarn clean
+npm install @cos-ui/primitives
 ```
 
-- 파일이나 폴더를 삭제하는 경우 빌드하면 반영이 되지 않기 때문에 `clean`을 실행해 폴더를 제거한 뒤 다시 빌드한다.
-- 마찬가지로 각 패키지의 `clean`을 실행하면 개별 패키지의 빌드 결과물을 제거할 수 있다.
+#### yarn
+
+```sh
+yarn install @cos-ui/primitives
+```
+
+### 기여를 위해 패키지를 받아 개발 시
+
+- `@cos-ui/react`, `@cos-ui/primitives` 패키지안에 있는 컴포넌트를 개발, 테스트하는 도구로 Storybook 을 사용하고 있습니다.
+
+```sh
+yarn install
+```
+
+```sh
+yarn storybook
+```
