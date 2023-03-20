@@ -15,17 +15,16 @@
   "scripts": {
     "build": "tsc && tsc-alias && babel --root-mode upward --extensions .ts,.tsx src --out-dir dist",
     "watch": "tsc && tsc-alias && babel --root-mode upward --watch --extensions .ts,.tsx src --out-dir dist",
-    "playground": "yarn workspace @cos-ui/playground-react dev",
     "clean": "rimraf ./dist"
   },
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "styled-components": "^5.3.6",
-    "styled-reset": "^4.4.2"
+    "styled-components": "^5.3.6"
   },
   "dependencies": {
-    "@cos-ui/primitives": "^0.3.1"
+    "@cos-ui/primitives": "^0.3.1",
+    "styled-reset": "^4.4.5"
   },
   "devDependencies": {
     "react": "^18.2.0",

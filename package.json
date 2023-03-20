@@ -18,9 +18,6 @@
   "scripts": {
     "primitives": "yarn workspace @cos-ui/primitives",
     "react": "yarn workspace @cos-ui/react",
-    "playground-react": "yarn workspace @cos-ui/playground-react dev",
-    "build": "yarn workspace @cos-ui/playground-react build",
-    "watch": "yarn workspace @cos-ui/playground-react watch",
     "clean": "yarn workspaces run clean",
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006",
