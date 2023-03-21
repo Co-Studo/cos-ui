@@ -10,8 +10,7 @@
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@utils/*": ["src/utils/*"],
-      "@styles/*": ["src/styles/*"],
-      "@constants/*": ["constants/*"]
+      "@styles/*": ["src/styles/*"]
     }
   },
   "include": ["src"],
