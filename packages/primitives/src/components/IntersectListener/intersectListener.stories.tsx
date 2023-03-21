@@ -1,4 +1,3 @@
-import { FlexBox, Paper, Text } from '@cos-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useEffect, useState } from 'react';
 
@@ -10,16 +9,21 @@ export default {
 } as ComponentMeta<typeof IntersectListener>;
 
 const Card = ({ number }) => (
-  <Paper
-    sx={{
+  <div
+    css={{
+      display: 'flex',
       width: '300px',
       height: '400px',
       justifyContent: 'center',
       alignItems: 'center',
+      background: '#f5f5f5',
+      border: '1ps solid #979797',
+      borderRadius: '10px',
+      boxShadow: '3px 3px 4px #bfbfbf',
     }}
   >
-    <Text variant="body">hi {number}</Text>
-  </Paper>
+    <h1>{number}</h1>
+  </div>
 );
 
 const datas = [
@@ -48,12 +52,19 @@ export const Default: ComponentStory<typeof IntersectListener> = () => {
       }}
       unobserve={page === 3}
     >
-      <Text variant="sectionTitle">Intersect Listener</Text>
-      <FlexBox sx={{ width: '1240px', flexWrap: 'wrap', gap: '40px 10px' }}>
+      <h1>Intersect Listener</h1>
+      <div
+        css={{
+          display: 'flex',
+          minWidth: '100%',
+          flexWrap: 'wrap',
+          gap: '40px 10px',
+        }}
+      >
         {elements.map((element) => (
           <Card key={element} number={element} />
         ))}
-      </FlexBox>
+      </div>
     </IntersectListener>
   );
 };
