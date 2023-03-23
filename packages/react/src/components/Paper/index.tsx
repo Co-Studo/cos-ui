@@ -11,7 +11,7 @@ type BasePaperSX = {
 const isBasePaperProp = (prop: string): prop is keyof BasePaperSX =>
   ['borderRadius', 'boxShadow'].includes(prop);
 
-interface FlexPaperSX extends FlexBoxSX, BasePaperSX {}
+export interface FlexPaperSX extends FlexBoxSX, BasePaperSX {}
 
 type PaperProps = FlexPaperProps;
 

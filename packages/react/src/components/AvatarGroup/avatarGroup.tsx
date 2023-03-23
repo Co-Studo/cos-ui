@@ -4,7 +4,7 @@ import styled, { useTheme } from 'styled-components';
 import Avatar, { AvatarProps } from '@components/Avatar/avatar';
 import FlexBox from '@components/FlexBox/flexBox';
 
-type AvatarGroupProps = {
+export type AvatarGroupProps = {
   children: ReactNode;
   max?: number;
   spacing?: 'small' | 'medium' | 'large';
