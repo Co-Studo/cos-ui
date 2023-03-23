@@ -1,5 +1,6 @@
 export * from '@components/Avatar';
 export * from '@components/AvatarGroup';
+export * from '@components/Spacing';
 export { default as Button } from '@components/Button';
 export { default as CosThemeProvider } from '@components/CosThemeProvider';
 export { default as Dropdown } from '@components/Dropdown';
