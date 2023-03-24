@@ -4,7 +4,6 @@
     "baseUrl": "./",
     "outDir": "dist",
     "declaration": true,
-    "declarationMap": true,
     "emitDeclarationOnly": true,
     "jsx": "react-jsx",
     "paths": {
