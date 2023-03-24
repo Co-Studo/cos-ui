@@ -13,7 +13,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc && tsc-alias && babel --root-mode upward --extensions .ts,.tsx src --out-dir dist",
+    "build": "rimraf ./dist && tsc && tsc-alias && babel --root-mode upward --extensions .ts,.tsx src --out-dir dist",
     "watch": "tsc && tsc-alias && babel --root-mode upward --watch --extensions .ts,.tsx src --out-dir dist",
     "clean": "rimraf ./dist"
   },
