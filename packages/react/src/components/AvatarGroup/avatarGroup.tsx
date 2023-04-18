@@ -29,6 +29,19 @@ const RestInfoAvatar = styled(Avatar)<Partial<AvatarGroupProps>>`
   }
 `;
 
+/**
+ *
+ * @name AvatarGroup
+ * @description `AvatarGroup` 은 `avatars:AvatarProp[]` 를 prop 으로 전달받아 `Avatar` 컴포넌트 목록을 보여줍니다.
+ * @props `max` : `Avatar` 가 보여질 최대 갯수를 지정합니다. `default: 5`
+ * @props `spacing` : `Avatar` 간의 간격을 `small`, `medium`, `large` 중 선택할 수 있습니다. `default: small`
+ * @props `size` : `small`, `medium`, `large` 중 선택할 수 있습니다. `default: small`
+ * @props `avatars` : Avatar 의 정보를 담는 배열을 입력합니다. ex) AvatarProps[]
+ * @example
+ * ```tsx
+ *  <AvatarGroup max={3} spacing="small" avatars={AVATARS} />
+ * ```
+ */
 const AvatarGroup = (props: AvatarGroupProps) => {
   const { avatars, size = 'small', max = 5, spacing = 'small' } = props;
   const theme = useTheme();
