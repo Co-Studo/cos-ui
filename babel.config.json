@@ -1,5 +1,5 @@
 {
-  "ignore": ["**/*.stories.tsx", "**/*.d.ts"],
+  "ignore": ["**/*.d.ts"],
   "presets": [
     [
       "@babel/preset-env",
@@ -34,6 +34,28 @@
           "@styles": "./src/styles",
           "@utils": "./src/utils",
           "@constants": "./src/constants"
+        }
+      }
+    ],
+    [
+      "inline-react-svg",
+      {
+        "svgo": {
+          "plugins": [
+            {
+              "name": "preset-default",
+              "params": {
+                "overrides": {
+                  "removeViewBox": false
+                }
+              }
+            },
+            {
+              "name": "removeAttrs",
+              "params": { "attrs": "(data-name)" }
+            },
+            "cleanupIDs"
+          ]
         }
       }
     ]
