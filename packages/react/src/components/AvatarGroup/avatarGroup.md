@@ -10,6 +10,7 @@ ex) 4 개의 아바타를 받았는데 최대 3개만 보여주고 싶은 경우
 - `max` : `Avatar` 가 보여질 최대 갯수를 지정합니다. `default: 5`
 - `spacing` : `Avatar` 간의 간격을 `small`, `medium`, `large` 중 선택할 수 있습니다. `default: small`
 - `size` : `Avatar` 들의 사이즈를 지정합니다. `default: small`
+- `avatars` : Avatar 의 정보를 담는 배열을 입력합니다. `ex) AvatarProps[]`
 
 ## Usage
 
