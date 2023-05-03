@@ -4,7 +4,7 @@
     "baseUrl": "./",
     "outDir": "dist",
     "declaration": true,
-    "declarationMap": true,
+    "emitDeclarationOnly": true,
     "jsx": "react-jsx",
     "paths": {
       "@components/*": ["src/components/*"],
@@ -14,5 +14,5 @@
     }
   },
   "include": ["src"],
-  "exclude": ["node_modules"]
+  "exclude": ["src/**/*.stories.ts*"]
 }
