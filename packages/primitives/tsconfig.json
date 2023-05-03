@@ -10,9 +10,9 @@
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@utils/*": ["src/utils/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@constants/*": ["src/constants/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["src/**/*.stories.ts*"]
+  "include": ["src"]
 }

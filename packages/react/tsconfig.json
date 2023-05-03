@@ -12,6 +12,5 @@
       "@constants/*": ["src/constants/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["src/**/*.stories.ts*"]
+  "include": ["src"]
 }
