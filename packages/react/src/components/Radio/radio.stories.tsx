@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import StyledRadio from '@components/Radio';
+import StyledRadio from '.';
 
 export default {
   title: 'React/Radio',

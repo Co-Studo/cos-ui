@@ -1,8 +1,9 @@
 import { ComponentMeta } from '@storybook/react';
 
-import { BasicTable } from '@components/Table';
-import Text from '@components/Text';
-import { noticeList } from '@constants/mock';
+import { BasicTable } from '.';
+
+import { noticeList } from '../../constants/mock';
+import Text from '../Text';
 
 export default {
   title: 'React/Table',

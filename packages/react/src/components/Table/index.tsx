@@ -1,3 +1,3 @@
-export { default as ColumnTable } from '@components/Table/ColumnTable';
-export { default as RowTable } from '@components/Table/RowTable';
-export { default as BasicTable } from '@components/Table/BasicTable';
+export { default as ColumnTable } from './ColumnTable';
+export { default as RowTable } from './RowTable';
+export { default as BasicTable } from './BasicTable';

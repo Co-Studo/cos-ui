@@ -1,1 +1,1 @@
-export { default as Spacing } from '@components/Spacing/spacing';
+export { default as Spacing } from './spacing';

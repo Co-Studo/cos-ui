@@ -1,10 +1,11 @@
 import { ComponentMeta } from '@storybook/react';
 
-import Button from '@components/Button';
-import { FlexBox } from '@components/FlexBox';
-import StyledSlider from '@components/Slider';
-import Text from '@components/Text';
-import { myStudies } from '@constants/mock';
+import StyledSlider from '.';
+
+import { myStudies } from '../../constants/mock';
+import Button from '../Button';
+import { FlexBox } from '../FlexBox';
+import Text from '../Text';
 
 export default {
   title: 'React/Slider',

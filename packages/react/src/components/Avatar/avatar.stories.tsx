@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Avatar, { AvatarProps } from '@components/Avatar/avatar';
-import { FlexBox } from '@components/FlexBox';
-import Text from '@components/Text';
-import { AVATARS } from '@constants/avatar';
+import { AVATARS } from '../../constants/avatar';
+import { FlexBox } from '../FlexBox';
+import Text from '../Text';
+import Avatar, { AvatarProps } from './avatar';
 
 export default {
   title: 'React/Avatar',

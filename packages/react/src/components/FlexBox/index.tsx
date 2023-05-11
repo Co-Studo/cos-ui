@@ -1,1 +1,1 @@
-export { default as FlexBox } from '@components/FlexBox/flexBox';
+export { default as FlexBox } from './flexBox';

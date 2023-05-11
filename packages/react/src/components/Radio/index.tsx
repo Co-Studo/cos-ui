@@ -1,7 +1,7 @@
 import { Radio } from '@cos-ui/primitives';
 import styled, { css } from 'styled-components';
 
-import { typography } from '@styles/typography';
+import { typography } from '../../styles/typography';
 
 export const RadioGroupStyle = css`
   display: flex;

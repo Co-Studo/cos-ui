@@ -1,9 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { FlexBox } from '@components/FlexBox';
-import Icon from '@components/Icon';
-import Text from '@components/Text';
-import { lightTheme } from '@styles/theme';
+import Icon from '.';
+
+import { lightTheme } from '../../styles/theme';
+import { FlexBox } from '../FlexBox';
+import Text from '../Text';
 
 export default {
   title: 'React/Icon',

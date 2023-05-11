@@ -1,4 +1,4 @@
-import colors from '@styles/colors';
+import colors from './colors';
 
 export type Palette = typeof lightPalette;
 

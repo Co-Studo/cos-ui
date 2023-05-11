@@ -1,9 +1,9 @@
 import { useTheme } from 'styled-components';
 
-import Text from '@components/Text';
-import { SizeSX } from '@styles/size';
-import { SpacingSX } from '@styles/spacing';
-import { Palette } from '@styles/theme';
+import { SizeSX } from '../../styles/size';
+import { SpacingSX } from '../../styles/spacing';
+import { Palette } from '../../styles/theme';
+import Text from '../Text';
 
 type AvatarSize = 'small' | 'medium' | 'large';
 

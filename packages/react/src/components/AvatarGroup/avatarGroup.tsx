@@ -1,7 +1,7 @@
 import styled, { useTheme } from 'styled-components';
 
-import Avatar, { AvatarProps } from '@components/Avatar/avatar';
-import FlexBox from '@components/FlexBox/flexBox';
+import Avatar, { AvatarProps } from '../Avatar/avatar';
+import FlexBox from '../FlexBox/flexBox';
 
 export type AvatarGroupProps = {
   avatars: AvatarProps[];

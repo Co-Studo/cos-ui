@@ -7,15 +7,15 @@ import {
 } from 'react';
 import styled, { DefaultTheme, useTheme } from 'styled-components';
 
-import { SizeSX } from '@styles/size';
+import { SizeSX } from '../../styles/size';
 import {
   SpacingSX,
   getSpacingCssProps,
   SpacingValue,
   isSpacingProp,
   getSpacingValue,
-} from '@styles/spacing';
-import { Palette } from '@styles/theme';
+} from '../../styles/spacing';
+import { Palette } from '../../styles/theme';
 
 export type StyleSX = {
   bgColor?: keyof Palette;

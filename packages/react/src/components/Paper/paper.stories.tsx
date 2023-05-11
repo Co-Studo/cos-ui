@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Paper from '@components/Paper';
-import Text from '@components/Text';
+import Paper from '.';
+
+import Text from '../Text';
 
 export default {
   title: 'React/Paper',

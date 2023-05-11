@@ -1,9 +1,9 @@
 import { Form } from '@cos-ui/primitives';
 import styled, { css } from 'styled-components';
 
-import { RadioGroupStyle, RadioOptionStyle } from '@components/Radio';
-import { TextAreaStyle } from '@components/TextArea';
-import { TextInputStyle } from '@components/TextInput';
+import { RadioGroupStyle, RadioOptionStyle } from '../Radio';
+import { TextAreaStyle } from '../TextArea';
+import { TextInputStyle } from '../TextInput';
 
 const StyledFormRoot = styled(Form)`
   display: flex;

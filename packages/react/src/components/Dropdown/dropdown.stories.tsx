@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Avatar } from '@components/Avatar';
-import StyledDropdown from '@components/Dropdown';
+import StyledDropdown from '.';
+
+import { Avatar } from '../Avatar';
 
 export default {
   title: 'React/DropDown',

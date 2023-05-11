@@ -1,9 +1,10 @@
 import { ComponentMeta } from '@storybook/react';
 
-import { FlexBox } from '@components/FlexBox';
-import { RowTable } from '@components/Table';
-import Text from '@components/Text';
-import { noticeList } from '@constants/mock';
+import { RowTable } from '.';
+
+import { noticeList } from '../../constants/mock';
+import { FlexBox } from '../FlexBox';
+import Text from '../Text';
 
 export default {
   title: 'React/Table',

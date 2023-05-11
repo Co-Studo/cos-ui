@@ -1,4 +1,4 @@
-import fonts from '@styles/fonts';
+import fonts from './fonts';
 
 export const typography = {
   body: {

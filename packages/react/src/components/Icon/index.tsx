@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-import { Palette } from '@styles/theme';
-
 import { icon, IconName } from '../../assets/icons';
+import { Palette } from '../../styles/theme';
 
 type StyledIconProps = {
   size?: keyof typeof iconSizes;
