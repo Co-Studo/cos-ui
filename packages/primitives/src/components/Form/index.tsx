@@ -1,7 +1,7 @@
-import Field from '@components/Form/Field/Field';
-import RadioField from '@components/Form/Field/RadioField';
-import TextField from '@components/Form/Field/TextField';
-import FormRoot from '@components/Form/Form';
+import Field from './Field/Field';
+import RadioField from './Field/RadioField';
+import TextField from './Field/TextField';
+import FormRoot from './Form';
 
 const Form = Object.assign(FormRoot, {
   Field,

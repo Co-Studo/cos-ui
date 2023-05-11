@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { useSliderInfoContext } from '@components/Slider/context/SliderInfoContext';
+import { useSliderInfoContext } from './context/SliderInfoContext';
 
 const SlideList = ({ children, ...restProps }) => {
   const {

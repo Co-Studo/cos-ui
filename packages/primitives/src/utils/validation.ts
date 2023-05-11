@@ -1,4 +1,4 @@
-import { all } from '@utils/functional';
+import { all } from './functional';
 
 const isInteger = (number: number) => {
   const stringNumber = number.toString();

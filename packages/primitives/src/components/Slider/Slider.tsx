@@ -1,9 +1,9 @@
 import { Children, ReactElement, useEffect } from 'react';
 import { css } from 'styled-components';
 
-import { SliderOptions } from '@components/Slider/context/SliderInfoContext';
-import SliderProvider from '@components/Slider/context/SliderProvider';
-import { isNaturalNumber, validate } from '@utils/validation';
+import { isNaturalNumber, validate } from '../../utils/validation';
+import { SliderOptions } from './context/SliderInfoContext';
+import SliderProvider from './context/SliderProvider';
 
 type SliderProps = {
   options?: Partial<SliderOptions>;

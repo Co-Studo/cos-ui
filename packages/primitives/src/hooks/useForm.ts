@@ -1,7 +1,7 @@
 import { ChangeEvent, FocusEvent, useEffect } from 'react';
 
-import { useFormContext, ValidationMode } from '@components/Form/Form';
-import { validate } from '@utils/validation';
+import { useFormContext, ValidationMode } from '../components/Form/Form';
+import { validate } from '../utils/validation';
 
 type InputEvent = ChangeEvent<HTMLInputElement> | FocusEvent<HTMLInputElement>;
 

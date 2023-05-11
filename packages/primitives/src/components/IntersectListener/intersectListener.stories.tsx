@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useEffect, useState } from 'react';
 
-import IntersectListener from '@components/IntersectListener/intersectListener';
+import IntersectListener from './intersectListener';
 
 export default {
   title: 'Primitives/IntersectListener',

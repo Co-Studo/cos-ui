@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import Field from '@components/Form/Field/Field';
-import Radio from '@components/Radio';
+import Radio from '../../Radio';
+import Field from './Field';
 
 type RadioFieldPros = {
   label?: ReactNode;

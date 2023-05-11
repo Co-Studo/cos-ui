@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { useSlideIndexContext } from '@components/Slider/context/SlideIndexContext';
-import { useSliderInfoContext } from '@components/Slider/context/SliderInfoContext';
-import { useThrottle, useDebounce } from '@utils/eventDelay';
+import { useThrottle, useDebounce } from '../../utils/eventDelay';
+import { useSlideIndexContext } from './context/SlideIndexContext';
+import { useSliderInfoContext } from './context/SliderInfoContext';
 
 const PrevButton = ({ children, ...restProps }) => {
   const [{ currentIndex }, dispatch] = useSlideIndexContext();

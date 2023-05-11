@@ -1,6 +1,6 @@
 import { memo, ReactNode, useId, useMemo } from 'react';
 
-import useForm from '@hooks/useForm';
+import useForm from '../../../hooks/useForm';
 
 type LabelProps = {
   inputId: string;

@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { css } from 'styled-components';
 
-import ClickAway, { useClickAwayContext } from '@components/ClickAway';
+import ClickAway, { useClickAwayContext } from '../ClickAway';
 
 type DropdownState = {
   triggerHeight: number;

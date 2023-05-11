@@ -1,5 +1,5 @@
-import BasicTable from '@components/Table/BasicTable';
-import ColumnTable from '@components/Table/ColumnTable';
-import RowTable from '@components/Table/RowTable';
+import BasicTable from './BasicTable';
+import ColumnTable from './ColumnTable';
+import RowTable from './RowTable';
 
 export { BasicTable, ColumnTable, RowTable };

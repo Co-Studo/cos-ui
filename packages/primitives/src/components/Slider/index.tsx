@@ -1,8 +1,8 @@
-import NextButton from '@components/Slider/NextButton';
-import PrevButton from '@components/Slider/PrevButton';
-import Slide from '@components/Slider/Slide';
-import SlideList from '@components/Slider/SlideList';
-import SliderRoot from '@components/Slider/Slider';
+import NextButton from './NextButton';
+import PrevButton from './PrevButton';
+import Slide from './Slide';
+import SlideList from './SlideList';
+import SliderRoot from './Slider';
 
 const Slider = Object.assign(SliderRoot, {
   List: SlideList,

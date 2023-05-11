@@ -1,13 +1,7 @@
 import { ReactElement, useReducer } from 'react';
 
-import {
-  reducer,
-  SlideIndexContext,
-} from '@components/Slider/context/SlideIndexContext';
-import {
-  SliderOptions,
-  SliderInfoContext,
-} from '@components/Slider/context/SliderInfoContext';
+import { reducer, SlideIndexContext } from './SlideIndexContext';
+import { SliderOptions, SliderInfoContext } from './SliderInfoContext';
 
 type SliderProviderProps = {
   options: SliderOptions;
