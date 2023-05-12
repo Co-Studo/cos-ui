@@ -3,7 +3,7 @@ export * from './components/AvatarGroup';
 export * from './components/Spacing';
 export * from './components/Button';
 export { default as CosThemeProvider } from './components/CosThemeProvider';
-export { default as Dropdown } from './components/Dropdown';
+export * from './components/Dropdown';
 export * from './components/FlexBox';
 export { default as Form } from './components/Form';
 export { default as TextInput } from './components/TextInput';
