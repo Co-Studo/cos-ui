@@ -5,7 +5,7 @@ export * from './components/Button';
 export { default as CosThemeProvider } from './components/CosThemeProvider';
 export * from './components/Dropdown';
 export * from './components/FlexBox';
-export { default as Form } from './components/Form';
+export * from './components/Form';
 export { default as TextInput } from './components/TextInput';
 export { default as TextArea } from './components/TextArea';
 export { default as LoadingSpinner } from './components/LoadingSpinner';
