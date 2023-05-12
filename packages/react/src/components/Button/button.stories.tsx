@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { css } from 'styled-components';
 
-import Button from '.';
+import { Button } from '.';
 
 import { FlexBox } from '../FlexBox';
 import { Text } from '../Text';

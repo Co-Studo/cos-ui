@@ -3,7 +3,7 @@ import { ComponentMeta } from '@storybook/react';
 import StyledSlider from '.';
 
 import { myStudies } from '../../constants/mock';
-import Button from '../Button';
+import { Button } from '../Button';
 import { FlexBox } from '../FlexBox';
 import { Text } from '../Text';
 
