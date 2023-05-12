@@ -1,9 +1,4 @@
-import { SizeSX } from '../../styles/size';
-
-type SpacingProps = {
-  size?: string;
-  sx?: SizeSX;
-};
+import type { SpacingProps } from './Spacing.types';
 
 /**
  *
