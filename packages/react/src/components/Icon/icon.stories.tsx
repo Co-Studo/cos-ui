@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Icon from '.';
+import { Icon } from '.';
 
 import { lightTheme } from '../../styles/theme';
 import { FlexBox } from '../FlexBox';

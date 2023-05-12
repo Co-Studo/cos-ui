@@ -1,7 +1,7 @@
 import { Slider } from '@cos-ui/primitives';
 import styled, { css } from 'styled-components';
 
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
 const StyledSliderItem = styled(Slider.Item)`
   padding: 2.6rem 2.2rem 2rem;
