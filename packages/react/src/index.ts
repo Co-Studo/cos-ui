@@ -10,7 +10,7 @@ export { default as TextInput } from './components/TextInput';
 export { default as TextArea } from './components/TextArea';
 export * from './components/LoadingSpinner';
 export * from './components/Paper';
-export { default as Radio } from './components/Radio';
+export * from './components/Radio';
 export { BasicTab, BorderTab } from './components/Tab';
 export { ColumnTable, RowTable, BasicTable } from './components/Table';
 export * from './components/Text';

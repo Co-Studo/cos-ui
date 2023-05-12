@@ -3,19 +3,6 @@ import styled, { css } from 'styled-components';
 
 import { typography } from '../../styles/typography';
 
-export const RadioGroupStyle = css`
-  display: flex;
-  flex-direction: row;
-  min-width: fit-content;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-`;
-
-const StyledRadioGroup = styled(Radio)`
-  ${RadioGroupStyle}
-`;
-
 const RadioButtonStyle = css`
   -webkit-appearance: none;
   appearance: none;
@@ -56,13 +43,8 @@ export const RadioOptionStyle = css`
   }
 `;
 
-const StyledRadioOption = styled(Radio.Option)`
+const RadioOption = styled(Radio.Option)`
   ${RadioOptionStyle}
 `;
 
-const StyledRadio = {
-  Group: StyledRadioGroup,
-  Option: StyledRadioOption,
-};
-
-export default StyledRadio;
+export default RadioOption;
