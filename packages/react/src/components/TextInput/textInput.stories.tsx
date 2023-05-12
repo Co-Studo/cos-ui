@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import TextInput from '.';
+import { TextInput } from '.';
 
 import { Text } from '../Text';
 
