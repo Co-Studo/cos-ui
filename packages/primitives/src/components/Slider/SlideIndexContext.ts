@@ -1,15 +1,10 @@
-import { createContext, Dispatch, useContext } from 'react';
+import { createContext, useContext } from 'react';
 
-type SlideIndexState = {
-  currentIndex: number;
-};
-
-type SlideIndexAction = {
-  type: 'INCREASE_CURRENT_INDEX' | 'DECREASE_CURRENT_INDEX';
-  slidesToScroll: number;
-};
-
-type SlideIndexContextValues = [SlideIndexState, Dispatch<SlideIndexAction>];
+import {
+  SlideIndexAction,
+  SlideIndexContextValues,
+  SlideIndexState,
+} from './Slider.types';
 
 export const reducer = (
   { currentIndex }: SlideIndexState,
@@ -27,8 +22,9 @@ export const reducer = (
   }
 };
 
-export const SlideIndexContext =
-  createContext<SlideIndexContextValues | null>(null);
+export const SlideIndexContext = createContext<SlideIndexContextValues | null>(
+  null,
+);
 SlideIndexContext.displayName = 'SlideIndexContext';
 
 export const useSlideIndexContext = () => {

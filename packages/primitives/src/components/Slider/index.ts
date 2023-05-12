@@ -11,4 +11,5 @@ const Slider = Object.assign(SliderRoot, {
   NextButton,
 });
 
-export default Slider;
+export { Slider };
+export * from './Slider.types';

@@ -1,8 +1,10 @@
 import { css } from 'styled-components';
 
-import { useSliderInfoContext } from './context/SliderInfoContext';
+import type { SlideListProps } from './Slider.types';
+import { useSliderInfoContext } from './SliderInfoContext';
 
-const SlideList = ({ children, ...restProps }) => {
+const SlideList = (props: SlideListProps) => {
+  const { children, ...restProps } = props;
   const {
     options: { slidesMargin, responsive },
   } = useSliderInfoContext();
