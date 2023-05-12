@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import LoadingSpinner from '.';
 
-import Text from '../Text';
+import { Text } from '../Text';
 
 export default {
   title: 'React/LoadingSpinner',

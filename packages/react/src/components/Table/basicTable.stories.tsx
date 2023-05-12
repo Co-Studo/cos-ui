@@ -3,7 +3,7 @@ import { ComponentMeta } from '@storybook/react';
 import { BasicTable } from '.';
 
 import { noticeList } from '../../constants/mock';
-import Text from '../Text';
+import { Text } from '../Text';
 
 export default {
   title: 'React/Table',

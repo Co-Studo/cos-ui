@@ -4,7 +4,7 @@ import { css } from 'styled-components';
 import Button from '.';
 
 import { FlexBox } from '../FlexBox';
-import Text from '../Text';
+import { Text } from '../Text';
 
 export default {
   title: 'React/Button',

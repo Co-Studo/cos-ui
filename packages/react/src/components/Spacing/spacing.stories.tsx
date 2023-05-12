@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Button from '../Button';
 import { FlexBox } from '../FlexBox';
 import Paper from '../Paper';
-import Text from '../Text';
+import { Text } from '../Text';
 import Spacing from './spacing';
 
 export default {

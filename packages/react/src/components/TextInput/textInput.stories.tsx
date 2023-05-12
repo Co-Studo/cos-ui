@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useState } from 'react';
 
 import TextInput from '.';
 
-import Text from '../Text';
+import { Text } from '../Text';
 
 export default {
   title: 'React/TextInput',

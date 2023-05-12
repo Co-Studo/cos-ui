@@ -4,7 +4,7 @@ import Icon from '.';
 
 import { lightTheme } from '../../styles/theme';
 import { FlexBox } from '../FlexBox';
-import Text from '../Text';
+import { Text } from '../Text';
 
 export default {
   title: 'React/Icon',

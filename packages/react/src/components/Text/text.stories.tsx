@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Text from '.';
+import { Text } from '.';
 
 import { typography } from '../../styles/typography';
 

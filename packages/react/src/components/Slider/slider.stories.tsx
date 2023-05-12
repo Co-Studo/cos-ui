@@ -5,7 +5,7 @@ import StyledSlider from '.';
 import { myStudies } from '../../constants/mock';
 import Button from '../Button';
 import { FlexBox } from '../FlexBox';
-import Text from '../Text';
+import { Text } from '../Text';
 
 export default {
   title: 'React/Slider',

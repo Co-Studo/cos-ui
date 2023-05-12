@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 
-import Text from '../Text';
+import { Text } from '../Text';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit';
