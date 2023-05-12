@@ -1,8 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
 
-type LoadingSpinnerProps = {
-  size?: 'small' | 'medium' | 'large';
-};
+import type { LoadingSpinnerProps } from './LoadingSpinner.types';
 
 const sizeStyles = css<LoadingSpinnerProps>`
   ${({ size }) =>
@@ -45,7 +43,7 @@ const spinnerAnimation = keyframes`
   }
 `;
 
-export const StyledSpinner = styled.div<LoadingSpinnerProps>`
+const StyledSpinner = styled.div<LoadingSpinnerProps>`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -57,8 +55,9 @@ export const StyledSpinner = styled.div<LoadingSpinnerProps>`
   ${sizeStyles};
 `;
 
-const LoadingSpinner = ({ size = 'medium' }: LoadingSpinnerProps) => (
-  <StyledSpinner size={size} />
-);
+const LoadingSpinner = (props: LoadingSpinnerProps) => {
+  const { size = 'medium' } = props;
+  return <StyledSpinner size={size} />;
+};
 
 export default LoadingSpinner;

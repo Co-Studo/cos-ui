@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import LoadingSpinner from '.';
+import { LoadingSpinner } from '.';
 
 import { Text } from '../Text';
 

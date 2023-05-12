@@ -8,7 +8,7 @@ export * from './components/FlexBox';
 export * from './components/Form';
 export { default as TextInput } from './components/TextInput';
 export { default as TextArea } from './components/TextArea';
-export { default as LoadingSpinner } from './components/LoadingSpinner';
+export * from './components/LoadingSpinner';
 export { default as Paper } from './components/Paper';
 export { default as Radio } from './components/Radio';
 export { BasicTab, BorderTab } from './components/Tab';
