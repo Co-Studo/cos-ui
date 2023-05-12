@@ -1,7 +1,7 @@
 import { Form } from '@cos-ui/primitives';
 import styled from 'styled-components';
 
-import { TextAreaStyle } from '../TextArea';
+import { TextAreaStyle } from '../TextArea/Textarea';
 import { TextInputStyle } from '../TextInput/TextInput';
 import { FieldStyle } from './Field';
 

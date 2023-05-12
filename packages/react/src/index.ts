@@ -7,7 +7,7 @@ export * from './components/Dropdown';
 export * from './components/FlexBox';
 export * from './components/Form';
 export * from './components/TextInput';
-export { default as TextArea } from './components/TextArea';
+export * from './components/TextArea';
 export * from './components/LoadingSpinner';
 export * from './components/Paper';
 export * from './components/Radio';
