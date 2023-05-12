@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Paper from '.';
+import { Paper } from '.';
 
 import { Text } from '../Text';
 
