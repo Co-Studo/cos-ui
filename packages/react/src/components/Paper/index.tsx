@@ -1,7 +1,7 @@
 import { ReactNode, MouseEvent } from 'react';
 import { useTheme } from 'styled-components';
 
-import FlexBox, { FlexBoxSX } from '../FlexBox/flexBox';
+import { FlexBox, FlexBoxSX } from '../FlexBox';
 
 type BasePaperSX = {
   borderRadius?: string;
