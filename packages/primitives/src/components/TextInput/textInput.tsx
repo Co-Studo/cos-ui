@@ -1,31 +1,6 @@
-import { ChangeEvent, FocusEvent, useId } from 'react';
+import { useId } from 'react';
 
-export type TextInputTypes =
-  | 'text'
-  | 'email'
-  | 'number'
-  | 'password'
-  | 'search'
-  | 'tel'
-  | 'date'
-  | 'url';
-
-export type TextInputProps = {
-  id?: string;
-  name?: string;
-  type?: TextInputTypes;
-  value?: string;
-  defaultValue?: string;
-  placeholder?: string;
-  min?: string;
-  max?: string;
-  pattern?: string;
-  required?: boolean;
-  isError?: boolean;
-  isSuccess?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
-};
+import { TextInputProps } from './textInput.types';
 
 /**
  *
@@ -45,13 +20,8 @@ export type TextInputProps = {
     />
  * ```
  */
-
-const TextInput = ({
-  id,
-  type = 'text',
-  isError,
-  ...restProps
-}: TextInputProps) => {
+const TextInput = (props: TextInputProps) => {
+  const { id, type = 'text', isError, ...restProps } = props;
   const randomId = useId();
   const inputId = id ?? randomId;
   return (
