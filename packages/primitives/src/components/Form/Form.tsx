@@ -1,22 +1,6 @@
-import {
-  createContext,
-  Dispatch,
-  FormEvent,
-  ReactNode,
-  SetStateAction,
-  useContext,
-  useState,
-} from 'react';
+import { createContext, useContext, useState } from 'react';
 
-export type ValidationMode = 'onChange' | 'onBlur' | 'onSubmit';
-
-type FormContextType = {
-  values: Record<string, string>;
-  setValues: Dispatch<SetStateAction<Record<string, string>>>;
-  errors: Record<string, string>;
-  setErrors: Dispatch<SetStateAction<Record<string, string>>>;
-  validationMode?: ValidationMode;
-};
+import type { FormContextType, FormProps } from './Form.types';
 
 export const FormContext = createContext<FormContextType | null>(null);
 FormContext.displayName = 'FormContext';
@@ -29,15 +13,6 @@ export const useFormContext = () => {
     );
   }
   return context;
-};
-
-type FormProps = {
-  validationMode?: ValidationMode;
-  children: ReactNode;
-  onSubmit?: (
-    event: FormEvent<HTMLFormElement>,
-    values: Record<string, string>,
-  ) => void;
 };
 
 /**
@@ -71,12 +46,8 @@ type FormProps = {
   </Form>
  * ```
  */
-const Form = ({
-  validationMode,
-  children,
-  onSubmit,
-  ...restProps
-}: FormProps) => {
+const Form = (props: FormProps) => {
+  const { validationMode, children, onSubmit, ...restProps } = props;
   const [values, setValues] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
 
