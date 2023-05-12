@@ -1,17 +1,11 @@
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  useContext,
-  useReducer,
-} from 'react';
+import { createContext, Dispatch, useContext, useReducer } from 'react';
 import { css } from 'styled-components';
 
-type ClickAwayState = {
-  isOpen: boolean;
-};
-
-type ClickAwayAction = { type: 'TOGGLE_OPEN_AWAY' };
+import type {
+  ClickAwayAction,
+  ClickAwayProps,
+  ClickAwayState,
+} from './clickAway.types';
 
 const reducer = (state: ClickAwayState, action: ClickAwayAction) => {
   switch (action.type) {
@@ -41,11 +35,8 @@ export const useClickAwayContext = () => {
   return context;
 };
 
-type ClickAwayProps = {
-  children: ReactNode;
-};
-
-const ClickAway = ({ children }: ClickAwayProps) => {
+const ClickAway = (props: ClickAwayProps) => {
+  const { children } = props;
   const clickAwayReducer = useReducer(reducer, initState);
   const [state, dispatch] = clickAwayReducer;
 
