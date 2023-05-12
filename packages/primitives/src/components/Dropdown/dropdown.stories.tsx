@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Dropdown from '.';
+import { Dropdown } from '.';
 
 export default {
   title: 'Primitives/DropDown',
