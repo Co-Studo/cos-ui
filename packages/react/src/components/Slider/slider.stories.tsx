@@ -1,6 +1,6 @@
 import { ComponentMeta } from '@storybook/react';
 
-import StyledSlider from '.';
+import { Slider } from '.';
 
 import { myStudies } from '../../constants/mock';
 import { Button } from '../Button';
@@ -9,8 +9,8 @@ import { Text } from '../Text';
 
 export default {
   title: 'React/Slider',
-  component: StyledSlider,
-} as ComponentMeta<typeof StyledSlider>;
+  component: Slider,
+} as ComponentMeta<typeof Slider>;
 
 export const Default = () => (
   <div
@@ -21,7 +21,7 @@ export const Default = () => (
       padding: '0 4.5rem',
     }}
   >
-    <StyledSlider
+    <Slider
       options={{
         slidesToShow: 4,
         slidesToScroll: 2,
@@ -43,9 +43,9 @@ export const Default = () => (
         ],
       }}
     >
-      <StyledSlider.List>
+      <Slider.List>
         {myStudies.map(({ id, title, description }) => (
-          <StyledSlider.Item key={id}>
+          <Slider.Item key={id}>
             <Text variant="articleTitle">{title}</Text>
             <Text variant="articleDescription" sx={{ mt: 1 }} ellipsis>
               {description}
@@ -56,11 +56,11 @@ export const Default = () => (
               <Button>체크인</Button>
               <Button variant="outlined">체크아웃</Button>
             </FlexBox>
-          </StyledSlider.Item>
+          </Slider.Item>
         ))}
-      </StyledSlider.List>
-      <StyledSlider.PrevButton />
-      <StyledSlider.NextButton />
-    </StyledSlider>
+      </Slider.List>
+      <Slider.PrevButton />
+      <Slider.NextButton />
+    </Slider>
   </div>
 );
