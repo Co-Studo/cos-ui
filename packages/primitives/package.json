@@ -4,7 +4,9 @@
   "description": "Headless UI components for React",
   "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/primitives#readme",
   "license": "MIT",
-  "main": "./dist/index.js",
+  "type": "module",
+  "main": "./dist/primitives.cjs",
+  "module": "./dist/primitives.js",
   "types": "./dist/index.d.ts",
   "publishConfig": {
     "access": "public"
@@ -13,8 +15,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf ./dist && tsc && babel --root-mode upward --extensions .ts,.tsx --ignore \"**/*.stories.tsx\" src --out-dir dist",
-    "watch": "tsc && babel --root-mode upward --watch --extensions .ts,.tsx src --out-dir dist",
+    "build": "rimraf ./dist && vite build && tsc",
+    "watch": "tsc && vite build --watch",
     "clean": "rimraf ./dist"
   },
   "peerDependencies": {
