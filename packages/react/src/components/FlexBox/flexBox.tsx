@@ -1,76 +1,13 @@
-import {
-  ComponentPropsWithoutRef,
-  ComponentPropsWithRef,
-  ElementType,
-  forwardRef,
-  ReactElement,
-} from 'react';
-import styled, { DefaultTheme, useTheme } from 'styled-components';
+import { ComponentPropsWithRef, ElementType, forwardRef } from 'react';
+import styled, { useTheme } from 'styled-components';
 
-import { SizeSX } from '@styles/size';
-import {
-  SpacingSX,
-  getSpacingCssProps,
-  SpacingValue,
-  isSpacingProp,
-  getSpacingValue,
-} from '@styles/spacing';
-import { Palette } from '@styles/theme';
+import { FlexBoxComponent, FlexBoxProps } from './FlexBox.types';
+import { getFlexCssProperties } from './helper';
 
-export type StyleSX = {
-  bgColor?: keyof Palette;
-};
-
-export interface FlexBoxSX extends SizeSX, SpacingSX, StyleSX {
-  justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
-  alignItems?: 'center' | 'flex-start' | 'flex-end';
-  flexDirection?: 'row' | 'column';
-  flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
-  alignSelf?: 'flex-start' | 'flex-end' | 'center';
-  justifySelf?: 'flex-start' | 'flex-end' | 'center';
-  flexShrink?: number;
-  flexGrow?: number;
-  gap?: SpacingValue;
-}
-
-type FlexBoxProps<T extends ElementType> = {
-  as?: T;
-  sx?: FlexBoxSX;
-} & ComponentPropsWithoutRef<T>;
-
-type FlexBoxComponent = <C extends ElementType = 'div'>(
-  props: FlexBoxProps<C> & { ref?: ComponentPropsWithRef<C>['ref'] },
-) => ReactElement | null;
-
+// as 적용을 위한 wrapper
 const Wrapper = styled.div`
   display: flex;
 `;
-
-const getFlexCssProperties = (sx: FlexBoxSX, theme: DefaultTheme) =>
-  Object.entries(sx).reduce((css, [key, value]) => {
-    switch (true) {
-      case key === 'bgColor':
-        return {
-          ...css,
-          backgroundColor: theme.palette[value],
-        };
-      case key === 'gap':
-        return {
-          ...css,
-          gap: getSpacingValue(value),
-        };
-      case isSpacingProp(key):
-        return { ...css, ...getSpacingCssProps(key, value) };
-      default:
-        return { ...css, [key]: value };
-    }
-  }, {});
 
 const FlexBox: FlexBoxComponent = forwardRef(
   <T extends ElementType = 'div'>(

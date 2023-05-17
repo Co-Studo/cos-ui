@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Radio from '@components/Radio';
+import { Radio } from '.';
 
 export default {
   title: 'Primitives/Radio',

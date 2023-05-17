@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { lightTheme } from '@styles/theme';
+import { lightTheme } from '../../styles/theme';
 
 type CosThemeProviderProps<T> = {
   theme?: T;

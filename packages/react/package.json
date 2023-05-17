@@ -13,8 +13,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf ./dist && tsc && tsc-alias && babel --root-mode upward --extensions .ts,.tsx --ignore \"**/*.stories.tsx\" src --out-dir dist",
-    "watch": "tsc && tsc-alias && babel --root-mode upward --watch --extensions .ts,.tsx src --out-dir dist",
+    "build": "rimraf ./dist && tsc && babel --root-mode upward --extensions .ts,.tsx --ignore \"**/*.stories.tsx\" src --out-dir dist",
+    "watch": "tsc && babel --root-mode upward --watch --extensions .ts,.tsx src --out-dir dist",
     "clean": "rimraf ./dist"
   },
   "peerDependencies": {

@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useRef } from 'react';
 
-import { FlexBox } from '@components/FlexBox';
+import { FlexBox } from '.';
 
 export default {
   title: 'React/FlexBox',

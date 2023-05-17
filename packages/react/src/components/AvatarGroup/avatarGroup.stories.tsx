@@ -1,12 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Avatar, { AvatarProps } from '@components/Avatar/avatar';
-import AvatarGroup, {
-  AvatarGroupProps,
-} from '@components/AvatarGroup/avatarGroup';
-import { FlexBox } from '@components/FlexBox';
-import Text from '@components/Text';
-import { AVATARS, AVATARS_GROUP } from '@constants/avatar';
+import { AvatarGroup, AvatarGroupProps } from '.';
+
+import { AVATARS, AVATARS_GROUP } from '../../constants/avatar';
+import { AvatarProps } from '../Avatar';
+import { FlexBox } from '../FlexBox';
+import { Text } from '../Text';
 
 export default {
   title: 'React/AvatarGroup',

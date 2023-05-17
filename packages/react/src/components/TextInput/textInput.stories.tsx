@@ -1,8 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import Text from '@components/Text';
-import TextInput from '@components/TextInput';
+import { TextInput } from '.';
+
+import { Text } from '../Text';
 
 export default {
   title: 'React/TextInput',

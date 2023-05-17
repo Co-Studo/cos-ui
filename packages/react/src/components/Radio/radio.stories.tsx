@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import StyledRadio from '@components/Radio';
+import { Radio } from '.';
 
 export default {
   title: 'React/Radio',
-  component: StyledRadio,
+  component: Radio,
 };
 
 export const Default = () => {
@@ -21,16 +21,16 @@ export const Default = () => {
   ];
 
   return (
-    <StyledRadio.Group
+    <Radio.Group
       name="FirstGroup"
       selectedValue={selectedValue}
       onChange={handleOnChange}
     >
       {dataList.map(({ value, label }) => (
-        <StyledRadio.Option key={value} value={value}>
+        <Radio.Option key={value} value={value}>
           {label}
-        </StyledRadio.Option>
+        </Radio.Option>
       ))}
-    </StyledRadio.Group>
+    </Radio.Group>
   );
 };

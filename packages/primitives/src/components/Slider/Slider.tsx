@@ -1,14 +1,9 @@
 import { Children, ReactElement, useEffect } from 'react';
 import { css } from 'styled-components';
 
-import { SliderOptions } from '@components/Slider/context/SliderInfoContext';
-import SliderProvider from '@components/Slider/context/SliderProvider';
-import { isNaturalNumber, validate } from '@utils/validation';
-
-type SliderProps = {
-  options?: Partial<SliderOptions>;
-  children: ReactElement | ReactElement[];
-};
+import { isNaturalNumber, validate } from '../../utils/validation';
+import type { SliderProps } from './Slider.types';
+import SliderProvider from './SliderProvider';
 
 const defaultOptions = {
   slidesToShow: 1,
@@ -18,7 +13,8 @@ const defaultOptions = {
   initialSlide: 0,
 };
 
-const Slider = ({ options, children }: SliderProps) => {
+const Slider = (props: SliderProps) => {
+  const { options, children } = props;
   const sliderOptions = { ...defaultOptions, ...options };
 
   const validateOptions = () => {

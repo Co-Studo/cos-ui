@@ -1,12 +1,6 @@
-import { ReactNode, useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
-type IntersectListenerProps = {
-  children: ReactNode;
-  onIntersect: (target?: HTMLElement) => void;
-  unobserve: boolean;
-  rootMargin?: string;
-  threshold?: number;
-};
+import type { IntersectListenerProps } from './IntersectListener.types';
 
 /**
  *

@@ -1,11 +1,7 @@
 import { Children, cloneElement, ReactElement, useState } from 'react';
 
-import Cell, {
-  SortingState,
-  initSortingState,
-  SortingConfig,
-} from '@components/Table/Cell';
-import { offscreen } from '@styles/commonStyles';
+import { offscreen } from '../../styles/commonStyles';
+import Cell, { SortingState, initSortingState, SortingConfig } from './Cell';
 
 export type ColumnTableProps = {
   caption: string;

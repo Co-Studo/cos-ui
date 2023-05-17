@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import { useSlideIndexContext } from '@components/Slider/context/SlideIndexContext';
-import { useSliderInfoContext } from '@components/Slider/context/SliderInfoContext';
-import { useThrottle, useDebounce } from '@utils/eventDelay';
+import { useThrottle, useDebounce } from '../../utils/eventDelay';
+import { useSlideIndexContext } from './SlideIndexContext';
+import type { SliderButtonProps } from './Slider.types';
+import { useSliderInfoContext } from './SliderInfoContext';
 
-const NextButton = ({ children, ...restProps }) => {
+const NextButton = (props: SliderButtonProps) => {
+  const { children, ...restProps } = props;
   const [{ currentIndex }, dispatch] = useSlideIndexContext();
   const {
     options: { responsive = [], ...defaultOptions },

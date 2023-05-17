@@ -1,25 +1,7 @@
-import { ReactNode } from 'react';
-
-import Field from '@components/Form/Field/Field';
-import TextArea, { Resize } from '@components/TextArea';
-import TextInput, { TextInputTypes } from '@components/TextInput';
-
-type TextFieldProps = {
-  validates?: (<V>(value: V) => boolean)[];
-  type?: TextInputTypes | 'multiline';
-  resize?: Resize;
-  name: string;
-  label?: ReactNode;
-  defaultValue?: string;
-  placeholder?: string;
-  cols?: number;
-  rows?: number;
-  required?: boolean;
-  min?: string;
-  max?: string;
-  pattern?: string;
-  className?: string;
-};
+import { TextArea } from '../../TextArea';
+import { TextInput } from '../../TextInput';
+import Field from './Field';
+import { TextFieldProps } from './Field.types';
 
 /**
  * @name TextField

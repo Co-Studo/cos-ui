@@ -1,14 +1,8 @@
 import styled, { useTheme } from 'styled-components';
 
-import Avatar, { AvatarProps } from '@components/Avatar/avatar';
-import FlexBox from '@components/FlexBox/flexBox';
-
-export type AvatarGroupProps = {
-  avatars: AvatarProps[];
-  max?: number;
-  spacing?: 'small' | 'medium' | 'large';
-  size?: 'small' | 'medium' | 'large';
-};
+import { Avatar } from '../Avatar';
+import { FlexBox } from '../FlexBox';
+import type { AvatarGroupProps } from './AvatarGroup.types';
 
 const SPACING_OPTIONS = {
   small: '-1.5rem',

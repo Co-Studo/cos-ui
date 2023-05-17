@@ -1,6 +1,6 @@
 import { ComponentMeta } from '@storybook/react';
 
-import { BasicTab } from '@components/Tab';
+import { BasicTab } from '.';
 
 export default {
   title: 'React/Tab',

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TextInput from '@components/TextInput';
+import { TextInput } from '.';
 
 export default {
   title: 'Primitives/TextInput',

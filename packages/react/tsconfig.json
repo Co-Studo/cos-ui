@@ -5,12 +5,7 @@
     "outDir": "dist",
     "declaration": true,
     "emitDeclarationOnly": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@styles/*": ["src/styles/*"],
-      "@constants/*": ["src/constants/*"]
-    }
+    "jsx": "react-jsx"
   },
   "include": ["src"]
 }

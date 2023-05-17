@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode } from 'react';
 
-import { offscreen } from '@styles/commonStyles';
+import { offscreen } from '../../styles/commonStyles';
 
 export type BasicTableProps = {
   caption: string;

@@ -1,27 +1,8 @@
 import { useTheme } from 'styled-components';
 
-import Text from '@components/Text';
-import { SizeSX } from '@styles/size';
-import { SpacingSX } from '@styles/spacing';
-import { Palette } from '@styles/theme';
-
-type AvatarSize = 'small' | 'medium' | 'large';
-
-interface AvatarSX extends SpacingSX, SizeSX {
-  border?: string;
-  borderRadius?: string;
-  backgroundColor?: keyof Palette;
-  color?: keyof Palette;
-}
-
-export type AvatarProps = {
-  sx?: AvatarSX;
-  alt?: string;
-  src?: string;
-  size?: AvatarSize;
-  children?: string;
-  className?: string;
-};
+import type { Palette } from '../../styles/styles.types';
+import { Text } from '../Text';
+import type { AvatarProps, AvatarSize } from './Avatar.types';
 
 const FONT_SIZE_BY_STRING_LEN = {
   small: {

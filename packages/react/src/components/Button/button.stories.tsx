@@ -1,9 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { css } from 'styled-components';
 
-import Button from '@components/Button';
-import { FlexBox } from '@components/FlexBox';
-import Text from '@components/Text';
+import { Button } from '.';
+
+import { FlexBox } from '../FlexBox';
+import { Text } from '../Text';
 
 export default {
   title: 'React/Button',

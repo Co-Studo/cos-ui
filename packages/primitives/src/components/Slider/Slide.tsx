@@ -1,9 +1,11 @@
 import { css } from 'styled-components';
 
-import { useSlideIndexContext } from '@components/Slider/context/SlideIndexContext';
-import { useSliderInfoContext } from '@components/Slider/context/SliderInfoContext';
+import { useSlideIndexContext } from './SlideIndexContext';
+import type { SlideProps } from './Slider.types';
+import { useSliderInfoContext } from './SliderInfoContext';
 
-const Slide = ({ children, ...restProps }) => {
+const Slide = (props: SlideProps) => {
+  const { children, ...restProps } = props;
   const [{ currentIndex }] = useSlideIndexContext();
   const {
     options: { slidesToShow, slidesMargin, speed, responsive },

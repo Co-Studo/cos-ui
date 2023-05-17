@@ -2,7 +2,7 @@ import { ColumnTable } from '@cos-ui/primitives';
 import { ComponentProps } from 'react';
 import styled, { css } from 'styled-components';
 
-import Text from '@components/Text';
+import { Text } from '../Text';
 
 const StyledColumnTableRoot = styled(ColumnTable)`
   width: 100%;

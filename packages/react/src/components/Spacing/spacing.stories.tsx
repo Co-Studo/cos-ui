@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button from '@components/Button';
-import { FlexBox } from '@components/FlexBox';
-import Paper from '@components/Paper';
-import Text from '@components/Text';
+import { Spacing } from '.';
 
-import Spacing from './spacing';
+import { Button } from '../Button';
+import { FlexBox } from '../FlexBox';
+import { Paper } from '../Paper';
+import { Text } from '../Text';
 
 export default {
   title: 'React/Spacing',
