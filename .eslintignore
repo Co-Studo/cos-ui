@@ -1,2 +1,4 @@
 .eslintrc.js
 lint-staged.config.js
+build
+dist

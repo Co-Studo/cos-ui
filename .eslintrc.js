@@ -75,16 +75,6 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['packages/playground-react/**/*.ts?(x)'],
-      settings: {
-        'import/resolver': {
-          typescript: {
-            project: './packages/playground-react/tsconfig.json',
-          },
-        },
-      },
-    },
-    {
       files: ['packages/primitives/**/*.ts?(x)'],
       settings: {
         'import/resolver': {
