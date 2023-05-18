@@ -5,8 +5,8 @@
   "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/primitives#readme",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/primitives.cjs",
-  "module": "./dist/primitives.js",
+  "main": "./dist/cosui-primitives.umd.cjs",
+  "module": "./dist/cosui-primitives.js",
   "types": "./dist/types/index.d.ts",
   "publishConfig": {
     "access": "public"
@@ -15,9 +15,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf ./dist && vite build && tsc",
-    "watch": "tsc && vite build --watch",
-    "clean": "rimraf ./dist"
+    "build": "vite build && tsc --project tsconfig.build.json",
+    "watch": "vite build --watch"
   },
   "peerDependencies": {
     "react": "^18.0.0",

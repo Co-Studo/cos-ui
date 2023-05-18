@@ -7,6 +7,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: '@cos-ui/react',
+      fileName: 'cosui-react',
     },
     rollupOptions: {
       external: ['react', '@cos-ui/primitives', 'styled-components'],

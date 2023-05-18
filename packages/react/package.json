@@ -5,8 +5,8 @@
   "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/react#readme",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/react.cjs",
-  "module": "./dist/react.js",
+  "main": "./dist/cosui-react.umd.cjs",
+  "module": "./dist/cosui-react.js",
   "types": "./dist/types/index.d.ts",
   "publishConfig": {
     "access": "public"
@@ -15,9 +15,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf ./dist && vite build && tsc",
-    "watch": "tsc && vite build --watch",
-    "clean": "rimraf ./dist"
+    "build": "vite build && tsc --project tsconfig.build.json",
+    "watch": "vite build --watch"
   },
   "dependencies": {
     "styled-reset": "^4.4.5",

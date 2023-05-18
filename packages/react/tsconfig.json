@@ -2,9 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
-    "declarationDir": "dist/types",
-    "declaration": true,
-    "emitDeclarationOnly": true,
     "jsx": "react-jsx"
   },
   "references": [{ "path": "./tsconfig.node.json" }],
