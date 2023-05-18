@@ -7,7 +7,7 @@
   "type": "module",
   "main": "./dist/primitives.cjs",
   "module": "./dist/primitives.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
@@ -21,12 +21,6 @@
   },
   "peerDependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "styled-components": "^5.3.6"
-  },
-  "devDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "styled-components": "^5.3.6"
   }
 }

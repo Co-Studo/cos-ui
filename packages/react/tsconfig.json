@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "dist",
+    "declarationDir": "dist/types",
     "declaration": true,
     "emitDeclarationOnly": true,
     "jsx": "react-jsx"

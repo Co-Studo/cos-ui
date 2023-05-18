@@ -4,8 +4,10 @@
   "description": "Styled components for CoStudo",
   "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/react#readme",
   "license": "MIT",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "type": "module",
+  "main": "./dist/react.cjs",
+  "module": "./dist/react.js",
+  "types": "./dist/types/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
@@ -13,22 +15,16 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf ./dist && tsc && tsc-alias && vite build",
+    "build": "rimraf ./dist && vite build && tsc",
     "watch": "tsc && vite build --watch",
     "clean": "rimraf ./dist"
   },
+  "dependencies": {
+    "styled-reset": "^4.4.5",
+    "@cos-ui/primitives": "^0.4.0"
+  },
   "peerDependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "styled-components": "^5.3.6"
-  },
-  "dependencies": {
-    "@cos-ui/primitives": "^0.4.0",
-    "styled-reset": "^4.4.5"
-  },
-  "devDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "styled-components": "^5.3.6"
   }
 }

@@ -10,14 +10,6 @@ module.exports = {
     name: '@storybook/react-webpack5',
     options: {},
   },
-  webpackFinal: async (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '../../../../../src': '../../../src',
-      '../../../../src': '../../src',
-    };
-    return config;
-  },
   docs: {
     autodocs: true,
   },

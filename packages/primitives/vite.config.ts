@@ -9,10 +9,11 @@ export default defineConfig({
       name: '@cos-ui/primitives',
     },
     rollupOptions: {
-      external: ['react'],
+      external: ['react', 'styled-components'],
       output: {
         globals: {
           react: 'React',
+          'styled-components': 'styled',
         },
       },
     },
