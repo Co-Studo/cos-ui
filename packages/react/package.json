@@ -8,6 +8,12 @@
   "main": "./dist/cosui-react.umd.cjs",
   "module": "./dist/cosui-react.js",
   "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/cosui-react.js",
+      "require": "./dist/cosui-react.umd.cjs"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
