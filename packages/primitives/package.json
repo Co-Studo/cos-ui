@@ -10,8 +10,14 @@
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/cosui-primitives.js",
-      "require": "./dist/cosui-primitives.umd.cjs"
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cosui-primitives.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cosui-primitives.umd.cjs"
+      }
     }
   },
   "publishConfig": {

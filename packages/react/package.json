@@ -10,8 +10,14 @@
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/cosui-react.js",
-      "require": "./dist/cosui-react.umd.cjs"
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cosui-react.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cosui-react.umd.cjs"
+      }
     }
   },
   "publishConfig": {
