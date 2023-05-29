@@ -5,16 +5,11 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "isolatedModules": true,
-    "allowJs": true,
     "strict": true,
     "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "exclude": [
-    "packages/**/dist/**",
-    "lint-staged.config.js",
-    "packages/**/*.config.js"
-  ]
+  "exclude": ["**/dist/**", "docs"]
 }

@@ -4,8 +4,22 @@
   "description": "Headless UI components for React",
   "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/primitives#readme",
   "license": "MIT",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "type": "module",
+  "main": "./dist/cosui-primitives.umd.cjs",
+  "module": "./dist/cosui-primitives.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cosui-primitives.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cosui-primitives.umd.cjs"
+      }
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -13,18 +27,11 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf ./dist && tsc && babel --root-mode upward --extensions .ts,.tsx --ignore \"**/*.stories.tsx\" src --out-dir dist",
-    "watch": "tsc && babel --root-mode upward --watch --extensions .ts,.tsx src --out-dir dist",
-    "clean": "rimraf ./dist"
+    "build": "vite build && tsc --project tsconfig.build.json",
+    "watch": "vite build --watch"
   },
   "peerDependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "styled-components": "^5.3.6"
-  },
-  "devDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "styled-components": "^5.3.6"
   }
 }

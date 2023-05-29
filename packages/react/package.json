@@ -4,8 +4,22 @@
   "description": "Styled components for CoStudo",
   "homepage": "https://github.com/Co-Studo/cos-ui/tree/main/packages/react#readme",
   "license": "MIT",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "type": "module",
+  "main": "./dist/cosui-react.umd.cjs",
+  "module": "./dist/cosui-react.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cosui-react.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cosui-react.umd.cjs"
+      }
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -13,22 +27,15 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf ./dist && tsc && babel --root-mode upward --extensions .ts,.tsx --ignore \"**/*.stories.tsx\" src --out-dir dist",
-    "watch": "tsc && babel --root-mode upward --watch --extensions .ts,.tsx src --out-dir dist",
-    "clean": "rimraf ./dist"
+    "build": "vite build && tsc --project tsconfig.build.json",
+    "watch": "vite build --watch"
+  },
+  "dependencies": {
+    "styled-reset": "^4.4.5",
+    "@cos-ui/primitives": "^0.4.0"
   },
   "peerDependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "styled-components": "^5.3.6"
-  },
-  "dependencies": {
-    "@cos-ui/primitives": "^0.4.0",
-    "styled-reset": "^4.4.5"
-  },
-  "devDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "styled-components": "^5.3.6"
   }
 }
