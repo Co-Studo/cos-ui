@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { useEffect, useState } from 'react';
 
 import { IntersectListener } from '.';
@@ -6,7 +6,7 @@ import { IntersectListener } from '.';
 export default {
   title: 'Primitives/IntersectListener',
   component: IntersectListener,
-} as ComponentMeta<typeof IntersectListener>;
+} as Meta<typeof IntersectListener>;
 
 const Card = ({ number }) => (
   <div
@@ -35,7 +35,7 @@ const datas = [
 
 const getData = (page: number) => datas[page];
 
-export const Default: ComponentStory<typeof IntersectListener> = () => {
+export const Default: StoryFn<typeof IntersectListener> = () => {
   const [page, setPage] = useState(0);
   const [elements, setElements] = useState<number[]>(getData(0));
 
