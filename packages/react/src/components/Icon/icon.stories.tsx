@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import { Icon } from '.';
 
@@ -24,9 +24,7 @@ export default {
       options: [...Object.keys(lightTheme.palette)],
     },
   },
-} as ComponentMeta<typeof Icon>;
-
-const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;
+} as Meta<typeof Icon>;
 
 export const Default = () => (
   <div>
@@ -51,4 +49,10 @@ export const Default = () => (
   </div>
 );
 
-export const Custom = Template.bind({});
+export const Custom = {
+  args: {
+    iconName: 'bell',
+    size: 'medium',
+    color: 'primary',
+  },
+};

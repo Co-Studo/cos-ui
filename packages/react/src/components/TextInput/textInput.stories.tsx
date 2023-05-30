@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryObj, Meta } from '@storybook/react';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 import { TextInput } from '.';
@@ -8,7 +8,7 @@ import { Text } from '../Text';
 export default {
   title: 'React/TextInput',
   component: TextInput,
-} as ComponentMeta<typeof TextInput>;
+} as Meta<typeof TextInput>;
 
 export const Default = () => {
   const [value, setValue] = useState('');
@@ -45,6 +45,4 @@ export const Default = () => {
   );
 };
 
-export const Custom: ComponentStory<typeof TextInput> = (args) => (
-  <TextInput {...args} />
-);
+export const Custom: StoryObj<typeof TextInput> = {};

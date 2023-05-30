@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import { LoadingSpinner } from '.';
 
@@ -7,11 +7,7 @@ import { Text } from '../Text';
 export default {
   title: 'React/LoadingSpinner',
   component: LoadingSpinner,
-} as ComponentMeta<typeof LoadingSpinner>;
-
-const Template: ComponentStory<typeof LoadingSpinner> = (args) => (
-  <LoadingSpinner {...args} />
-);
+} as Meta<typeof LoadingSpinner>;
 
 export const Default = () => (
   <>
@@ -30,4 +26,8 @@ export const Default = () => (
   </>
 );
 
-export const Custom = Template.bind({});
+export const Custom = {
+  args: {
+    size: 'medium',
+  },
+};

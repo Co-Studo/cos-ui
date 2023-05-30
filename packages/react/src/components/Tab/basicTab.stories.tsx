@@ -1,11 +1,11 @@
-import { ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import { BasicTab } from '.';
 
 export default {
   title: 'React/Tab',
   component: BasicTab,
-} as ComponentMeta<typeof BasicTab>;
+} as Meta<typeof BasicTab>;
 
 export const Basic = () => (
   <BasicTab.Group>

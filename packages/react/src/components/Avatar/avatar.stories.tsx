@@ -1,6 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
-import { Avatar, AvatarProps } from '.';
+import { Avatar } from '.';
 
 import { AVATARS } from '../../constants/avatar';
 import { FlexBox } from '../FlexBox';
@@ -9,6 +9,9 @@ import { Text } from '../Text';
 export default {
   title: 'React/Avatar',
   component: Avatar,
+  args: {
+    size: 'medium',
+  },
   argTypes: {
     alt: {
       control: 'text',
@@ -28,7 +31,6 @@ export default {
       table: {
         category: 'Origin Props',
       },
-      defaultValue: 'medium',
     },
     children: {
       control: 'text',
@@ -48,11 +50,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Avatar>;
-
-const Template: ComponentStory<typeof Avatar> = (args: AvatarProps) => (
-  <Avatar {...args} />
-);
+} as Meta<typeof Avatar>;
 
 export const Default = () => (
   <FlexBox sx={{ flexDirection: 'column', gap: 5, mb: 10 }}>
@@ -76,16 +74,18 @@ export const Default = () => (
   </FlexBox>
 );
 
-export const ImageAvatar = Template.bind({});
-ImageAvatar.args = {
-  src: AVATARS[0].src,
-  alt: AVATARS[0].name,
+export const ImageAvatar = {
+  args: {
+    src: AVATARS[0].src,
+    alt: AVATARS[0].name,
+  },
 };
 
-export const TextAvatar = Template.bind({});
-TextAvatar.args = {
-  children: 'CoStudo',
-  sx: {
-    backgroundColor: 'primary',
+export const TextAvatar = {
+  args: {
+    children: 'CoStudo',
+    sx: {
+      backgroundColor: 'primary',
+    },
   },
 };

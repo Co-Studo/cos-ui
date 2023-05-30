@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { Spacing } from '.';
 
@@ -13,9 +13,17 @@ export default {
   args: {
     size: '1rem',
   },
-} as ComponentMeta<typeof Spacing>;
+} as Meta<typeof Spacing>;
 
-const Template: ComponentStory<typeof Spacing> = (args) => (
+export const Default = () => (
+  <Paper>
+    <Button>1</Button>
+    <Spacing />
+    <Button>2</Button>
+  </Paper>
+);
+
+const Template: StoryFn<typeof Spacing> = (args) => (
   <FlexBox>
     <Paper>
       <Button>1</Button>
@@ -29,12 +37,6 @@ const Template: ComponentStory<typeof Spacing> = (args) => (
   </FlexBox>
 );
 
-export const Default = () => (
-  <Paper>
-    <Button>1</Button>
-    <Spacing />
-    <Button>2</Button>
-  </Paper>
-);
-
-export const Custom = Template.bind({});
+export const Custom = {
+  render: Template,
+};

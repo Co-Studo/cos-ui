@@ -1,4 +1,4 @@
-import { ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import { Slider } from '.';
 
@@ -10,7 +10,7 @@ import { Text } from '../Text';
 export default {
   title: 'React/Slider',
   component: Slider,
-} as ComponentMeta<typeof Slider>;
+} as Meta<typeof Slider>;
 
 export const Default = () => (
   <div

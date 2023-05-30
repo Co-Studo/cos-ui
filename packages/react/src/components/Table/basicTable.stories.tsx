@@ -1,4 +1,4 @@
-import { ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import { BasicTable } from '.';
 
@@ -8,7 +8,7 @@ import { Text } from '../Text';
 export default {
   title: 'React/Table',
   component: BasicTable,
-} as ComponentMeta<typeof BasicTable>;
+} as Meta<typeof BasicTable>;
 
 const getDateForm = (date: number) => {
   const dateArray = [

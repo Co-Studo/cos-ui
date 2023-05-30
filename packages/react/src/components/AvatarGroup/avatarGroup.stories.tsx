@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryObj, Meta } from '@storybook/react';
 
 import { AvatarGroup, AvatarGroupProps } from '.';
 
@@ -10,18 +10,24 @@ import { Text } from '../Text';
 export default {
   title: 'React/AvatarGroup',
   component: AvatarGroup,
+  args: {
+    dummyType: 'double',
+    max: 5,
+    spacing: 'small',
+    size: 'medium',
+  },
   argTypes: {
     dummyType: {
       control: 'select',
       options: ['double', 'triple', 'four'],
-      defaultValue: 'double',
+
       table: {
         category: 'Story Options',
       },
     },
     max: {
       type: 'number',
-      defaultValue: 5,
+
       table: {
         category: 'AvatarGroup Props',
       },
@@ -29,7 +35,7 @@ export default {
     spacing: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      defaultValue: 'small',
+
       table: {
         category: 'AvatarGroup Props',
       },
@@ -40,7 +46,6 @@ export default {
       table: {
         category: 'Avatar Props',
       },
-      defaultValue: 'medium',
     },
     sx: {
       control: 'object',
@@ -49,7 +54,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof AvatarGroup>;
+} as Meta<typeof AvatarGroup>;
 
 interface AvatarGroupStoryProps
   extends AvatarGroupProps,
@@ -126,8 +131,8 @@ export const Default = () => (
   </>
 );
 
-export const Custom: ComponentStory<
-  (props: AvatarGroupStoryProps) => JSX.Element
-> = ({ dummyType, size, sx, ...args }) => (
-  <AvatarGroup {...args} avatars={AVATARS_GROUP[dummyType]} />
-);
+export const Custom: StoryObj<(props: AvatarGroupStoryProps) => JSX.Element> = {
+  render: ({ dummyType, size, sx, ...args }) => (
+    <AvatarGroup {...args} avatars={AVATARS_GROUP[dummyType]} />
+  ),
+};
