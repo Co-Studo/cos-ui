@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 import { useRef } from 'react';
 
 import { FlexBox } from '.';
@@ -6,11 +6,10 @@ import { FlexBox } from '.';
 export default {
   title: 'React/FlexBox',
   component: FlexBox,
-} as ComponentMeta<typeof FlexBox>;
+} as Meta<typeof FlexBox>;
 
-export const Default: ComponentStory<typeof FlexBox> = (args) => {
+const Template = (args) => {
   const ref = useRef<HTMLUListElement>(null);
-
   return (
     <FlexBox
       as="ul"
@@ -29,4 +28,8 @@ export const Default: ComponentStory<typeof FlexBox> = (args) => {
       <FlexBox>3</FlexBox>
     </FlexBox>
   );
+};
+
+export const Default = {
+  render: Template,
 };

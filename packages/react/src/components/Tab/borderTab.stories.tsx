@@ -1,11 +1,11 @@
-import { ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import { BorderTab } from '.';
 
 export default {
   title: 'React/Tab',
   component: BorderTab,
-} as ComponentMeta<typeof BorderTab>;
+} as Meta<typeof BorderTab>;
 
 export const Border = () => (
   <BorderTab.Group>

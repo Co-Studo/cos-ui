@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 import { css } from 'styled-components';
 
 import { Button } from '.';
@@ -9,11 +9,7 @@ import { Text } from '../Text';
 export default {
   title: 'React/Button',
   component: Button,
-} as ComponentMeta<typeof Button>;
-
-const Template: ComponentStory<typeof Button> = (args) => (
-  <Button {...args}>Button</Button>
-);
+} as Meta<typeof Button>;
 
 export const Default = () => (
   <div
@@ -68,4 +64,12 @@ export const Default = () => (
   </div>
 );
 
-export const Custom = Template.bind({});
+export const Custom = {
+  args: {
+    type: 'button',
+    color: 'primary',
+    shape: 'rect',
+    size: 'medium',
+    variant: 'contained',
+  },
+};

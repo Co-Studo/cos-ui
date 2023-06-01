@@ -1,4 +1,4 @@
-import { ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import { ColumnTable } from '.';
 
@@ -9,7 +9,7 @@ import { Text } from '../Text';
 export default {
   title: 'React/Table',
   component: ColumnTable,
-} as ComponentMeta<typeof ColumnTable>;
+} as Meta<typeof ColumnTable>;
 
 const sortingValues = {
   writer: noticeList.map(({ writer }) => writer),

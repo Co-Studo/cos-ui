@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryObj, Meta } from '@storybook/react';
 
 import { Text } from '.';
 
@@ -8,10 +8,9 @@ export default {
   title: 'React/Text',
   component: Text,
   argTypes: {
-    children: { control: 'text', defaultValue: 'Cos-ui' },
+    children: { control: 'text' },
     variant: {
       control: 'select',
-      defaultValue: 'sectionTitle',
       options: [...Object.keys(typography)],
     },
     ellipsis: {
@@ -19,14 +18,9 @@ export default {
     },
     sx: {
       control: 'object',
-      defaultValue: {
-        fontSize: 'large',
-        fontWeight: 'bold',
-        color: 'primary',
-      },
     },
   },
-} as ComponentMeta<typeof Text>;
+} as Meta<typeof Text>;
 
 export const Default = () => (
   <div>
@@ -59,4 +53,14 @@ export const Default = () => (
   </div>
 );
 
-export const Custom: ComponentStory<typeof Text> = (args) => <Text {...args} />;
+export const Custom: StoryObj<typeof Text> = {
+  args: {
+    children: 'Cos-ui',
+    variant: 'sectionTitle',
+    sx: {
+      fontSize: 'large',
+      fontWeight: 'bold',
+      color: 'primary',
+    },
+  },
+};

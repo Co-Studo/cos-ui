@@ -6,11 +6,11 @@ module.exports = {
     '@storybook/addon-interactions',
     '@storybook/addon-mdx-gfm',
   ],
-  framework: {
-    name: '@storybook/react-webpack5',
-    options: {},
-  },
   docs: {
     autodocs: true,
+  },
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
   },
 };

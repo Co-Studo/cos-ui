@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { Dropdown } from '.';
 
@@ -7,13 +7,13 @@ import { Avatar } from '../Avatar';
 export default {
   title: 'React/Dropdown',
   component: Dropdown,
-} as ComponentMeta<typeof Dropdown>;
+} as Meta<typeof Dropdown>;
 
 const handleLogoutClick = () => {
   console.log('logout clicked!');
 };
 
-export const Default: ComponentStory<typeof Dropdown> = () => (
+export const Default: StoryFn<typeof Dropdown> = () => (
   <Dropdown>
     <Dropdown.Trigger
       trigger={
